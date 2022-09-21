@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Floor
+  - StaticShadow
+  - NonStaticShadow
+  - PlayerShadow
   - 
   - 
   - 
