@@ -11,11 +11,9 @@ public class FakeShadow : MonoBehaviour
     [SerializeField] float angledShadowOffset;
     public Rigidbody rb;
     public Rigidbody shadowRB;
-    Vector3 ogScale;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        ogScale = shadowTR.localScale;
         CastFakeShadow();//Set initial shadow
         //StartCoroutine(CastShadow());
     }
@@ -68,7 +66,14 @@ public class FakeShadow : MonoBehaviour
         float distanceToWall = wallZ - transform.position.z;
         float distanceToLight = transform.position.z - lightTR.position.z;
 
-        shadowTR.localScale = ogScale * (distanceToWall / distanceToLight);
+        if (distanceToWall > distanceToLight)
+        {
+            shadowTR.localScale = shadowTR.localScale * (distanceToWall / distanceToLight);
+        }
+        else
+        {
+            shadowTR.localScale = new Vector3(1, 1, 1);//Clamp minimum size
+        }
         shadowTR.position = new Vector3(transform.position.x * angledShadowOffset, shadowTR.position.y, wallZ - 0.01f);
 
         //Debug.Log("Shadow cast");

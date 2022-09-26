@@ -302,9 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1040392229}
-  wallTR: {fileID: 211384059}
-  lightTR: {fileID: 705507995}
-  speed: 0
+  sizePercentageOffset: 1
 --- !u!65 &216056574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -937,9 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1433996055}
-  wallTR: {fileID: 211384059}
-  lightTR: {fileID: 705507995}
-  speed: 0
+  sizePercentageOffset: 1
 --- !u!65 &1429597168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1011,7 +1007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429597165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5099983, y: 4.75, z: -0.79}
+  m_LocalPosition: {x: -2.5099983, y: 4.75, z: 0.71}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1045,8 +1041,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433996054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.7799997}
-  m_LocalScale: {x: 3.3586845, y: 3.3586845, z: 3.3586845}
+  m_LocalPosition: {x: 0, y: 0, z: 4.2799997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1429597171}

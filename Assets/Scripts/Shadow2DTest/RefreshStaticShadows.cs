@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class RefreshStaticShadows : MonoBehaviour
 {
     //Refresh all static shadows
-    //More paramaters to be added
+    //More paramaters can be added, need to pass an object of a class with all the parameters
     [SerializeField] Transform initialLightPosition;
     [SerializeField] Transform initialWallPosition;
     Transform[] trList;
@@ -14,6 +15,6 @@ public class RefreshStaticShadows : MonoBehaviour
     {
         trList = new Transform[] { initialWallPosition, initialLightPosition };
 
-        BroadcastMessage("CastFakeShadow", trList, SendMessageOptions.DontRequireReceiver);
+        BroadcastMessage("CastFakeShadow", trList);
     }
 }

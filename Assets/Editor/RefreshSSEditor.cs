@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[ExecuteInEditMode]
 [CustomEditor(typeof(RefreshStaticShadows))]
 public class RefreshSSEditor : Editor
 {
