@@ -8,35 +8,32 @@ public class StaticFakeShadow : MonoBehaviour
     [SerializeField] Transform wallTR;
     [SerializeField] Transform lightTR;
     [SerializeField] float speed;
-    public Rigidbody rb;
-    public Rigidbody shadowRB;
-    Vector3 ogScale;
-    void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody>();
-        ogScale = shadowTR.localScale;
-        CastFakeShadow();
-        //StartCoroutine(CastShadow());
-    }
 
-    public void CastFakeShadow()
+    public void CastFakeShadow(Transform[] trList)
     {
+        wallTR = trList[0];
+        lightTR = trList[1];
+        if(shadowTR == null)
+        {
+            shadowTR.GetComponentInChildren<Transform>();
+        }
+
         float wallZ = wallTR.position.z;
-
-
         float distanceToWall = wallZ - transform.position.z;
         float distanceToLight = transform.position.z - lightTR.position.z;
 
-        shadowTR.localScale = ogScale * (distanceToWall / distanceToLight);
-        shadowTR.position = new Vector3(shadowTR.position.x, shadowTR.position.y, wallZ - 0.01f);
+        if(distanceToWall > distanceToLight)
+        {
+            shadowTR.localScale = shadowTR.localScale * (distanceToWall / distanceToLight);
+        }
+        else
+        {
+            shadowTR.localScale = new Vector3(1,1,1);
+        }
+        
+        shadowTR.position = new Vector3(transform.position.x, transform.position.y, wallZ - 0.01f);
+
+        Debug.Log("casting fake shadow");
     }
 
-    IEnumerator CastShadow()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.5f);
-            CastFakeShadow();
-        }
-    }
 }
