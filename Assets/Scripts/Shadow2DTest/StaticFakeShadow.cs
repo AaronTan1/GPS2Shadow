@@ -30,7 +30,7 @@ public class StaticFakeShadow : MonoBehaviour
 
         if(distanceToWall > distanceToLight)
         {
-            shadowTR.localScale = shadowTR.localScale * (distanceToWall / distanceToLight);
+            shadowTR.localScale = new Vector3(1, 1, 1) * (distanceToWall / distanceToLight);
         }
         else
         {

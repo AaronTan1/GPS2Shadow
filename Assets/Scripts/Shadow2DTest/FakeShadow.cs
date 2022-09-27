@@ -11,14 +11,15 @@ public class FakeShadow : MonoBehaviour
     [SerializeField] float angledShadowOffset;
     public Rigidbody rb;
     public Rigidbody shadowRB;
+    Vector3 originalScale;//Original shadow scale
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        originalScale = shadowTR.localScale;
         CastFakeShadow();//Set initial shadow
         //StartCoroutine(CastShadow());
     }
 
-    // Update is called once per frame
     void Update()
     {
         //--Testing only, should be pushed in by player
@@ -35,19 +36,21 @@ public class FakeShadow : MonoBehaviour
         }
         else if(Input.GetKey(KeyCode.I))
         {
-            zMove = -1;
+            zMove = 1;
         }
         else if (Input.GetKey(KeyCode.K))
         {
-            zMove = 1;
+            zMove = -1;
         }
         else
         {
             xMove = 0;
             zMove = 0;
         }
-
+        
         rb.velocity = new Vector3(xMove * speed, rb.velocity.y, zMove * speed);
+        //----------------------------------------
+
 
         //shadowRB.velocity = new Vector3(xMove, rb.velocity.y, zMove) * speed;
         if (rb.velocity != Vector3.zero)
@@ -68,23 +71,16 @@ public class FakeShadow : MonoBehaviour
 
         if (distanceToWall > distanceToLight)
         {
-            shadowTR.localScale = shadowTR.localScale * (distanceToWall / distanceToLight);
+            shadowTR.localScale = originalScale * (distanceToWall / distanceToLight);
         }
         else
         {
-            shadowTR.localScale = new Vector3(1, 1, 1);//Clamp minimum size
+            shadowTR.localScale = originalScale;
         }
+
         shadowTR.position = new Vector3(transform.position.x * angledShadowOffset, shadowTR.position.y, wallZ - 0.01f);
 
         //Debug.Log("Shadow cast");
     }
 
-    IEnumerator CastShadow()
-    {
-        while(true)
-        {            
-            yield return new WaitForSeconds(0.5f);
-            CastFakeShadow();
-        }
-    }
 }
