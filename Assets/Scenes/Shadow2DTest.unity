@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 1177166824}
   - component: {fileID: 1177166827}
   m_Layer: 0
-  m_Name: ScreenshotCam
+  m_Name: SubCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
