@@ -55,13 +55,14 @@ public class RefreshStaticShadows : MonoBehaviour
 
 #if UNITY_EDITOR
         UnityEditor.AssetDatabase.Refresh();
-#endif
-
         TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"Assets/Resources/GeneratedShadowTextures/{outputfilename}.png");
         importer.textureType = TextureImporterType.Sprite;
         importer.alphaIsTransparency = true;
         EditorUtility.SetDirty(importer);
         importer.SaveAndReimport();
+#endif
+
+
 
         ssSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{outputfilename}");
         ssSR.color = new Color32(0,0,0, 255);
