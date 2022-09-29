@@ -21,5 +21,14 @@ public class RefreshSSEditor : Editor
         GUILayout.EndHorizontal();
         GUILayout.Space(20);
 
+        GUILayout.Space(10);
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Take Screenshot");
+        if (GUILayout.Button("Snap"))
+        {
+            refreshSS.CaptureScreen();
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.Space(20);
     }
 }
