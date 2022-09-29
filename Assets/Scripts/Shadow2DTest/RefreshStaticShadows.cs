@@ -30,7 +30,7 @@ public class RefreshStaticShadows : MonoBehaviour
 
 
     //Capture screen
-    public void CaptureScreen()
+    public void GenerateShadow()
     {
         RenderTexture renderTexture = new RenderTexture(width, height, depth);
         Rect rect = new Rect(0, 0, width, height);

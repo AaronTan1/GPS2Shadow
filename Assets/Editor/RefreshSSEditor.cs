@@ -23,10 +23,10 @@ public class RefreshSSEditor : Editor
 
         GUILayout.Space(10);
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Take Screenshot");
-        if (GUILayout.Button("Snap"))
+        GUILayout.Label("Generate Shadow");
+        if (GUILayout.Button(":D"))
         {
-            refreshSS.CaptureScreen();
+            refreshSS.GenerateShadow();
         }
         GUILayout.EndHorizontal();
         GUILayout.Space(20);
