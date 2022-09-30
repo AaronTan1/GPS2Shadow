@@ -27,7 +27,7 @@ public class joystickManager : MonoBehaviour, IDragHandler, IPointerDownHandler,
             //solved problem of fast movement speed : dividing the position of the drag by the size of the img
             posInput.x = posInput.x / (joystickImgBg.rectTransform.sizeDelta.x);  
             posInput.y = posInput.y / (joystickImgBg.rectTransform.sizeDelta.y);
-            Debug.Log(posInput.x.ToString() + "/" + posInput.y.ToString()); //displays coordinate val
+            /*Debug.Log(posInput.x.ToString() + "/" + posInput.y.ToString());*/ //displays coordinate val
 
             // normalize
             if (posInput.magnitude > 1.0f)
