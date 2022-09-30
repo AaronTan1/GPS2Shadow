@@ -19,16 +19,12 @@ public class RefreshSSEditor : Editor
             refreshSS.RefreshAllStaticShadows();
         }
         GUILayout.EndHorizontal();
-        GUILayout.Space(20);
-
-        GUILayout.Space(10);
+        GUILayout.Space(30);
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Generate Shadow");
-        if (GUILayout.Button(":D"))
+        if (GUILayout.Button("Debug Button"))
         {
-            refreshSS.GenerateShadow();
+            //refreshSS.DebugChild();
         }
         GUILayout.EndHorizontal();
-        GUILayout.Space(20);
     }
 }

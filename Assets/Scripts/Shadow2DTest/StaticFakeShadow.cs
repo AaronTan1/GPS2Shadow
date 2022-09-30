@@ -19,22 +19,31 @@ public class StaticFakeShadow : MonoBehaviour
         lightTR = trList[1];
 
 
-        if(shadowTR == null)
+        if (shadowTR == null)
         {
-            shadowTR.GetComponentInChildren<Transform>();
+            Transform foundTR = transform.Find("Shadow");
+            if (foundTR != null)
+            {
+                shadowTR = foundTR;
+            }
+            else
+            {
+                Debug.Log($"Shadow not present in {gameObject.name}");
+                return;
+            }
         }
 
         float wallZ = wallTR.position.z;
         float distanceToWall = wallZ - transform.position.z;
         float distanceToLight = transform.position.z - lightTR.position.z;
 
-        if(distanceToWall > distanceToLight)
+        if (distanceToWall > distanceToLight)
         {
             shadowTR.localScale = new Vector3(1, 1, 1) * (distanceToWall / distanceToLight);
         }
         else
         {
-            shadowTR.localScale = new Vector3(1,1,1);//Clamp minimum size
+            shadowTR.localScale = new Vector3(1, 1, 1);//Clamp minimum size
         }
         shadowTR.localScale *= sizePercentageOffset;
         shadowTR.position = new Vector3(transform.position.x, transform.position.y, wallZ - 0.01f);
