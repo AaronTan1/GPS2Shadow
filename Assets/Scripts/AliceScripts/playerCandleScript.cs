@@ -5,10 +5,11 @@ using UnityEngine;
 public class playerCandleScript : MonoBehaviour
 {
     [SerializeField] public GameObject[] floorCandle; //stationary candle
-    [SerializeField] public GameObject placeCandle; //place candle after hold
+    [SerializeField] public GameObject[] placeCandle; //place candle after hold
     [SerializeField] public GameObject handCandle; //preset candle on hand
     [SerializeField] public Light lightSource; //candleLight on hand
-    private string stationName;
+    GameObject childOfPlace; //placeCandle's child
+    private string stationName, placeName; //names of stationary and placed candle
     private bool hold = false;
     private bool range = false; // for picking up
     private bool rangePlace = false; // for placing
@@ -19,6 +20,7 @@ public class playerCandleScript : MonoBehaviour
         hold = false;
         range = false;
         stationName = "";
+        placeName = "";
     }
 
     public void ToggleHold()
@@ -55,7 +57,15 @@ public class playerCandleScript : MonoBehaviour
     private void candleToPlace()
     {
         handCandle.SetActive(false);
-        placeCandle.SetActive(true);
+
+        for(int i = 0; i < placeCandle.Length; i++)
+        {
+            if(placeCandle[i].name == placeName)
+            {
+                childOfPlace = placeCandle[i].transform.GetChild(0).gameObject;
+                childOfPlace.SetActive(true);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,6 +78,7 @@ public class playerCandleScript : MonoBehaviour
 
         if(other.gameObject.tag == "PlaceCandle" && rangePlace == false)
         {
+            placeName = other.gameObject.name;
             rangePlace = true;
         }
 
@@ -86,7 +97,7 @@ public class playerCandleScript : MonoBehaviour
         }
     }
 
-    void candleFlare() //oscillates light intensity
+    void candleFlare() //oscillates light intensity for handCandle
     {
         lightSource.intensity = Mathf.Clamp(Mathf.Cos(Time.time), 0.6f, 1.0f);
     }
@@ -105,5 +116,6 @@ public class playerCandleScript : MonoBehaviour
         }
 
         Debug.Log("Range " +range);
+        Debug.Log("PlaceName: " + placeName);
     }
 }
