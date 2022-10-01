@@ -9,16 +9,19 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject handCandle; //preset candle on hand
     [SerializeField] public Light lightSource; //candleLight on hand
     GameObject childOfPlace; //placeCandle's child
+    GameObject childOfChild; //placeCandle's grandson
+    Light lightOfChild; //child's reference to light
     private string stationName, placeName; //names of stationary and placed candle
+    /*private bool childIlluminate = false;*/
     private bool hold = false;
     private bool range = false; // for picking up
     private bool rangePlace = false; // for placing
 
-    // Start is called before the first frame update
     void Start()
     {
         hold = false;
         range = false;
+        /*childIlluminate = false;*/
         stationName = "";
         placeName = "";
     }
@@ -64,6 +67,9 @@ public class playerCandleScript : MonoBehaviour
             {
                 childOfPlace = placeCandle[i].transform.GetChild(0).gameObject;
                 childOfPlace.SetActive(true);
+                childOfChild = placeCandle[i].transform.GetChild(0).gameObject;
+                lightOfChild = childOfChild.GetComponent(typeof(Light)) as Light;
+                /*childIlluminate = true;*/
             }
         }
     }
@@ -102,6 +108,11 @@ public class playerCandleScript : MonoBehaviour
         lightSource.intensity = Mathf.Clamp(Mathf.Cos(Time.time), 0.6f, 1.0f);
     }
 
+/*    void placeCandleFlare()
+    {
+        lightOfChild.intensity = Mathf.Clamp(Mathf.Cos(Time.time), 0.0f, 1.5f);
+    }*/
+
     void Update()
     {
         if (handCandle.activeSelf)
@@ -115,7 +126,16 @@ public class playerCandleScript : MonoBehaviour
 
         }
 
+/*        if (childIlluminate)
+        {
+            Invoke("placeCandleFlare", 0.5f);
+        }*/
+/*        else if(lightOfChild.intensity == 1.5f)
+        {
+            childIlluminate = false;
+        }*/
+
+
         Debug.Log("Range " +range);
-        Debug.Log("PlaceName: " + placeName);
     }
 }
