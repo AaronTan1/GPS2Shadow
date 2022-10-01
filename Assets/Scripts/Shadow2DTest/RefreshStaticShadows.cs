@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;// For Cast function
 using Unity.Collections;
+using UnityEngine.SceneManagement;
 
 [ExecuteInEditMode]
 public class RefreshStaticShadows : MonoBehaviour
@@ -30,49 +31,78 @@ public class RefreshStaticShadows : MonoBehaviour
 
     private Vector3 subcamPosition;
     private int textureFailsafeID = 1;
+    private string spritePath;
     public void RefreshAllStaticShadows()
     {
+        spritePath = $"Assets/Resources/GeneratedShadowTextures/{SceneManager.GetActiveScene().name}";
         trList = new Transform[] { initialWallPosition, initialLightPosition };
         subcamPosition = cam.transform.position;
 
         verticalResolution = (int)Mathf.Pow(2, shadowQuality);
         horizontalResolution = (int)Mathf.Pow(2, shadowQuality);
 
-
+#if UNITY_EDITOR
+        // - Checking Directory for scene specific sprites, create if it doesnt exist
+        if (AssetDatabase.IsValidFolder(spritePath))
+        {
+            Directory.Delete(spritePath, true);
+            Directory.CreateDirectory(spritePath);
+        }
+#endif
 
         // - Checking each static object for shadow, generate one if there is none
         foreach (Transform child in transform)
         {
+            // - Delete old shadows
             Transform tempShadow = child.Find("Shadow");
             if (tempShadow != null)
             {
-                // - Set all shadow to have same color
-                tempShadow.GetComponent<SpriteRenderer>().color = shadowColor;
+                // - Set all shadow to have same color [Disabled]
+                //tempShadow.GetComponent<SpriteRenderer>().color = shadowColor;
+                DestroyImmediate(tempShadow.gameObject);
+            }
+
+            GameObject newShadow = Instantiate(staticShadowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            newShadow.name = "Shadow";
+            newShadow.transform.parent = child;
+
+            foreach (Transform camChild in cam.transform)
+            {
+                DestroyImmediate(camChild.gameObject);
+            }
+
+
+            // *** Note to self: tempObj is the object used to screenshot and converted into 2D sprite
+            GameObject tempObj = Instantiate(child.gameObject, subcamPosition, child.rotation);
+            Transform tempTR = tempObj.transform;
+
+            tempTR.parent = cam.transform;
+            tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
+            if (child.rotation.y != 0 && child.rotation.x != 0)
+            {
+                tempTR.Rotate(0, 0, 180);
+            }
+
+
+            // - Camera Scaling based on model size (Checks Y for now, Z and X later)
+
+            float maxX = 0f;
+            float maxY = 0f;
+            float maxZ = 0f;
+
+            // - - Parent Check if it's an independent object
+            MeshFilter parentMeshFilter = tempTR.GetComponent<MeshFilter>();
+            if (parentMeshFilter != null)
+            {
+                maxX = parentMeshFilter.sharedMesh.bounds.size.x;
+                maxY = parentMeshFilter.sharedMesh.bounds.size.y;
+                maxZ = parentMeshFilter.sharedMesh.bounds.size.z;
             }
             else
             {
-                GameObject newShadow = Instantiate(staticShadowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                newShadow.name = "Shadow";
-                newShadow.transform.parent = child;
-
-                foreach (Transform camChild in cam.transform)
-                {
-                    DestroyImmediate(camChild.gameObject);
-                }
-
-                // *** Note: tempObj is the object used to screenshot and converted into 2D sprite
-                GameObject tempObj = Instantiate(child.gameObject, subcamPosition, Quaternion.identity);
-                Transform tempTR = tempObj.transform;
-                tempTR.parent = cam.transform;
-                tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
-
-
-
-                // - Camera Scaling based on model size (Checks Y for now, Z and X later)
+                // - - Check all child transform to get the largest size
                 Transform[] modelTransforms = tempTR.Cast<Transform>().ToArray();
-                float maxX = 0f;
-                float maxY = 0f;
-                float maxZ = 0f;
+
                 foreach (Transform ctr in modelTransforms)
                 {
                     MeshFilter thisMeshFilter = ctr.GetComponent<MeshFilter>();
@@ -95,22 +125,24 @@ public class RefreshStaticShadows : MonoBehaviour
                         }
                     }
                 }
-                //Debug.Log(maxX);
-                //Debug.Log(maxY);
-                //Debug.Log(maxZ);
-                if(maxZ * tempTR.localScale.z > 0.5)//Z and Y is swapped for some reason, will look into it later
-                {
-                    cam.orthographicSize = maxZ;
-                }
-                else
-                {
-                    cam.orthographicSize = 1;
-                }
-
-
-                // - Generate Shadow
-                GenerateShadow(child.name, newShadow.GetComponent<SpriteRenderer>(), cam.orthographicSize);
             }
+            Debug.Log($"X: {maxX} Y:{maxY} Z:{maxZ}  [{tempObj.name}]");
+
+            //Because of rotation, Y and Z needs to swap as the cam only checks the height to resize the camera the Y axis, if X is rotated then Z would be the new Y axis
+            // !!! Need to check if Horizontal/width is larger than the screen size as well !!! [WIP]
+            if (child.rotation.x != 0)
+            {
+                cam.orthographicSize = maxY;
+            }
+            else
+            {
+                cam.orthographicSize = maxZ;
+            }
+
+            // - Generate Shadow
+            GenerateShadow(child.name, newShadow.GetComponent<SpriteRenderer>(), cam.orthographicSize);
+            // ++++++++++++++++++++++ END of environment setup for the camera
+
 
             StaticFakeShadow sfs = child.gameObject.GetComponent<StaticFakeShadow>();
             if (sfs == null)
@@ -121,7 +153,6 @@ public class RefreshStaticShadows : MonoBehaviour
         textureFailsafeID = 1;
         BroadcastMessage("CastFakeShadow", trList);
     }
-
 
     public void GenerateShadow(string parentName, SpriteRenderer tempSR, float shadowSizeOffset)
     {
@@ -150,13 +181,13 @@ public class RefreshStaticShadows : MonoBehaviour
         byte[] itemBGBytes = sprite.texture.EncodeToPNG();
         outputfilename = $"{parentName}_ShadowSprite_{textureFailsafeID}";
         textureFailsafeID++;
-        File.WriteAllBytes($"Assets/Resources/GeneratedShadowTextures/{outputfilename}.png", itemBGBytes);
+        File.WriteAllBytes($"{spritePath}/{outputfilename}.png", itemBGBytes);
 
+#if UNITY_EDITOR
 
         // - Setting texture settings
-#if UNITY_EDITOR
         UnityEditor.AssetDatabase.Refresh();
-        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"Assets/Resources/GeneratedShadowTextures/{outputfilename}.png");
+        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"{spritePath}/{outputfilename}.png");
         importer.textureType = TextureImporterType.Sprite;
         importer.alphaIsTransparency = true;
 
@@ -166,7 +197,7 @@ public class RefreshStaticShadows : MonoBehaviour
 #endif
 
         // - Applying sprite to shadow
-        tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{outputfilename}");
+        tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
         tempSR.color = shadowColor;
 
 
