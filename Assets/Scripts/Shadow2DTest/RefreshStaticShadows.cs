@@ -28,6 +28,7 @@ public class RefreshStaticShadows : MonoBehaviour
     [SerializeField] int captureDepth = 24;
     [SerializeField] GameObject staticShadowPrefab;
     [SerializeField] Color32 shadowColor;
+    [SerializeField] Material shadowMaterial;//Somewhat solves additive alpha blending
 
     private Vector3 subcamPosition;
     private int textureFailsafeID = 1;
@@ -203,6 +204,7 @@ public class RefreshStaticShadows : MonoBehaviour
         // - Applying sprite to shadow
         tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
         tempSR.color = shadowColor;
+        tempSR.material = shadowMaterial;
 
 
 
