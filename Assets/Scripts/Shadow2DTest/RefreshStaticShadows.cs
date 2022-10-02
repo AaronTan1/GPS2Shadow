@@ -46,8 +46,8 @@ public class RefreshStaticShadows : MonoBehaviour
         if (AssetDatabase.IsValidFolder(spritePath))
         {
             Directory.Delete(spritePath, true);
-            Directory.CreateDirectory(spritePath);
         }
+        Directory.CreateDirectory(spritePath);
 #endif
 
         // - Checking each static object for shadow, generate one if there is none
@@ -81,6 +81,10 @@ public class RefreshStaticShadows : MonoBehaviour
             if (child.rotation.y != 0 && child.rotation.x != 0)
             {
                 tempTR.Rotate(0, 0, 180);
+            }
+            else if(child.rotation.y != 0 && child.rotation.x == 0)
+            {
+                tempTR.Rotate(0, 180, 0);
             }
 
 
@@ -207,6 +211,11 @@ public class RefreshStaticShadows : MonoBehaviour
     }
 
 
+    // *** Refresh all shadow based on light!!, This can be called to refresh shadows when the light source moves.
+    public void RefreshAllShadowsProperties()
+    {
+        BroadcastMessage("CastFakeShadow", trList);
+    }
 
 
     //-----------------------------------------------Testing use only to be removed later----------------------------------------------------

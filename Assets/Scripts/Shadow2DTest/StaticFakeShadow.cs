@@ -46,7 +46,7 @@ public class StaticFakeShadow : MonoBehaviour
             shadowTR.localScale = new Vector3(1, 1, 1);//Clamp minimum size
         }
         shadowTR.localScale *= sizePercentageOffset;
-        shadowTR.position = new Vector3(transform.position.x, transform.position.y, wallZ - 0.01f);
+        shadowTR.position = new Vector3(transform.position.x * 1, transform.position.y, wallZ - 0.01f);
     }
 
 }
