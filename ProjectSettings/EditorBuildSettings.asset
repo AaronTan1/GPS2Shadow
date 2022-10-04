@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LightSourceTest.unity
-    guid: 9dcfcaf456a679043896496cdb626060
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 72a89f5067ab94c43b208758aa4f5bc2
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c518fb3e173aaa44e835d8a349007825,
       type: 2}
