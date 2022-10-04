@@ -78,6 +78,7 @@ public class RefreshStaticShadows : MonoBehaviour
             Transform tempTR = tempObj.transform;
 
             tempTR.parent = cam.transform;
+            tempTR.localScale = new Vector3(1, 1, 1);
             tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
             if (child.rotation.y != 0 && child.rotation.x != 0)
             {
@@ -195,7 +196,7 @@ public class RefreshStaticShadows : MonoBehaviour
         TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath($"{spritePath}/{outputfilename}.png");
         importer.textureType = TextureImporterType.Sprite;
         importer.alphaIsTransparency = true;
-
+        importer.filterMode = FilterMode.Point;
         importer.spritePixelsPerUnit = (100 * (shadowQuality - 8)) / (shadowSizeOffset / 2);
         EditorUtility.SetDirty(importer);
         importer.SaveAndReimport();
