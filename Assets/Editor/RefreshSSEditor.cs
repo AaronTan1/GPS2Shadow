@@ -13,10 +13,18 @@ public class RefreshSSEditor : Editor
 
         GUILayout.Space(10);
         GUILayout.BeginHorizontal();
-        GUILayout.Label(new GUIContent("Regenerate Static Shadows", "Replace old shadows and add shadows to objects without one, also refreshes their properties according to the original object"));
+        GUILayout.Label(new GUIContent("Regenerate All Static Shadows", "Replace old shadows and add shadows to objects without one, also refreshes their properties according to the original object"));
         if (GUILayout.Button(new GUIContent("Generate", "Replace old shadows and add shadows to objects without one, also refreshes their properties according to the original object")))
         {
-            refreshSS.RefreshAllStaticShadows();
+            refreshSS.RefreshAllStaticShadows(true);
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Generate Shadows for Empties", "Generate shadows for objects without one"));
+        if (GUILayout.Button(new GUIContent("Generate", "Generate shadows for objects without one")))
+        {
+            refreshSS.RefreshAllStaticShadows(false);
         }
         GUILayout.EndHorizontal();
 

@@ -33,7 +33,7 @@ public class RefreshStaticShadows : MonoBehaviour
     private Vector3 subcamPosition;
     private int textureFailsafeID = 1;
     private string spritePath;
-    public void RefreshAllStaticShadows()
+    public void RefreshAllStaticShadows(bool deleteOldShadows)
     {
         spritePath = $"Assets/Resources/GeneratedShadowTextures/{SceneManager.GetActiveScene().name}";
         trList = new Transform[] { initialWallPosition, initialLightPosition };
@@ -44,11 +44,15 @@ public class RefreshStaticShadows : MonoBehaviour
 
 #if UNITY_EDITOR
         // - Checking Directory for scene specific sprites, create if it doesnt exist
-        if (AssetDatabase.IsValidFolder(spritePath))
+        if(deleteOldShadows)
         {
-            Directory.Delete(spritePath, true);
+            if (AssetDatabase.IsValidFolder(spritePath))
+            {
+                Directory.Delete(spritePath, true);
+            }
+            Directory.CreateDirectory(spritePath);
         }
-        Directory.CreateDirectory(spritePath);
+        
 #endif
 
         // - Checking each static object for shadow, generate one if there is none
@@ -60,7 +64,15 @@ public class RefreshStaticShadows : MonoBehaviour
             {
                 // - Set all shadow to have same color [Disabled]
                 //tempShadow.GetComponent<SpriteRenderer>().color = shadowColor;
-                DestroyImmediate(tempShadow.gameObject);
+                if(deleteOldShadows)
+                {
+                    DestroyImmediate(tempShadow.gameObject);
+                }
+                else
+                {
+                    continue;
+                }
+                
             }
 
             GameObject newShadow = Instantiate(staticShadowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
@@ -140,6 +152,10 @@ public class RefreshStaticShadows : MonoBehaviour
             {
                 cam.orthographicSize = maxY;
             }
+            else if(child.name == "alice")
+            {
+                cam.orthographicSize = maxZ * 2;
+            }
             else
             {
                 cam.orthographicSize = maxZ;
@@ -185,7 +201,7 @@ public class RefreshStaticShadows : MonoBehaviour
 
         // - Saving texture as PNG
         byte[] itemBGBytes = sprite.texture.EncodeToPNG();
-        outputfilename = $"{parentName}_ShadowSprite_{textureFailsafeID}";
+        outputfilename = $"{parentName}_ShadowSprite";
         textureFailsafeID++;
         File.WriteAllBytes($"{spritePath}/{outputfilename}.png", itemBGBytes);
 
