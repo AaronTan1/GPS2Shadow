@@ -31,6 +31,9 @@ public class RefreshStaticShadows : MonoBehaviour
     [SerializeField] Color32 shadowColor;
     [SerializeField] Material shadowMaterial;//Somewhat solves additive alpha blending
 
+    [Header("Shadow Generation for specified object")]
+    [SerializeField] GameObject specifiedObj;
+
     private Vector3 subcamPosition;
     private int textureFailsafeID = 1;
     private string spritePath;

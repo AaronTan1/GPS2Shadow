@@ -37,6 +37,7 @@ public class RefreshSSEditor : Editor
         }
         GUILayout.EndHorizontal();
 
+
         GUILayout.Space(10);
         GUILayout.Label(" [ Collider Settings ] ");
         GUILayout.BeginHorizontal();
@@ -46,6 +47,7 @@ public class RefreshSSEditor : Editor
             refreshSS.GenerateAllCollider();
         }
         GUILayout.EndHorizontal();
+
 
         GUILayout.Space(30);
         GUILayout.BeginHorizontal();

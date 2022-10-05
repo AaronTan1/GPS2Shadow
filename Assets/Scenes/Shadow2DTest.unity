@@ -616,7 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialLightPosition: {fileID: 705507995}
   initialWallPosition: {fileID: 211384059}
-  cam: {fileID: 1177166825}
+  generationCam: {fileID: 0}
   testSR: {fileID: 0}
   outputfilename: Prop_chair_ShadowSprite
   shadowQuality: 9
@@ -629,6 +629,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 3694803514
   shadowMaterial: {fileID: 2100000, guid: 3340f921fb8538e458955a8aedcb689f, type: 2}
+  specifiedObj: {fileID: 0}
 --- !u!1 &102141121
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102141123}
   - component: {fileID: 102141122}
+  - component: {fileID: 102141124}
   m_Layer: 0
   m_Name: 2DFLoor
   m_TagString: Untagged
@@ -653,7 +655,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102141121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -680,13 +682,35 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102141121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.47, z: 4.99}
+  m_LocalPosition: {x: 0, y: 0, z: 4.99}
   m_LocalScale: {x: 100, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &102141124
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102141121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &121286461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57dcca8fff373d346bf8e011f9a43bdd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e8ff79768c745442bb91784de41d174, type: 3}
   m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0.6666667}
   m_FlipX: 0
   m_FlipY: 0
@@ -1145,7 +1169,7 @@ Transform:
   m_GameObject: {fileID: 224176377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.1, y: 2.7, z: 4.99}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1200,8 +1224,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.28, y: 1.28}
+  m_Offset: {x: 0, y: 0.6}
+  m_Size: {x: 0.6047137, y: 1.16}
   m_Direction: 0
 --- !u!1001 &361375016
 PrefabInstance:
@@ -2276,8 +2300,8 @@ PolygonCollider2D:
       - {x: 0.51600003, y: 0.054000005}
       - {x: 0.52800006, y: 0.45600003}
       - {x: 0.52800006, y: 1.5360001}
-      - {x: 0.41400003, y: 1.5360001}
-      - {x: 0.36000004, y: 1.4880002}
+      - {x: 0.37072873, y: 1.5424218}
+      - {x: 0.35110036, y: 0.6111974}
       - {x: -0.52800006, y: 0.58800006}
       - {x: -0.52800006, y: 0.39000005}
       - {x: -0.49800006, y: 0.0060000005}
@@ -2420,12 +2444,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165927551}
   m_Mesh: {fileID: -114699674525647331, guid: b3f9e2ee81d4b5e4190395d733682522, type: 3}
---- !u!20 &1177166825 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6748173869068923705, guid: c2a62ebf7aacec24e969aeb218169edf,
-    type: 3}
-  m_PrefabInstance: {fileID: 6748173867959128272}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1177166826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6748173869068923706, guid: c2a62ebf7aacec24e969aeb218169edf,
