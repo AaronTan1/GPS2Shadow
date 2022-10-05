@@ -136,6 +136,6 @@ public class playerCandleScript : MonoBehaviour
         }*/
 
 
-        Debug.Log("Range " +range);
+       // Debug.Log("Range " +range);
     }
 }
