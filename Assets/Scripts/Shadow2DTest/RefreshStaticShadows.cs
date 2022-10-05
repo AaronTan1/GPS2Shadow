@@ -19,7 +19,7 @@ public class RefreshStaticShadows : MonoBehaviour
 
 #region shadowStuff
     [Header("Shadow Generation")]
-    [SerializeField] Camera cam;//Shadow generator camera
+    [SerializeField] Camera generationCam;//Shadow generator camera
     [SerializeField] SpriteRenderer testSR;//Sprite renderer for testing
     [SerializeField] string outputfilename; //Placeholder for texture file name
     [Range(9.0f, 15.0f)]
@@ -38,7 +38,7 @@ public class RefreshStaticShadows : MonoBehaviour
     {
         spritePath = $"Assets/Resources/GeneratedShadowTextures/{SceneManager.GetActiveScene().name}";
         trList = new Transform[] { initialWallPosition, initialLightPosition };
-        subcamPosition = cam.transform.position;
+        subcamPosition = generationCam.transform.position;
 
         verticalResolution = (int)Mathf.Pow(2, shadowQuality);
         horizontalResolution = (int)Mathf.Pow(2, shadowQuality);
@@ -80,7 +80,7 @@ public class RefreshStaticShadows : MonoBehaviour
             newShadow.name = "Shadow";
             newShadow.transform.parent = child;
             newShadow.transform.SetAsFirstSibling();
-            foreach (Transform camChild in cam.transform)
+            foreach (Transform camChild in generationCam.transform)
             {
                 DestroyImmediate(camChild.gameObject);
             }
@@ -90,7 +90,7 @@ public class RefreshStaticShadows : MonoBehaviour
             GameObject tempObj = Instantiate(child.gameObject, subcamPosition, child.rotation);
             Transform tempTR = tempObj.transform;
 
-            tempTR.parent = cam.transform;
+            tempTR.parent = generationCam.transform;
             tempTR.localScale = new Vector3(1, 1, 1);
             tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
             if (child.rotation.y != 0 && child.rotation.x != 0)
@@ -147,23 +147,23 @@ public class RefreshStaticShadows : MonoBehaviour
             }
             Debug.Log($"X: {maxX} Y:{maxY} Z:{maxZ}  [{tempObj.name}]");
 
-            //Because of rotation, Y and Z needs to swap as the cam only checks the height to resize the camera the Y axis, if X is rotated then Z would be the new Y axis
+            //Because of rotation, Y and Z needs to swap as the generationCam only checks the height to resize the camera the Y axis, if X is rotated then Z would be the new Y axis
             // !!! Need to check if Horizontal/width is larger than the screen size as well !!! [WIP]
             if (child.rotation.x != 0)
             {
-                cam.orthographicSize = maxY;
+                generationCam.orthographicSize = maxY;
             }
             else if(child.name == "alice")
             {
-                cam.orthographicSize = maxZ * 2;
+                generationCam.orthographicSize = maxZ * 2;
             }
             else
             {
-                cam.orthographicSize = maxZ;
+                generationCam.orthographicSize = maxZ;
             }
 
             // - Generate Shadow
-            GenerateShadow(child.name, newShadow.GetComponent<SpriteRenderer>(), cam.orthographicSize);
+            GenerateShadow(child.name, newShadow.GetComponent<SpriteRenderer>(), generationCam.orthographicSize);
             // ++++++++++++++++++++++ END of environment setup for the camera
 
 
@@ -184,15 +184,15 @@ public class RefreshStaticShadows : MonoBehaviour
         Rect rect = new Rect(0, 0, horizontalResolution, verticalResolution);
         Texture2D texture = new Texture2D(horizontalResolution, verticalResolution, TextureFormat.ARGB32, false);
 
-        cam.targetTexture = renderTexture;
-        cam.Render();
+        generationCam.targetTexture = renderTexture;
+        generationCam.Render();
 
         RenderTexture currentRenderTexture = RenderTexture.active;
         RenderTexture.active = renderTexture;
         texture.ReadPixels(rect, 0, 0);
         texture.Apply();
 
-        cam.targetTexture = null;
+        generationCam.targetTexture = null;
         RenderTexture.active = currentRenderTexture;
         DestroyImmediate(renderTexture);
 
@@ -228,7 +228,7 @@ public class RefreshStaticShadows : MonoBehaviour
 
 
         // - Reset Camera Size
-        //cam.orthographicSize = 1;
+        //generationCam.orthographicSize = 1;
     }
 
 
@@ -267,13 +267,13 @@ public class RefreshStaticShadows : MonoBehaviour
     //-----------------------------------------------Testing use only to be removed later----------------------------------------------------
     public void DebugChild(GameObject cgm)
     {
-        foreach (Transform child in cam.transform)
+        foreach (Transform child in generationCam.transform)
         {
             DestroyImmediate(child.gameObject);
         }
         GameObject tempObj = Instantiate(cgm, subcamPosition, Quaternion.identity);
         Transform tempTR = tempObj.transform;
-        tempTR.parent = cam.transform;
+        tempTR.parent = generationCam.transform;
         tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y - 0.5f, subcamPosition.z - 1);
     }
 }
