@@ -12,6 +12,7 @@ public class RefreshSSEditor : Editor
         RefreshStaticShadows refreshSS = (RefreshStaticShadows)target;
 
         GUILayout.Space(10);
+        GUILayout.Label(" [ Shadow Generation ] ");
         GUILayout.BeginHorizontal();
         GUILayout.Label(new GUIContent("Regenerate All Static Shadows", "Replace old shadows and add shadows to objects without one, also refreshes their properties according to the original object"));
         if (GUILayout.Button(new GUIContent("Generate", "Replace old shadows and add shadows to objects without one, also refreshes their properties according to the original object")))
@@ -33,6 +34,16 @@ public class RefreshSSEditor : Editor
         if (GUILayout.Button(new GUIContent("Refresh", "Refreshes shadow properties only, size and position according to referenced light source")))
         {
             refreshSS.RefreshAllShadowsProperties();
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.Space(10);
+        GUILayout.Label(" [ Collider Settings ] ");
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Add collider 2D", "Adds polygon colliders to shadows without one, will auto add with regenerate shadows as well"));
+        if (GUILayout.Button(new GUIContent("Add", "Adds polygon colliders to shadows without one, will auto add with regenerate shadows as well")))
+        {
+            refreshSS.GenerateAllCollider();
         }
         GUILayout.EndHorizontal();
 

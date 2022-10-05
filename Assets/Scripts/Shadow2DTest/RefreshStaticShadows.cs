@@ -17,6 +17,7 @@ public class RefreshStaticShadows : MonoBehaviour
     [SerializeField] Transform initialWallPosition;
     Transform[] trList;
 
+#region shadowStuff
     [Header("Shadow Generation")]
     [SerializeField] Camera cam;//Shadow generator camera
     [SerializeField] SpriteRenderer testSR;//Sprite renderer for testing
@@ -78,7 +79,7 @@ public class RefreshStaticShadows : MonoBehaviour
             GameObject newShadow = Instantiate(staticShadowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             newShadow.name = "Shadow";
             newShadow.transform.parent = child;
-
+            newShadow.transform.SetAsFirstSibling();
             foreach (Transform camChild in cam.transform)
             {
                 DestroyImmediate(camChild.gameObject);
@@ -222,6 +223,7 @@ public class RefreshStaticShadows : MonoBehaviour
         tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
         tempSR.color = shadowColor;
         tempSR.material = shadowMaterial;
+        tempSR.gameObject.AddComponent<PolygonCollider2D>();
 
 
 
@@ -235,7 +237,32 @@ public class RefreshStaticShadows : MonoBehaviour
     {
         BroadcastMessage("CastFakeShadow", trList);
     }
+    #endregion
 
+    public void GenerateAllCollider()
+    {
+        foreach (Transform child in transform)
+        {
+            // - Delete old shadows
+            Transform tempShadow = child.Find("Shadow");
+            if (tempShadow != null)
+            {
+                if (tempShadow.GetComponent<PolygonCollider2D>() == null)
+                {
+                    tempShadow.gameObject.AddComponent<PolygonCollider2D>();
+                }
+                else
+                {
+                    continue;
+                }
+               
+            }
+            else
+            {
+                continue;
+            }
+        }
+    }
 
     //-----------------------------------------------Testing use only to be removed later----------------------------------------------------
     public void DebugChild(GameObject cgm)
