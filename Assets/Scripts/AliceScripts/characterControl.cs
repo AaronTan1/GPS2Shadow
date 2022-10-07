@@ -5,6 +5,7 @@ using UnityEngine;
 public class characterControl : MonoBehaviour
 {
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject PlayerShadow;
     private joystickManager joystickManger;
     private Vector3 dir;
     private float inputX, inputZ;
@@ -21,8 +22,8 @@ public class characterControl : MonoBehaviour
     void FixedUpdate()
     {
 
-        //player orientation (not fully functional)
-        Player.transform.Rotate(Vector3.up * inputX * (1000f * Time.deltaTime));
+        //player orientation (not fully functional) [testing]
+        /*Player.transform.Rotate(Vector3.up * inputX * (100f * Time.deltaTime));*/
 
 
 

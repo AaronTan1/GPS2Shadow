@@ -1693,9 +1693,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6474821511897259466}
-  - component: {fileID: 6474821511897259464}
   - component: {fileID: 6474821511897259465}
   - component: {fileID: 1683003549}
+  - component: {fileID: 7600503435390923014}
   m_Layer: 0
   m_Name: Alice
   m_TagString: Player
@@ -1720,22 +1720,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &6474821511897259464
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474821511897259467}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &6474821511897259465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1767,6 +1751,22 @@ MonoBehaviour:
   - {fileID: 0}
   handCandle: {fileID: 404918681}
   lightSource: {fileID: 756544703}
+--- !u!54 &7600503435390923014
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474821511897259467}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7366051834944532606
 GameObject:
   m_ObjectHideFlags: 0
