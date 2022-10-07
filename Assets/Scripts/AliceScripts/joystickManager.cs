@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class joystickManager : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public static bool switchMode; //true = shadowRealm, false = 3d
     private Image joystickImgBg;
     private Image joystickImg;
     private Vector2 posInput;

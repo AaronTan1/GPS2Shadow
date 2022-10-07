@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404918681}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2045002, y: 0.012364686, z: -0.7177897}
+  m_LocalRotation: {x: 0.46984875, y: -0, z: -0, w: 0.882747}
+  m_LocalPosition: {x: 0.2045002, y: -0.016389132, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32,7 +32,7 @@ Transform:
   - {fileID: 543450652871994910}
   m_Father: {fileID: 6474821511897259466}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 56.049, y: 0, z: 0}
 --- !u!1 &756544701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1750,7 @@ MonoBehaviour:
   placeCandle:
   - {fileID: 0}
   handCandle: {fileID: 404918681}
+  shadowProps: {fileID: 0}
   lightSource: {fileID: 756544703}
 --- !u!54 &7600503435390923014
 Rigidbody:
@@ -1765,7 +1766,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &7366051834944532606
 GameObject:

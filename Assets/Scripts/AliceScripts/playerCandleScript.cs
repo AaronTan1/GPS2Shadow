@@ -7,10 +7,13 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject[] floorCandle; //stationary candle
     [SerializeField] public GameObject[] placeCandle; //place candle after hold
     [SerializeField] public GameObject handCandle; //preset candle on hand
+    [SerializeField] public GameObject shadowProps;
+    [SerializeField] GameObject[] shadowDrawers; //shadow Drawers 
     [SerializeField] public Light lightSource; //candleLight on hand
     GameObject childOfPlace; //placeCandle's child
     GameObject childOfChild; //placeCandle's grandson
     Light lightOfChild; //child's reference to light
+    public static bool restrictMode; // stops button function before light is placed
     private string stationName, placeName; //names of stationary and placed candle
     /*private bool childIlluminate = false;*/
     private bool hold = false;
@@ -19,6 +22,7 @@ public class playerCandleScript : MonoBehaviour
 
     void Start()
     {
+        restrictMode = true;
         hold = false;
         range = false;
         /*childIlluminate = false;*/
@@ -69,6 +73,15 @@ public class playerCandleScript : MonoBehaviour
                 childOfPlace.SetActive(true);
                 childOfChild = placeCandle[i].transform.GetChild(0).gameObject;
                 lightOfChild = childOfChild.GetComponent(typeof(Light)) as Light;
+
+                shadowProps.SetActive(true);
+
+                for(int x = 0; x < shadowDrawers.Length; x++)
+                {
+                    shadowDrawers[x].SetActive(true);
+                }
+                restrictMode = false;
+
                 /*childIlluminate = true;*/
             }
         }
