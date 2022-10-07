@@ -7,21 +7,20 @@ public class characterControl : MonoBehaviour
     [SerializeField] GameObject Player;
     private joystickManager joystickManger;
     private Vector3 dir;
-    private float inputX, inputZ;
-    private float moveSpeed;
+    private float inputX, inputY, inputZ;
+    private float moveSpeed, turnSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 20f;
+        moveSpeed = 20.0f;
+        turnSpeed = 90;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
-        
     }
 
     void FixedUpdate()
     {
-/*        Player.transform.position += new Vector3(inputX * moveSpeed, 0, inputZ * moveSpeed);*/
-
+        /*Player.transform.position += new Vector3(inputX * moveSpeed, 0, inputZ * moveSpeed);*/
         Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
     }
 
@@ -30,8 +29,13 @@ public class characterControl : MonoBehaviour
     {
         inputX = joystickManger.inputHorizontal();
         inputZ = joystickManger.inputVertical();
-        dir = new Vector3(inputX, 0, inputZ);
+        dir = new Vector3(inputX, 0, inputZ).normalized;
 
-        Debug.Log(dir);
+        inputY = joystickManger.inputVertical();
+
+        
+
+
+
     }
 }
