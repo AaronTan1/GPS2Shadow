@@ -16,7 +16,7 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        moveSpeed = 20.0f;
+        moveSpeed = 15.0f;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
