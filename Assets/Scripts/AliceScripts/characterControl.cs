@@ -7,19 +7,25 @@ public class characterControl : MonoBehaviour
     [SerializeField] GameObject Player;
     private joystickManager joystickManger;
     private Vector3 dir;
-    private float inputX, inputY, inputZ;
-    private float moveSpeed, turnSpeed;
+    private float inputX, inputZ;
+    private float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         moveSpeed = 20.0f;
-        turnSpeed = 90;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
+        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void FixedUpdate()
     {
+
+        //player orientation (not fully functional)
+        Player.transform.Rotate(Vector3.up * inputX * (1000f * Time.deltaTime));
+
+
+
         /*Player.transform.position += new Vector3(inputX * moveSpeed, 0, inputZ * moveSpeed);*/
         Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
     }
@@ -29,13 +35,12 @@ public class characterControl : MonoBehaviour
     {
         inputX = joystickManger.inputHorizontal();
         inputZ = joystickManger.inputVertical();
+
         dir = new Vector3(inputX, 0, inputZ).normalized;
 
-        inputY = joystickManger.inputVertical();
 
         
 
-
-
+        
     }
 }
