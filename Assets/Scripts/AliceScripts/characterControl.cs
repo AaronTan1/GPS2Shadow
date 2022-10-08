@@ -7,6 +7,10 @@ public class characterControl : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] GameObject PlayerShadow; // all shadows gameObj
     public static bool switchMode; //true = shadowRealm, false = 3d
+    public static bool isGrounded;
+    private Vector3 jump;
+    private float jumpForce = 2.0f;
+    private bool jumpDelay;
     private joystickManager joystickManger;
     private Vector3 dir;
     private float inputX, inputY;
@@ -18,6 +22,7 @@ public class characterControl : MonoBehaviour
     {
         switchMode = false;
         moveSpeed = 15.0f;
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         cam = Camera.main;
@@ -33,25 +38,38 @@ public class characterControl : MonoBehaviour
             };
     }
 
+    public void ToggleJump()
+    {
+        if(playerCandleScript.restrictMode == false && switchMode && jumpDelay == false)
+        {
+            jumpDelay = true;
+            PlayerShadow.GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, (ForceMode2D)ForceMode.Impulse);
+            StartCoroutine(jumpCdr());
+        }
+    }
+
+    IEnumerator jumpCdr()
+    {
+        yield return new WaitForSeconds(1.5f);
+        jumpDelay = false;
+
+    }
+
     void FixedUpdate()
     {
-        //player orientation (not fully functional) [testing]
-        /*Player.transform.Rotate(Vector3.up * inputX * (100f * Time.deltaTime));*/
-        /*Player.transform.position += new Vector3(inputX * moveSpeed, 0, inputZ * moveSpeed);*/
         
         Transform camTransform = cam.transform;
         
         inputX = joystickManger.inputHorizontal();
         inputY = joystickManger.inputVertical();
-        
-        
-        Vector3 faceVector = (camTransform.forward * inputY + camTransform.right * inputX).normalized;
-        faceVector.y = 0;
-        Vector3 rotation = Vector3.RotateTowards(Player.transform.forward, faceVector,10 * Time.deltaTime,0f);
-        Player.transform.rotation = Quaternion.LookRotation(rotation);
 
         if (switchMode == false)
         {
+            Vector3 faceVector = (camTransform.forward * inputY + camTransform.right * inputX).normalized;
+            faceVector.y = 0;
+            Vector3 rotation = Vector3.RotateTowards(Player.transform.forward, faceVector,10 * Time.deltaTime,0f);
+            Player.transform.rotation = Quaternion.LookRotation(rotation);
+
             dir = new Vector3(inputX, 0, inputY).normalized;
             Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
         }
