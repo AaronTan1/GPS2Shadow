@@ -18,13 +18,13 @@ public class CameraBehaviour : MonoBehaviour
 
     public void SwapTarget()
     {
-        if (state == "2D")
+        if (state == "2D" && playerCandleScript.restrictMode == false)
         {
             state = "3D";
             StartCoroutine(LerpFov(80));
             cm.m_Follow = alice3D;
             cm.LookAt = alice3D;
-        }else if (state == "3D")
+        }else if (state == "3D" && playerCandleScript.restrictMode == false)
         {
             state = "2D";
             StartCoroutine(LerpFov(30));

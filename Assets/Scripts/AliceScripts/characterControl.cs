@@ -9,7 +9,7 @@ public class characterControl : MonoBehaviour
     public static bool switchMode; //true = shadowRealm, false = 3d
     public static bool isGrounded;
     private Vector3 jump;
-    private float jumpForce = 2.0f;
+    private float jumpForce = 1.7f;
     private bool jumpDelay;
     private joystickManager joystickManger;
     private Vector3 dir;
@@ -21,7 +21,7 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        moveSpeed = 15.0f;
+        moveSpeed = 14.5f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -76,7 +76,7 @@ public class characterControl : MonoBehaviour
         else if (switchMode)
         {
             dir = new Vector3(inputX, 0, 0).normalized;
-            PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.0f);
+            PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);
         }
     }
 
