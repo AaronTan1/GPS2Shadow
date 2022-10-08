@@ -563,6 +563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1937859323}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &7021299
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +714,7 @@ GameObject:
   - component: {fileID: 27187798}
   - component: {fileID: 27187799}
   m_Layer: 0
-  m_Name: StaticObjects
+  m_Name: StaticObjectsProps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,6 +1222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 905333901}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &91147692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,7 +1379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96015211}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.9900002, y: 0, z: -0.00000047683716}
+  m_LocalPosition: {x: -4.9900002, y: 0, z: 0}
   m_LocalScale: {x: 1.3192612, y: 1.3192612, z: 1.3192612}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1849,6 +1853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1802987678}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!65 &216056574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2256,6 +2262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 91147693}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &361375016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2386,6 +2394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1682199893}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &435830290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2571,6 +2581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1493344481}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &463354169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,7 +2756,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f98f50735a911e34788c13aa3f2a8599,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0479023
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f98f50735a911e34788c13aa3f2a8599,
         type: 3}
@@ -2969,6 +2981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 722649299}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &602064283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,6 +3330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 0}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &684245577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3331,7 +3347,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 47294d344d9277f408d3f73de69aa701,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4
+      value: 3.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47294d344d9277f408d3f73de69aa701,
         type: 3}
@@ -3431,6 +3447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 96015212}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,7 +3722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722649298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.04532}
+  m_LocalPosition: {x: -2, y: 0, z: 5.04532}
   m_LocalScale: {x: 1.3536155, y: 1.3536155, z: 1.3536155}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3909,6 +3927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1342277179}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &753271052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4029,6 +4049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1935696492}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &779154878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4124,6 +4146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 706315172}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &870127346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4254,6 +4278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1062346812}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &874577725
 GameObject:
   m_ObjectHideFlags: 0
@@ -5336,6 +5362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 463354170}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &1454888436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5591,6 +5619,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 638332347}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &1477427410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5711,6 +5741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 7021300}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &1493344480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6061,6 +6093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1157069381}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &1634020138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6800,6 +6834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 952600964}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &1935696491
 GameObject:
   m_ObjectHideFlags: 0
@@ -7624,6 +7660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 73672941}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &1988112356
 GameObject:
   m_ObjectHideFlags: 0
@@ -7972,6 +8010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1931186834}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &2127380891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8372,6 +8412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 602064284}
   sizePercentageOffset: 1
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &6748173867959128272
 PrefabInstance:
   m_ObjectHideFlags: 0

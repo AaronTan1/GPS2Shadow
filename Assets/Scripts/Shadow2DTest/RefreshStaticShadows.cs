@@ -245,6 +245,7 @@ public class RefreshStaticShadows : MonoBehaviour
     // *** Refresh all shadow based on light!!, This can be called to refresh shadows when the light source moves.
     public void RefreshAllShadowsProperties()
     {
+        trList = new Transform[] { initialWallPosition, initialLightPosition };
         BroadcastMessage("CastFakeShadow", trList);
     }
     #endregion

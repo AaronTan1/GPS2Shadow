@@ -6,13 +6,17 @@ using UnityEngine;
 public class StaticFakeShadow : MonoBehaviour
 {
     [SerializeField] Transform shadowTR;
+    
     private Transform wallTR;
     private Transform lightTR;
 
     [Tooltip("1 by default, 0.5 to offset it by 50%, 2 to 200%")]
     [Range(0.0f, 2.0f)]
     [SerializeField] float sizePercentageOffset = 1;
-
+    [Range(-20f, 20f)]
+    [SerializeField] float xOffset = 0;
+    [Range(-20f, 20f)]
+    [SerializeField] float yOffset = 0;
     public void CastFakeShadow(Transform[] trList)
     {
         wallTR = trList[0];
@@ -46,7 +50,7 @@ public class StaticFakeShadow : MonoBehaviour
             shadowTR.localScale = new Vector3(1, 1, 1);//Clamp minimum size
         }
         shadowTR.localScale *= sizePercentageOffset;
-        shadowTR.position = new Vector3(transform.position.x * 1, transform.position.y, wallZ - 0.01f);
+        shadowTR.position = new Vector3((transform.position.x + xOffset) * 1, transform.position.y + yOffset, wallZ - 0.01f);
     }
 
 }
