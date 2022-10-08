@@ -6609,7 +6609,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 200
-  field of view: 80
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6698,7 +6698,7 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 1
-  m_HorizontalDamping: 5
+  m_HorizontalDamping: 10
   m_VerticalDamping: 3
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -8835,7 +8835,7 @@ PrefabInstance:
     - target: {fileID: 7743868523964297290, guid: 8f904c140bc434040b3ec24238b1c3a9,
         type: 3}
       propertyPath: m_PathPosition
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7743868524669842676, guid: 8f904c140bc434040b3ec24238b1c3a9,
         type: 3}
@@ -8855,7 +8855,7 @@ PrefabInstance:
     - target: {fileID: 7743868524669842676, guid: 8f904c140bc434040b3ec24238b1c3a9,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 80
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7743868524669842677, guid: 8f904c140bc434040b3ec24238b1c3a9,
         type: 3}

@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,15 +21,29 @@ public class CameraBehaviour : MonoBehaviour
         if (state == "2D")
         {
             state = "3D";
+            StartCoroutine(LerpFov(80));
             cm.m_Follow = alice3D;
             cm.LookAt = alice3D;
-            cm.m_Lens.FieldOfView = 80;
         }else if (state == "3D")
         {
             state = "2D";
+            StartCoroutine(LerpFov(30));
             cm.m_Follow = alice2D;
             cm.LookAt = alice2D;
-            cm.m_Lens.FieldOfView = 30;
         }
+    }
+
+    IEnumerator LerpFov(float target)
+    {
+        float t = 0f;
+        float initial = cm.m_Lens.FieldOfView;
+        while (t < 1f)
+        {
+            cm.m_Lens.FieldOfView = Mathf.Lerp(initial, target, t);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        cm.m_Lens.FieldOfView = target;
+
     }
 }
