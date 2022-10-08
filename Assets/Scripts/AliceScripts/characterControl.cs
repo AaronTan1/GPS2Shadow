@@ -83,6 +83,6 @@ public class characterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(switchMode);
+        /*Debug.Log(switchMode);*/
     }
 }
