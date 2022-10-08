@@ -5,8 +5,12 @@ using UnityEngine;
 public class characterControl : MonoBehaviour
 {
     [SerializeField] GameObject Player;
-    [SerializeField] GameObject PlayerShadow; // all shadows gameObj
+    [SerializeField] GameObject PlayerShadow; // all shadows gameObj except drawerShadow
     public static bool switchMode; //true = shadowRealm, false = 3d
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+    public static bool isGrounded;
+    public bool jumpDelay;
     private joystickManager joystickManger;
     private Vector3 dir;
     private float inputX, inputZ;
@@ -17,6 +21,8 @@ public class characterControl : MonoBehaviour
     {
         switchMode = false;
         moveSpeed = 15.0f;
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+        jumpDelay = false;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
@@ -24,14 +30,33 @@ public class characterControl : MonoBehaviour
     public void ToggleSwitch()
     {
         if(playerCandleScript.restrictMode == false)
-        if(switchMode == false)
         {
-            switchMode = true;
+            if (switchMode == false)
+            {
+                switchMode = true;
+            }
+            else if (switchMode)
+            {
+                switchMode = false;
+            }
         }
-        else if (switchMode)
+    }
+
+    public void ToggleJump()
+    {
+        if(playerCandleScript.restrictMode == false && switchMode && isGrounded && jumpDelay == false)
         {
-            switchMode = false;
+            jumpDelay = true;
+            StartCoroutine(jumpCdr());
+            PlayerShadow.GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, (ForceMode2D)ForceMode.Impulse);
+
         }
+    }
+
+    IEnumerator jumpCdr()
+    {
+        yield return new WaitForSeconds(1.0f);
+        jumpDelay = false;
     }
 
     void FixedUpdate()
