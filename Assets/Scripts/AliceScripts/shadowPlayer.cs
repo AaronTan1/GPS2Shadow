@@ -12,7 +12,7 @@ public class shadowPlayer : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        characterControl.isGrounded = true;
+        //characterControl.isGrounded = true;
     }
 
     // Update is called once per frame
