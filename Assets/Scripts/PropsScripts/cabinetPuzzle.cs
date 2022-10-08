@@ -20,7 +20,7 @@ public class cabinetPuzzle : MonoBehaviour
     {
         if (collision.gameObject.name == "Shadow Alice")
         {
-            Debug.Log("Collision");
+            /*Debug.Log("Collision");*/
         }
     }
 

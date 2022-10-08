@@ -18,27 +18,20 @@ public class joystickManager : MonoBehaviour, IDragHandler, IPointerDownHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            joystickImgBg.rectTransform,
-            eventData.position,
-            eventData.pressEventCamera,
-            out posInput))
+        if(RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickImgBg.rectTransform, eventData.position, eventData.pressEventCamera, out posInput))
         {
             //solved problem of fast movement speed : dividing the position of the drag by the size of the img
-            posInput.x = posInput.x / (joystickImgBg.rectTransform.sizeDelta.x);  
-            posInput.y = posInput.y / (joystickImgBg.rectTransform.sizeDelta.y);
+            var sizeDelta = joystickImgBg.rectTransform.sizeDelta;
+            posInput.x /= (sizeDelta.x);  
+            posInput.y /= (sizeDelta.y);
             /*Debug.Log(posInput.x.ToString() + "/" + posInput.y.ToString());*/ //displays coordinate val
 
             // normalize
             if (posInput.magnitude > 1.0f)
-            {
                 posInput = posInput.normalized;
-            }
 
             //joystick move
-            joystickImg.rectTransform.anchoredPosition = new Vector2(
-                posInput.x * (joystickImgBg.rectTransform.sizeDelta.x / 4), 
-                posInput.y * (joystickImgBg.rectTransform.sizeDelta.y / 4));
+            joystickImg.rectTransform.anchoredPosition = new Vector2(posInput.x * (sizeDelta.x / 4), posInput.y * (sizeDelta.y / 4));
         }
     }
     
