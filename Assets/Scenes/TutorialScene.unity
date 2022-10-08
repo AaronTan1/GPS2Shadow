@@ -3616,8 +3616,8 @@ GameObject:
   - component: {fileID: 469970993}
   - component: {fileID: 469970995}
   m_Layer: 7
-  m_Name: Shadow
-  m_TagString: Untagged
+  m_Name: DrawerCover
+  m_TagString: ShadowPuzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4005,6 +4005,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7600503435390923011}
         m_TargetAssemblyTypeName: playerCandleScript, Assembly-CSharp
         m_MethodName: ToggleHold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1615715912}
+        m_TargetAssemblyTypeName: characterControl, Assembly-CSharp
+        m_MethodName: ToggleJump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8044,8 +8056,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928628766}
   m_LocalRotation: {x: 0.50000006, y: -0.5, z: -0.49999976, w: 0.5000001}
-  m_LocalPosition: {x: -3.3300018, y: -0.034001097, z: -0.83000046}
-  m_LocalScale: {x: -0.50000006, y: -0.20000003, z: 1.0148441}
+  m_LocalPosition: {x: -3.3300033, y: -0.03400196, z: -0.8300014}
+  m_LocalScale: {x: -0.50000006, y: -0.20000005, z: 1.014844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2707245409382407549}
@@ -9547,7 +9559,7 @@ GameObject:
   - component: {fileID: 1121215117}
   m_Layer: 7
   m_Name: Shadow
-  m_TagString: Untagged
+  m_TagString: ShadowPuzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11933,8 +11945,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 1}
-  m_Center: {x: -0.1, y: 0, z: 0.1}
+  m_Size: {x: 2.1614509, y: 2, z: 1}
+  m_Center: {x: 0.3192746, y: 0, z: 0.100000024}
 --- !u!114 &1543439956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13414,8 +13426,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818502373}
   m_LocalRotation: {x: -0.50000006, y: 0.5, z: -0.49999976, w: 0.5000001}
-  m_LocalPosition: {x: -3.330002, y: -0.034001097, z: 0.5940002}
-  m_LocalScale: {x: -0.5000001, y: -0.20000005, z: -1.0148441}
+  m_LocalPosition: {x: -3.330004, y: -0.03400196, z: 0.59400046}
+  m_LocalScale: {x: -0.5000001, y: -0.20000006, z: -1.014844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3291460997549475433}
@@ -14699,7 +14711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2010839731
 Transform:
   m_ObjectHideFlags: 0
