@@ -96,14 +96,18 @@ public class RefreshStaticShadows : MonoBehaviour
             tempTR.parent = generationCam.transform;
             tempTR.localScale = new Vector3(1, 1, 1);
             tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
-            if (child.rotation.y != 0 && child.rotation.x != 0)
+            if (child.rotation.eulerAngles.x == 270)
             {
+                Debug.Log("Rotate x");
                 tempTR.Rotate(0, 0, 180);
+                
+
             }
-            else if(child.rotation.y != 0 && child.rotation.x == 0)
+            else
             {
                 tempTR.Rotate(0, 180, 0);
             }
+            Debug.Log($"{child.rotation.eulerAngles.x} , {child.rotation.eulerAngles.y} , {child.rotation.eulerAngles.z}");
 
 
             // - Camera Scaling based on model size (Checks Y for now, Z and X later)
@@ -155,14 +159,17 @@ public class RefreshStaticShadows : MonoBehaviour
             if (child.rotation.x != 0)
             {
                 generationCam.orthographicSize = maxY;
+                Debug.Log("went first");
             }
             else if(child.name == "alice")
             {
                 generationCam.orthographicSize = maxZ * 2;
+                Debug.Log("went second");
             }
             else
             {
-                generationCam.orthographicSize = maxZ;
+                generationCam.orthographicSize = maxZ * 2;
+                Debug.Log("went third");
             }
 
             // - Generate Shadow
