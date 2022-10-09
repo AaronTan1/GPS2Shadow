@@ -5,18 +5,21 @@ using UnityEngine;
 public class tablePuzzle : MonoBehaviour
 {
     [SerializeField] GameObject tableShadow; //shadow of the table
-    private bool interact, range;
+    [SerializeField] GameObject pullLimit; //hidden collider to restrict pull 
+    private bool interact, range, disableInteract;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         interact = false;
         range = false;
+        disableInteract = false;
     }
 
     public void ToggleInteract()
     {
-        if(interact == false && range)
+        if(interact == false && range && playerCandleScript.restrictMode == false) 
         {
             interact = true;
         }
@@ -26,23 +29,30 @@ public class tablePuzzle : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && range == false)
+        if (other.tag == "Player" && range == false && playerCandleScript.restrictMode == false) 
         {
             range = true;
         }
 
-        if (other.gameObject.tag == "Player" && interact && range) 
+        if (other.tag == "Player" && interact && range)
         {
+            disableInteract = true;
+            this.gameObject.GetComponent<FixedJoint>().connectedBody = other.GetComponent<Rigidbody>();            
 
+            if(this.gameObject.GetComponent<FixedJoint>().connectedBody = other.GetComponent<Rigidbody>())
+            {
+                pullLimit.SetActive(true);
+                tableShadow.transform.localScale = new Vector3((tableShadow.transform.position.x - gameObject.transform.position.z) - 0.2f, (tableShadow.transform.position.y - gameObject.transform.position.z), 0.0f);
+
+            }
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (interact == false)
-        {
+        else if(other.tag == "Player" && interact == false && range && disableInteract)
+        {           
+            this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
+            disableInteract = false;
+            pullLimit.SetActive(false);
         }
     }
 
@@ -50,9 +60,8 @@ public class tablePuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interact && range)
-        {
 
-        }
+
+
     }
 }
