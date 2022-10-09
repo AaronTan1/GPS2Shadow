@@ -41,10 +41,14 @@ public class StaticFakeShadow : MonoBehaviour
         float distanceToWall = wallZ - transform.position.z;
         float distanceToLight = transform.position.z - lightTR.position.z;
 
-        if (distanceToWall > distanceToLight)
+        if (transform.position.z <= lightTR.position.z)
+        {
+            shadowTR.localScale = new Vector3(2, 2, 2);//Clamp max size and whenever object is behind light source instead, it's not logical but it's made to fit the level layout in case
+        }
+        else if (distanceToWall > distanceToLight)
         {
             shadowTR.localScale = new Vector3(1, 1, 1) * (distanceToWall / distanceToLight);
-        }
+        }      
         else
         {
             shadowTR.localScale = new Vector3(1, 1, 1);//Clamp minimum size
