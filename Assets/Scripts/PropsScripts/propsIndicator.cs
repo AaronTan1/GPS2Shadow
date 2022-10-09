@@ -15,7 +15,7 @@ public class propsIndicator : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && playerCandleScript.restrictMode == false)
         {
             for (int i = 0; i < gameObject.transform.childCount; i++)
             {
@@ -27,10 +27,14 @@ public class propsIndicator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        for (int i = 0; i < gameObject.transform.childCount; i++)
+        if (playerCandleScript.restrictMode == false)
         {
-            this.transform.GetChild(i).GetComponent<Renderer>().material = matOri;
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                this.transform.GetChild(i).GetComponent<Renderer>().material = matOri;
+            }
         }
+
 
     }
 
