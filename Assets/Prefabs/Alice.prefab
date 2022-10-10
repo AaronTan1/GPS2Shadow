@@ -1750,7 +1750,21 @@ MonoBehaviour:
   placeCandle:
   - {fileID: 0}
   handCandle: {fileID: 404918681}
-  shadowProps: {fileID: 0}
+  shadowProps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shadowDrawers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lightSource: {fileID: 756544703}
 --- !u!54 &7600503435390923014
 Rigidbody:
