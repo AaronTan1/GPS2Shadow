@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class cabinetPuzzle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool hook;
+
     void Start()
     {
-        
+        hook = false;    
     }
 
-    // Update is called once per frame
-    void Update()
+    public void toggleHook()
     {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Shadow Alice")
+        if (hook && playerCandleScript.restrictMode == false)
         {
-            /*Debug.Log("Collision");*/
+
         }
+    }
+
+   
+
+    void FixedUpdate()
+    {
+        
     }
 
 }

@@ -377,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matSwapColor: {fileID: 2100000, guid: 35daf0b4b0fa9c845b9f77d486ba363f, type: 2}
   matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
+  tempGameObj: {fileID: 6640958353674437186}
 --- !u!1 &6852294843843796738
 GameObject:
   m_ObjectHideFlags: 0

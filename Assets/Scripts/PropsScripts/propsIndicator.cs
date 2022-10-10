@@ -7,6 +7,7 @@ public class propsIndicator : MonoBehaviour
     [SerializeField] public Material matSwapColor;
     [SerializeField] public Material matOri;
     [SerializeField] public GameObject tempGameObj;
+    [SerializeField] public GameObject[] propCloset;
 
     private void OnTriggerStay(Collider other)
     {
@@ -21,17 +22,14 @@ public class propsIndicator : MonoBehaviour
         {
             for (int i = 0; i < tempGameObj.transform.childCount; i++)
             {
-                Debug.Log("ONE");
                 tempGameObj.transform.GetChild(i).GetComponent<Renderer>().material = matSwapColor;
             }
-
         }
-        if (other.tag == "Player" && this.name != "stationaryCandle" && playerCandleScript.restrictMode == false)
+        else if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < propCloset.Length; i++)
             {
-                Debug.Log("TWO");
-                this.transform.GetChild(i).GetComponent<Renderer>().material = matSwapColor;
+                propCloset[i].GetComponent<Renderer>().material = matSwapColor;
             }
         }
 
@@ -44,6 +42,13 @@ public class propsIndicator : MonoBehaviour
             for (int i = 0; i < tempGameObj.transform.childCount; i++)
             {
                 tempGameObj.transform.GetChild(i).GetComponent<Renderer>().material = matOri;
+            }
+        }
+        else if(this.name == "Prop_closetA")
+        {
+            for(int i = 0; i < propCloset.Length; i++)
+            {
+                propCloset[i].GetComponent<Renderer>().material = matOri;
             }
         }
         else 
