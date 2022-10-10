@@ -30,12 +30,15 @@ public class characterControl : MonoBehaviour
 
     public void ToggleSwitch()
     {
-        if(playerCandleScript.restrictMode == false)
-            switchMode = switchMode switch
-            {
-                false => true,
-                true => false,
-            };
+        if(playerCandleScript.restrictMode == false && switchMode == false && cabinetPuzzle.switchFunction == false)
+        {
+            switchMode = true;
+        }
+        else
+        {
+            switchMode = false;
+        }
+
     }
 
     public void ToggleJump()
@@ -73,7 +76,7 @@ public class characterControl : MonoBehaviour
             dir = new Vector3(inputX, 0, inputY).normalized;
             Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
         }
-        else if (switchMode)
+        else if (switchMode && cabinetPuzzle.switchFunction == false)
         {
             dir = new Vector3(inputX, 0, 0).normalized;
             PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);

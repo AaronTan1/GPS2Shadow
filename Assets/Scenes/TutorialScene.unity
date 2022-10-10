@@ -7066,7 +7066,7 @@ MonoBehaviour:
   matSwapColor: {fileID: 2100000, guid: 35daf0b4b0fa9c845b9f77d486ba363f, type: 2}
   matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
   tempGameObj: {fileID: 0}
-  propCloset: []
+  propCloset: {fileID: 0}
 --- !u!1 &1549551313
 GameObject:
   m_ObjectHideFlags: 0
@@ -9061,11 +9061,16 @@ PrefabInstance:
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
@@ -9090,7 +9095,17 @@ PrefabInstance:
       objectReference: {fileID: 919132149313038122}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 919132149313038122}
+    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
@@ -9110,6 +9125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: toggleSwitchDraw
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: tablePuzzle, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -9125,14 +9145,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: cabinetPuzzle, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1864572858}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 919132149313038122}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: toggleSelectDraw
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: cabinetPuzzle, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60c75f84a963cf478cede640461801f, type: 3}
 --- !u!4 &543450653582802323
@@ -9188,6 +9253,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e1a1f4e0a053e4c9126516e16b5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
+  matSwapColor: {fileID: 2100000, guid: 35daf0b4b0fa9c845b9f77d486ba363f, type: 2}
+  drawerObj:
+  - {fileID: 8144394004281349765}
+  - {fileID: 2463706536940673767}
+  - {fileID: 6801056696712931676}
+  - {fileID: 8409879660401375833}
+  - {fileID: 2973295887992859880}
+  - {fileID: 8778234387374468916}
 --- !u!65 &919132149313038123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9229,14 +9303,7 @@ MonoBehaviour:
   matSwapColor: {fileID: 2100000, guid: 35daf0b4b0fa9c845b9f77d486ba363f, type: 2}
   matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
   tempGameObj: {fileID: 0}
-  propCloset:
-  - {fileID: 7742780737449273844}
-  - {fileID: 8144394004281349765}
-  - {fileID: 6801056696712931676}
-  - {fileID: 2973295887992859880}
-  - {fileID: 2463706536940673767}
-  - {fileID: 8409879660401375833}
-  - {fileID: 8778234387374468916}
+  propCloset: {fileID: 7742780737449273844}
 --- !u!4 &1522424883042393404
 Transform:
   m_ObjectHideFlags: 0
@@ -9381,6 +9448,8 @@ GameObject:
   - component: {fileID: 1522424883042393404}
   - component: {fileID: 2572890368446726155}
   - component: {fileID: 3027604498110889532}
+  - component: {fileID: 3027604498110889534}
+  - component: {fileID: 3027604498110889533}
   m_Layer: 7
   m_Name: Object003
   m_TagString: Untagged
@@ -9430,6 +9499,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!138 &3027604498110889533
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973295887992859880}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 0
+  m_MassScale: 10000
+  m_ConnectedMassScale: 10000
+--- !u!54 &3027604498110889534
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973295887992859880}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &3291460997549475433
 Transform:
   m_ObjectHideFlags: 0
@@ -9454,19 +9554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2010839731}
     m_Modifications:
-    - target: {fileID: 246605889, guid: acb855d02761a0a4eb9345f9c4b5fb06, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712776, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
       propertyPath: m_Name
       value: Shadow Alice
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551014321009712776, guid: acb855d02761a0a4eb9345f9c4b5fb06,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
@@ -9713,6 +9804,8 @@ GameObject:
   - component: {fileID: 3291460997549475433}
   - component: {fileID: 8353328121893085549}
   - component: {fileID: 8182092298987924716}
+  - component: {fileID: 8353328121893085551}
+  - component: {fileID: 8353328121893085550}
   m_Layer: 7
   m_Name: Object002
   m_TagString: Untagged
@@ -10092,6 +10185,8 @@ GameObject:
   - component: {fileID: 2707245409382407549}
   - component: {fileID: 1714938218327449737}
   - component: {fileID: 8835409689947264387}
+  - component: {fileID: 8835409689947264389}
+  - component: {fileID: 8835409689947264388}
   m_Layer: 7
   m_Name: Object001
   m_TagString: Untagged
@@ -10149,6 +10244,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6801056696712931676}
   m_Mesh: {fileID: -3996760141626369306, guid: f9877cdeaf82a8c4fb0ce5a9307d452b, type: 3}
+--- !u!138 &8353328121893085550
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801056696712931676}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 10000
+  m_BreakTorque: 10000
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 0
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &8353328121893085551
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801056696712931676}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8409879660401375833
 GameObject:
   m_ObjectHideFlags: 0
@@ -10284,3 +10410,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!138 &8835409689947264388
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144394004281349765}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 10000
+  m_BreakTorque: 10000
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 0
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &8835409689947264389
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144394004281349765}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -7,7 +7,7 @@ public class propsIndicator : MonoBehaviour
     [SerializeField] public Material matSwapColor;
     [SerializeField] public Material matOri;
     [SerializeField] public GameObject tempGameObj;
-    [SerializeField] public GameObject[] propCloset;
+    [SerializeField] public GameObject propCloset;
 
     private void OnTriggerStay(Collider other)
     {
@@ -27,10 +27,7 @@ public class propsIndicator : MonoBehaviour
         }
         else if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
         {
-            for (int i = 0; i < propCloset.Length; i++)
-            {
-                propCloset[i].GetComponent<Renderer>().material = matSwapColor;
-            }
+                propCloset.GetComponent<Renderer>().material = matSwapColor;
         }
 
     }
@@ -46,10 +43,7 @@ public class propsIndicator : MonoBehaviour
         }
         else if(this.name == "Prop_closetA")
         {
-            for(int i = 0; i < propCloset.Length; i++)
-            {
-                propCloset[i].GetComponent<Renderer>().material = matOri;
-            }
+                propCloset.GetComponent<Renderer>().material = matOri;
         }
         else 
         {
