@@ -56,6 +56,16 @@ public class tablePuzzle : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
+            interact = false;
+            range = false;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
