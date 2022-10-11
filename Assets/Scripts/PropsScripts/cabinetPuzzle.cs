@@ -8,6 +8,7 @@ public class cabinetPuzzle : MonoBehaviour
     [SerializeField] public GameObject[] drawerObj;
     [SerializeField] public GameObject hiddenColFront;
     [SerializeField] public GameObject hiddenColBack;
+    [SerializeField] public GameObject hiddenColSide;
     public static bool switchFunction = false; //purple button switches function (Drawer Switch)
     private int index;
     private bool range, switchDraw, selectDraw;
@@ -104,6 +105,7 @@ public class cabinetPuzzle : MonoBehaviour
         {
             hiddenColFront.SetActive(true);
             hiddenColBack.SetActive(true);
+            hiddenColSide.SetActive(true);
 
             if (index == 1)
             {
@@ -147,6 +149,7 @@ public class cabinetPuzzle : MonoBehaviour
             range = false;
             hiddenColFront.SetActive(false);
             hiddenColBack.SetActive(false);
+            hiddenColSide.SetActive(false);
 
             drawerObj[0].GetComponent<FixedJoint>().connectedBody = null;
             drawerObj[2].GetComponent<FixedJoint>().connectedBody = null;

@@ -1434,7 +1434,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f9877cdeaf82a8c4fb0ce5a9307d452b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9877cdeaf82a8c4fb0ce5a9307d452b,
         type: 3}
@@ -4299,7 +4299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1594340466}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896855867
 GameObject:
@@ -5007,6 +5007,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998108836}
   m_Mesh: {fileID: 7875615444233757513, guid: 88c6a52bbb4dea941ad37e3640de3287, type: 3}
+--- !u!1 &1019206099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019206100}
+  - component: {fileID: 1019206101}
+  m_Layer: 0
+  m_Name: HiddenDrawerCollider(side)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1019206100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019206099}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -3.854, y: 0.866, z: -1.232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1594340466}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1019206101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019206099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6434856, y: 2, z: 2}
+  m_Center: {x: 0.2717428, y: 0, z: 0}
 --- !u!1 &1023683454
 GameObject:
   m_ObjectHideFlags: 0
@@ -7434,6 +7479,7 @@ Transform:
   - {fileID: 475176302}
   - {fileID: 1209094645}
   - {fileID: 878626910}
+  - {fileID: 1019206100}
   - {fileID: 894114167}
   - {fileID: 1683670618}
   - {fileID: 170685225}
@@ -7746,7 +7792,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 23ae645c4f5a19045a332bb33c7ea36c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 23ae645c4f5a19045a332bb33c7ea36c,
         type: 3}
@@ -8882,7 +8928,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f9877cdeaf82a8c4fb0ce5a9307d452b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9877cdeaf82a8c4fb0ce5a9307d452b,
         type: 3}
@@ -9356,6 +9402,7 @@ MonoBehaviour:
   - {fileID: 8778234387374468916}
   hiddenColFront: {fileID: 1209094644}
   hiddenColBack: {fileID: 878626909}
+  hiddenColSide: {fileID: 1019206099}
 --- !u!65 &919132149313038123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9367,8 +9414,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.568738, y: 1.3907508, z: 0.7}
-  m_Center: {x: 0.5843722, y: 0.19537544, z: -0.099999994}
+  m_Size: {x: 0.568738, y: 0.96839917, z: 0.7}
+  m_Center: {x: 0.5843722, y: -0.015800416, z: -0.099999994}
 --- !u!65 &919132149313038124
 BoxCollider:
   m_ObjectHideFlags: 0
