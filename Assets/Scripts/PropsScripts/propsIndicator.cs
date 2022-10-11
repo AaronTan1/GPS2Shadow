@@ -27,7 +27,8 @@ public class propsIndicator : MonoBehaviour
         }
         else if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
         {
-                propCloset.GetComponent<Renderer>().material = matSwapColor;
+            cabinetPuzzle.switchFunction = true;
+            propCloset.GetComponent<Renderer>().material = matSwapColor;
         }
 
     }

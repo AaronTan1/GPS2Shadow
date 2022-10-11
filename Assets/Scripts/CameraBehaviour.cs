@@ -24,7 +24,7 @@ public class CameraBehaviour : MonoBehaviour
             StartCoroutine(LerpFov(80));
             cm.m_Follow = alice3D;
             cm.LookAt = alice3D;
-        }else if (state == "3D" && playerCandleScript.restrictMode == false)
+        }else if (state == "3D" && playerCandleScript.restrictMode == false && cabinetPuzzle.switchFunction == false)
         {
             state = "2D";
             StartCoroutine(LerpFov(30));

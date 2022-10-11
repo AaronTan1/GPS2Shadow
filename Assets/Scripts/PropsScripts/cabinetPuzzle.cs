@@ -6,6 +6,8 @@ public class cabinetPuzzle : MonoBehaviour
 {
     [SerializeField] public Material matOri, matSwapColor;
     [SerializeField] public GameObject[] drawerObj;
+    [SerializeField] public GameObject hiddenColFront;
+    [SerializeField] public GameObject hiddenColBack;
     public static bool switchFunction = false; //purple button switches function (Drawer Switch)
     private int index;
     private bool range, switchDraw, selectDraw;
@@ -25,7 +27,7 @@ public class cabinetPuzzle : MonoBehaviour
         {
             Debug.Log("TEST");
             
-            if(index == 3)
+            if(index == 3) //don't change these ifs as the number times pressed may change as well (in-game)
             {
                 index = 1;
             }
@@ -60,7 +62,6 @@ public class cabinetPuzzle : MonoBehaviour
         if (range == false && playerCandleScript.restrictMode == false && switchFunction == false)
         {
             range = true;
-            switchFunction = true;
 
         }
 
@@ -101,11 +102,15 @@ public class cabinetPuzzle : MonoBehaviour
 
         if(other.tag == "Player" && selectDraw && range)
         {
-            if(index == 1)
+            hiddenColFront.SetActive(true);
+            hiddenColBack.SetActive(true);
+
+            if (index == 1)
             {
                 drawerObj[0].GetComponent<FixedJoint>().connectedBody = other.GetComponent<Rigidbody>();
                 drawerObj[2].GetComponent<FixedJoint>().connectedBody = null;
                 drawerObj[4].GetComponent<FixedJoint>().connectedBody = null;
+
             }
             else if(index == 2){
                 drawerObj[2].GetComponent<FixedJoint>().connectedBody = other.GetComponent<Rigidbody>();
@@ -116,10 +121,21 @@ public class cabinetPuzzle : MonoBehaviour
             {
                 drawerObj[4].GetComponent<FixedJoint>().connectedBody = other.GetComponent<Rigidbody>();
                 drawerObj[2].GetComponent<FixedJoint>().connectedBody = null;
-                drawerObj[4].GetComponent<FixedJoint>().connectedBody = null;
+                drawerObj[0].GetComponent<FixedJoint>().connectedBody = null;
             }
 
 
+        }
+        else if(other.tag == "Player" && selectDraw == false && range)
+        {
+            hiddenColFront.SetActive(false);
+            hiddenColBack.SetActive(false);
+
+            for (int i = 0; i < drawerObj.Length; i++)
+            {
+                if(i != 1 && i != 3 && i != 5)
+                drawerObj[i].GetComponent<FixedJoint>().connectedBody = null;
+            }
         }
     }
 
@@ -128,6 +144,9 @@ public class cabinetPuzzle : MonoBehaviour
         if(other.tag == "Player")
         {
             switchFunction = false;
+            range = false;
+            hiddenColFront.SetActive(false);
+            hiddenColBack.SetActive(false);
 
             drawerObj[0].GetComponent<FixedJoint>().connectedBody = null;
             drawerObj[2].GetComponent<FixedJoint>().connectedBody = null;
