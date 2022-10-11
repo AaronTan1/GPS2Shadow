@@ -6,9 +6,10 @@ using UnityEngine;
 public class StaticFakeShadow : MonoBehaviour
 {
     [SerializeField] Transform shadowTR;
-    
-    private Transform wallTR;
-    private Transform lightTR;
+
+    [Header("Wall and Light Ref")]
+    [SerializeField] Transform wallTR;
+    [SerializeField] Transform lightTR;
 
     [Tooltip("1 by default, 0.5 to offset it by 50%, 2 to 200%")]
     [Range(0.0f, 2.0f)]
@@ -21,8 +22,20 @@ public class StaticFakeShadow : MonoBehaviour
     [SerializeField] float yOffset = 0;
     public void CastFakeShadow(Transform[] trList)
     {
-        wallTR = trList[0];
-        lightTR = trList[1];
+        if(trList != null)
+        {
+            wallTR = trList[0];
+            lightTR = trList[1];
+        }
+        else
+        {
+            if(wallTR == null || lightTR == null)
+            {
+                Debug.LogWarning("Wall or Light reference not set");
+                return;
+            }
+        }
+        
 
 
         if (shadowTR == null)
