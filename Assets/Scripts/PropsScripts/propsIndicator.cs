@@ -8,6 +8,7 @@ public class propsIndicator : MonoBehaviour
     [SerializeField] public Material matOri;
     [SerializeField] public GameObject tempGameObj;
     [SerializeField] public GameObject propCloset;
+    [SerializeField] public GameObject uiGuide;
 
     private void OnTriggerStay(Collider other)
     {
@@ -27,6 +28,7 @@ public class propsIndicator : MonoBehaviour
         }
         else if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
         {
+            uiGuide.SetActive(true);
             cabinetPuzzle.switchFunction = true;
             propCloset.GetComponent<Renderer>().material = matSwapColor;
         }
@@ -44,7 +46,8 @@ public class propsIndicator : MonoBehaviour
         }
         else if(this.name == "Prop_closetA")
         {
-                propCloset.GetComponent<Renderer>().material = matOri;
+            uiGuide.SetActive(false);
+            propCloset.GetComponent<Renderer>().material = matOri;
         }
         else 
         {

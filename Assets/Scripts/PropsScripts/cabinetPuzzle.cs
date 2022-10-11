@@ -132,6 +132,7 @@ public class cabinetPuzzle : MonoBehaviour
         {
             hiddenColFront.SetActive(false);
             hiddenColBack.SetActive(false);
+            hiddenColSide.SetActive(false);
 
             for (int i = 0; i < drawerObj.Length; i++)
             {
