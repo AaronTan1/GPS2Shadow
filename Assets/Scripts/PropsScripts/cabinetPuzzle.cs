@@ -137,7 +137,7 @@ public class cabinetPuzzle : MonoBehaviour
             for (int i = 0; i < drawerObj.Length; i++)
             {
                 if(i != 1 && i != 3 && i != 5)
-                drawerObj[i].GetComponent<FixedJoint>().connectedBody = null;
+                    drawerObj[i].GetComponent<FixedJoint>().connectedBody = null;
             }
         }
     }

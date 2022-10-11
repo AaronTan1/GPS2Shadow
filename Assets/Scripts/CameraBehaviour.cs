@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraBehaviour : MonoBehaviour
 {
     private CinemachineVirtualCamera cm;
+    private CinemachineConfiner cmConfiner;
+    private CinemachineTrackedDolly dolly;
+    
     private string state = "3D";
     [SerializeField] private Transform alice3D;
     [SerializeField] private Transform alice2D;
     [SerializeField] private Button button;
+    
     private void Awake()
     {
         cm = GetComponent<CinemachineVirtualCamera>();
+        cmConfiner = GetComponent<CinemachineConfiner>();
+        dolly = cm.GetCinemachineComponent<CinemachineTrackedDolly>();
         button.onClick.AddListener(SwapTarget);
     }
 
@@ -33,6 +41,13 @@ public class CameraBehaviour : MonoBehaviour
         }
     }
 
+    public void SwapRooms(string roomID)
+    {
+        GameObject roomCam = GameObject.Find(roomID);
+        dolly.m_Path = roomCam.GetComponentInChildren<CinemachineSmoothPath>();
+        cmConfiner.m_BoundingVolume = roomCam.GetComponentInChildren<BoxCollider>();
+    }
+    
     IEnumerator LerpFov(float target)
     {
         float t = 0f;
@@ -44,6 +59,10 @@ public class CameraBehaviour : MonoBehaviour
             yield return null;
         }
         cm.m_Lens.FieldOfView = target;
+    }
+
+    private void Update()
+    {
 
     }
 }
