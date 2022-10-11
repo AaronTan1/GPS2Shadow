@@ -48,6 +48,15 @@ public class RefreshSSEditor : Editor
         }
         GUILayout.EndHorizontal();
 
+        GUILayout.Space(10);
+        GUILayout.Label(" [ Specific Obj Shadow Generation ] ");
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Regenerate Shadow for Specified", "Replace old shadow for specified object, add shadow if it has none"));
+        if (GUILayout.Button(new GUIContent("Generate", "Replace old shadow for specified object, add shadow if it has none")))
+        {
+            refreshSS.PreshadowGenerationCheck(null, true, true);
+        }
+        GUILayout.EndHorizontal();
 
         GUILayout.Space(30);
         GUILayout.BeginHorizontal();
