@@ -1421,7 +1421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 0}
-  sizePercentageOffset: 1
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1001 &170685224
@@ -1499,155 +1500,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 170685224}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &202375176
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 202375177}
-  - component: {fileID: 202375179}
-  - component: {fileID: 202375178}
-  m_Layer: 5
-  m_Name: Puzzle Guide UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &202375177
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202375176}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 205495851}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -40, y: 150}
-  m_SizeDelta: {x: 100, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &202375178
+--- !u!114 &202375178 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 202375178, guid: c60c75f84a963cf478cede640461801f,
+    type: 3}
+  m_PrefabInstance: {fileID: 482448789509813441}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202375176}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Double Tap Yellow Button = Switch Drawers
-
-    Tap Purple Button = Interact
-    Drawers'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: -220.47375, y: 0, z: -353.43457, w: 216.2424}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &202375179
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202375176}
-  m_CullTransparentMesh: 1
 --- !u!1 &203389848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3f9e2ee81d4b5e4190395d733682522,
     type: 3}
   m_PrefabInstance: {fileID: 1345324028}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &205495851 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 482448788828842242, guid: c60c75f84a963cf478cede640461801f,
-    type: 3}
-  m_PrefabInstance: {fileID: 482448789509813441}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &234424001 stripped
 Transform:
@@ -1920,7 +1789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 422381710}
-  sizePercentageOffset: 0.2
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1 &363715909
@@ -2253,7 +2123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 2027753689}
-  sizePercentageOffset: 0.5
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: -0.25
   yOffset: 0
 --- !u!1 &379612691
@@ -3619,7 +3490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 48809076}
-  sizePercentageOffset: 1
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1 &695732015
@@ -4037,7 +3909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1611537677}
-  sizePercentageOffset: 0.5
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1 &761551909
@@ -4240,7 +4113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1023683455}
-  sizePercentageOffset: 0.7
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1 &839644874
@@ -5787,7 +5661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 99523734}
-  sizePercentageOffset: 0.45
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1 &1121215115
@@ -6653,7 +6528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 695732016}
-  sizePercentageOffset: 1
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1001 &1345324028
@@ -6877,7 +6753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 153501534}
-  sizePercentageOffset: 0.5
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1001 &1386520511
@@ -6979,7 +6856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1995468462}
-  sizePercentageOffset: 1
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1 &1396794125 stripped
@@ -7072,6 +6950,7 @@ MonoBehaviour:
     rgba: 0
   shadowMaterial: {fileID: 2100000, guid: 3340f921fb8538e458955a8aedcb689f, type: 2}
   specifiedObj: {fileID: 4809888319653746146}
+  allowDeleteOldShadow: 0
 --- !u!1001 &1543439952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7259,7 +7138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 1121215116}
-  sizePercentageOffset: 1
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!65 &1543439957
@@ -7336,7 +7216,7 @@ MonoBehaviour:
   matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
   tempGameObj: {fileID: 0}
   propCloset: {fileID: 0}
-  uiGuide: {fileID: 0}
+  uiGuide: {fileID: 202375178}
 --- !u!1 &1549551313
 GameObject:
   m_ObjectHideFlags: 0
@@ -9211,7 +9091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTR: {fileID: 0}
-  sizePercentageOffset: 1
+  xSizePercentageOffset: 1
+  ySizePercentageOffset: 1
   xOffset: 0
   yOffset: 0
 --- !u!1001 &482448789509813441
@@ -9326,30 +9207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 482448788828842243, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 482448788828842366, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
@@ -9376,76 +9237,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 919132149313038122}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ToggleInteract
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToggleJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: toggleHook
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: toggleSwitchDraw
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: tablePuzzle, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: characterControl, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: cabinetPuzzle, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: cabinetPuzzle, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9456,26 +9247,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 919132149313038122}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: toggleSelectDraw
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: cabinetPuzzle, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60c75f84a963cf478cede640461801f, type: 3}
 --- !u!4 &543450653582802323
@@ -9585,7 +9356,7 @@ MonoBehaviour:
   matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
   tempGameObj: {fileID: 0}
   propCloset: {fileID: 7742780737449273844}
-  uiGuide: {fileID: 202375176}
+  uiGuide: {fileID: 202375178}
 --- !u!4 &1522424883042393404
 Transform:
   m_ObjectHideFlags: 0
@@ -10013,6 +9784,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1318074801766194842, guid: 26559f79cd48a334f8175d6f5e17ccda,
+        type: 3}
+      propertyPath: uiGuide
+      value: 
+      objectReference: {fileID: 202375178}
     - target: {fileID: 6852294842063085552, guid: 26559f79cd48a334f8175d6f5e17ccda,
         type: 3}
       propertyPath: m_Name

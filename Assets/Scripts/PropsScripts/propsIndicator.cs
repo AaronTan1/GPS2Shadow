@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class propsIndicator : MonoBehaviour
 {
@@ -8,7 +9,27 @@ public class propsIndicator : MonoBehaviour
     [SerializeField] public Material matOri;
     [SerializeField] public GameObject tempGameObj;
     [SerializeField] public GameObject propCloset;
-    [SerializeField] public GameObject uiGuide;
+    [SerializeField] public TMP_Text uiGuide;
+    private Color aColor, vColor;
+    private void Start()
+    {
+        aColor.a = 0.0f;
+        vColor.a = 1.0f;
+
+        if(this.name == "Prop_closetA")
+        {
+            uiGuide = uiGuide.GetComponent<TMP_Text>();
+        }
+        uiGuide.color = aColor;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
+        {
+            uiGuide.color = vColor;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -28,7 +49,6 @@ public class propsIndicator : MonoBehaviour
         }
         else if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
         {
-            uiGuide.SetActive(true);
             cabinetPuzzle.switchFunction = true;
             propCloset.GetComponent<Renderer>().material = matSwapColor;
         }
@@ -46,7 +66,7 @@ public class propsIndicator : MonoBehaviour
         }
         else if(this.name == "Prop_closetA")
         {
-            uiGuide.SetActive(false);
+            uiGuide.color = aColor;
             propCloset.GetComponent<Renderer>().material = matOri;
         }
         else 
