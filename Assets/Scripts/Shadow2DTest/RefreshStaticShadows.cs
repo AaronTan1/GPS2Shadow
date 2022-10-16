@@ -180,20 +180,16 @@ public class RefreshStaticShadows : MonoBehaviour
 
         //Because of rotation, Y and Z needs to swap as the generationCam only checks the height to resize the camera the Y axis, if X is rotated then Z would be the new Y axis
         // !!! Need to check if Horizontal/width is larger than the screen size as well !!! [WIP]
-        if (thisChild.rotation.x != 0)
+        if (thisChild.rotation.x == 0)
         {
-            generationCam.orthographicSize = maxY;
-        }
-        else if (thisChild.name == "alice")//can be removed
-        {
-            generationCam.orthographicSize = maxZ * 2;
+            generationCam.orthographicSize = maxY * 2;
         }
         else
         {
             generationCam.orthographicSize = maxZ * 2;
         }
 
-
+        Debug.Log(thisChild.rotation.x);
         // - Check for static shadow script [Can remove the script later if not needed]
         StaticFakeShadow sfs = thisChild.gameObject.GetComponent<StaticFakeShadow>();
         if (sfs == null)
