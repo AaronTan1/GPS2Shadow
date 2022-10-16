@@ -44,7 +44,7 @@ public class tablePuzzle : MonoBehaviour
             if(this.gameObject.GetComponent<FixedJoint>().connectedBody = other.GetComponent<Rigidbody>())
             {
                 pullLimit.SetActive(true);
-                tableShadow.transform.localScale = new Vector3((tableShadow.transform.position.x - gameObject.transform.position.z) - 0.2f, (tableShadow.transform.position.y - gameObject.transform.position.z), 0.0f);
+                tableShadow.transform.localScale = new Vector3((tableShadow.transform.position.x - gameObject.transform.position.z) - 0.2f, (tableShadow.transform.position.y - gameObject.transform.position.z), 4.895162f);
 
             }
         }
