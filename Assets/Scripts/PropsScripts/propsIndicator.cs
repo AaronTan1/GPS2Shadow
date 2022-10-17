@@ -25,29 +25,29 @@ public class propsIndicator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
-        {
-            uiGuide.color = vColor;
-        }
+       if (other.CompareTag("Player") && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
+       {
+           uiGuide.color = vColor;
+       }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && this.name == "Prop_tableA" && playerCandleScript.restrictMode == false) //restricts range detection after illumination
+        if (other.CompareTag("Player") && this.name == "Prop_tableA" && playerCandleScript.restrictMode == false) //restricts range detection after illumination
         {
             for (int i = 0; i < gameObject.transform.childCount; i++)
             {
                 this.transform.GetChild(i).GetComponent<Renderer>().material = matSwapColor;
             }
         }
-        else if (other.tag == "Player" && this.name == "stationaryCandle")
+        else if (other.CompareTag("Player") && this.name == "stationaryCandle")
         {
             for (int i = 0; i < tempGameObj.transform.childCount; i++)
             {
                 tempGameObj.transform.GetChild(i).GetComponent<Renderer>().material = matSwapColor;
             }
         }
-        else if (other.tag == "Player" && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
+        else if (other.CompareTag("Player") && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
         {
             cabinetPuzzle.switchFunction = true;
             propCloset.GetComponent<Renderer>().material = matSwapColor;
