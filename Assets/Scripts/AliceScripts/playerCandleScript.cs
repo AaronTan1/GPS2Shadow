@@ -73,9 +73,10 @@ public class playerCandleScript : MonoBehaviour
                 childOfChild = placeCandle[i].transform.GetChild(0).gameObject;
                 lightOfChild = childOfChild.GetComponent(typeof(Light)) as Light;
 
-                for (int x = 0; x < shadowProps.Length; x++) //Shadow Objects Revealed
+                foreach (var t in shadowProps)
                 {
-                    shadowProps[x].SetActive(true);
+                    if (t != null)
+                        t.SetActive(true);
                 }
                 restrictMode = false;              
                 /*childIlluminate = true;*/

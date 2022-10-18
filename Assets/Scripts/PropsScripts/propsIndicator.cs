@@ -22,7 +22,7 @@ public class propsIndicator : MonoBehaviour
         }
         uiGuide.color = aColor;
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
        if (other.CompareTag("Player") && this.name == "Prop_closetA" && playerCandleScript.restrictMode == false)
