@@ -58,6 +58,15 @@ public class RefreshSSEditor : Editor
         }
         GUILayout.EndHorizontal();
 
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Part by Part Gen", "Part by part generation for all children mesh"));
+        if (GUILayout.Button(new GUIContent("Generate", "Part by part generation for all children mesh")))
+        {
+            refreshSS.GeneratePartByPart();
+        }
+        GUILayout.EndHorizontal();
+
+
         GUILayout.Space(30);
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Debug Button"))
