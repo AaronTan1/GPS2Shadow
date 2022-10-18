@@ -31,8 +31,11 @@ public class RefreshStaticShadows : MonoBehaviour
     [SerializeField] Color32 shadowColor;
     [SerializeField] Material shadowMaterial;//Somewhat solves additive alpha blending
 
-    [Header("Shadow Generation for specified object (Not available yet)")]
+    [Header("Shadow Generation for specified object (Maybe buggy)")]
     [SerializeField] GameObject specifiedObj;
+
+    [SerializeField] List<Transform> partsList;
+    [SerializeField] bool generateForPartsSeperately;
 
     [Header("Shadow Regen Safety Lock")]
     [Tooltip("Check if you want to actually regenerate all shadows and delete old ones, keep it unchecked if you're afraid of accidentally regenerating every shadow")]
@@ -41,6 +44,8 @@ public class RefreshStaticShadows : MonoBehaviour
     private Vector3 subcamPosition;
     private int textureFailsafeID = 1;
     private string spritePath;
+
+#region BasicFunctions
     public void RefreshAllStaticShadows(bool deleteOldShadows)
     {
         deleteOldShadows = allowDeleteOldShadow ? (deleteOldShadows ? true : false) : false;       
@@ -215,6 +220,104 @@ public class RefreshStaticShadows : MonoBehaviour
 
         
     }
+
+    public void GeneratePartByPart() // Special shadow generation part by part, hence was done in a seperate function
+    {
+        if (partsList.Count <= 0)
+        {
+            Debug.LogWarning("No Specified Object Given");
+            return;
+        }
+
+        float maxX = 0f;
+        float maxY = 0f;
+        float maxZ = 0f;
+
+        foreach (Transform ctr in partsList)
+        {
+            MeshFilter thisMeshFilter = ctr.GetComponent<MeshFilter>();
+            if (!(thisMeshFilter == null))
+            {
+
+                Mesh thisMesh = thisMeshFilter.sharedMesh;
+                Vector3 thisBoundSize = thisMesh.bounds.size;
+                if (thisBoundSize.x > maxX)
+                {
+                    maxX = thisBoundSize.x;
+                }
+                if (thisBoundSize.y > maxY)
+                {
+                    maxY = thisBoundSize.y;
+                }
+                if (thisBoundSize.z > maxZ)
+                {
+                    maxZ = thisBoundSize.z;
+                }
+            }
+        }
+
+        generationCam.orthographicSize = maxY * 2;
+
+        foreach (Transform part in partsList)
+        {
+            // *** Note to self: tempObj is the object used to screenshot and converted into 2D sprite
+            GameObject tempObj = Instantiate(part.gameObject, subcamPosition, part.rotation);
+            Transform tempTR = tempObj.transform;
+
+            tempTR.parent = generationCam.transform;
+            tempTR.localScale = new Vector3(1, 1, 1);
+            tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
+            if (part.rotation.eulerAngles.x == 270)
+            {
+                tempTR.Rotate(0, 0, 180);
+            }
+            else
+            {
+                tempTR.Rotate(0, 180, 0);
+            }
+
+
+            //Disable children if there are parts that are also children
+            if (tempTR.childCount > 0)
+            {
+                foreach(Transform childOfthis in tempTR.Cast<Transform>().ToArray())
+                {
+                    childOfthis.gameObject.SetActive(false);
+                }
+            }
+
+            //Shadow prefab generation
+            GameObject newShadow = Instantiate(staticShadowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            newShadow.name = "Shadow";
+            newShadow.transform.parent = part;
+            newShadow.transform.SetAsFirstSibling();
+            foreach (Transform camChild in generationCam.transform)
+            {
+                DestroyImmediate(camChild.gameObject);
+            }
+
+            StaticFakeShadow sfs = part.gameObject.GetComponent<StaticFakeShadow>();
+            if (sfs == null)
+            {
+                part.gameObject.AddComponent<StaticFakeShadow>();
+            }
+
+
+            
+
+            // - Generate Shadow
+            string permSpritePath = $"Assets/Resources/GeneratedShadowTextures/PermanentSprites";
+            GenerateShadow(part.name, newShadow.GetComponent<SpriteRenderer>(), generationCam.orthographicSize, permSpritePath);
+            part.GetComponent<StaticFakeShadow>().CastFakeShadow(new Transform[] { initialWallPosition, initialLightPosition });
+        }
+        
+    }
+
+
+
+#endregion
+
+
 
     // - Generate Shadow function
     public void GenerateShadow(string parentName, SpriteRenderer tempSR, float shadowSizeOffset, string specifiedSpritePath = null)
