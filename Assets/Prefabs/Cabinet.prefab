@@ -1164,7 +1164,6 @@ GameObject:
   - component: {fileID: 5585849314954334479}
   - component: {fileID: 5585849314954334478}
   - component: {fileID: 5585849314954334473}
-  - component: {fileID: 5585849314954334472}
   m_Layer: 7
   m_Name: Cabinet
   m_TagString: Untagged
@@ -1261,23 +1260,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.50168437, y: 0.887733, z: 0.7250708}
   m_Center: {x: 0.039773464, y: -0.027173638, z: -0.11253542}
---- !u!114 &5585849314954334472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5585849314954334476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cfa68e15cf212847aef52ebc12b505c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  matSwapColor: {fileID: 2100000, guid: 35daf0b4b0fa9c845b9f77d486ba363f, type: 2}
-  matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
-  tempGameObj: {fileID: 0}
-  propCloset: {fileID: 3041732416891854801}
-  uiGuide: {fileID: 0}
 --- !u!1 &7166737188295519426
 GameObject:
   m_ObjectHideFlags: 0

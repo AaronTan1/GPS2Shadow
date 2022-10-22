@@ -11,7 +11,7 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
         Drawer1 = 1, Drawer2 = 2, Drawer3 = 3
     }
     
-    private int index = (int)Drawer.Drawer1;
+    private int index = 0;
     private bool inRange;
     
     private void Awake()
@@ -23,11 +23,26 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     public void SwitchDrawers()
     {
         if (!inRange) return;
+
+        if (index < 3)
+            index++;
+        else
+            index = 1;
+        
+        HighlightDrawer();
     }
 
-    private void SelectDrawers()
+    public void SelectDrawers()
     {
         if (!inRange) return;
+    }
+
+    private void HighlightDrawer()
+    {
+        foreach (var mesh in renderers)
+        {
+            mesh.material = mesh.transform.parent.parent.name == Enum.GetName(typeof(Drawer), index) ? PuzzleManager.Instance.ChangeMaterial() : PuzzleManager.Instance.ResetMaterial();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,5 +68,7 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
         
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ResetMaterial();
+
+        index = 0;
     }
 }

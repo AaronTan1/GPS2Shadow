@@ -3445,7 +3445,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.436447, y: 4.436447}
+    oldSize: {x: 4.2555876, y: 4.2555876}
     newSize: {x: 4.436447, y: 4.436447}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8192,11 +8192,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5585849314954334472, guid: c76748405fa1fa348bb2220aa03d2073,
-        type: 3}
-      propertyPath: uiGuide
-      value: 
-      objectReference: {fileID: 16118092}
     - target: {fileID: 5585849314954334476, guid: c76748405fa1fa348bb2220aa03d2073,
         type: 3}
       propertyPath: m_Name
@@ -8218,7 +8213,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1209094644}
     m_RemovedComponents:
-    - {fileID: 5585849314954334472, guid: c76748405fa1fa348bb2220aa03d2073, type: 3}
     - {fileID: 5585849314954334479, guid: c76748405fa1fa348bb2220aa03d2073, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c76748405fa1fa348bb2220aa03d2073, type: 3}
 --- !u!1 &1194230029
