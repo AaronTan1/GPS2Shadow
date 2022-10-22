@@ -13,6 +13,7 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     
     private int index = 0;
     private bool inRange;
+    private bool inSelection;
     
     private void Awake()
     {

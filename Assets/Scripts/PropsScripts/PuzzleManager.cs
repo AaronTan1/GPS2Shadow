@@ -5,8 +5,8 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     private static PuzzleManager _instance;
-    public static PuzzleManager Instance { get { return _instance; } }
-    
+    public static PuzzleManager Instance => _instance;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

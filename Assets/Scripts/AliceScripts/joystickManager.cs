@@ -6,11 +6,22 @@ using UnityEngine.EventSystems;
 
 public class joystickManager : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    private static joystickManager _instance;
+    public static joystickManager Instance => _instance;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+            Destroy(gameObject);
+        else 
+            _instance = this;
+    }
+    
     private Image joystickImgBg;
     private Image joystickImg;
     private Vector2 posInput;
 
-    void Start()
+    private void Start()
     {
         joystickImgBg = GetComponent<Image>();
         joystickImg = transform.GetChild(0).GetComponent<Image>();
@@ -18,21 +29,21 @@ public class joystickManager : MonoBehaviour, IDragHandler, IPointerDownHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickImgBg.rectTransform, eventData.position, eventData.pressEventCamera, out posInput))
-        {
-            //solved problem of fast movement speed : dividing the position of the drag by the size of the img
-            var sizeDelta = joystickImgBg.rectTransform.sizeDelta;
-            posInput.x /= (sizeDelta.x);  
-            posInput.y /= (sizeDelta.y);
-            /*Debug.Log(posInput.x.ToString() + "/" + posInput.y.ToString());*/ //displays coordinate val
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickImgBg.rectTransform, eventData.position,
+                eventData.pressEventCamera, out posInput)) return;
+        
+        //solved problem of fast movement speed : dividing the position of the drag by the size of the img
+        var sizeDelta = joystickImgBg.rectTransform.sizeDelta;
+        posInput.x /= (sizeDelta.x);  
+        posInput.y /= (sizeDelta.y);
+        /*Debug.Log(posInput.x.ToString() + "/" + posInput.y.ToString());*/ //displays coordinate val
 
-            // normalize
-            if (posInput.magnitude > 1.0f)
-                posInput = posInput.normalized;
+        // normalize
+        if (posInput.magnitude > 1.0f)
+            posInput = posInput.normalized;
 
-            //joystick move
-            joystickImg.rectTransform.anchoredPosition = new Vector2(posInput.x * (sizeDelta.x / 4), posInput.y * (sizeDelta.y / 4));
-        }
+        //joystick move
+        joystickImg.rectTransform.anchoredPosition = new Vector2(posInput.x * (sizeDelta.x / 4), posInput.y * (sizeDelta.y / 4));
     }
     
     public void OnPointerDown(PointerEventData eventData)
@@ -46,20 +57,14 @@ public class joystickManager : MonoBehaviour, IDragHandler, IPointerDownHandler,
         joystickImg.rectTransform.anchoredPosition = Vector2.zero;
     }
 
-    public float inputHorizontal()
+    public float InputHorizontal()
     {
-        if (posInput.x != 0)
-            return posInput.x;
-        else
-            return Input.GetAxis("Horizontal");
+        return posInput.x != 0 ? posInput.x : Input.GetAxis("Horizontal");
     }
 
-    public float inputVertical()
+    public float InputVertical()
     {
-        if (posInput.x != 0)
-            return posInput.y;
-        else
-            return Input.GetAxis("Vertical");
+        return posInput.x != 0 ? posInput.y : Input.GetAxis("Vertical");
     }
 
 }

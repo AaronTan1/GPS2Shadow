@@ -63,8 +63,8 @@ public class characterControl : MonoBehaviour
         
         Transform camTransform = cam.transform;
         
-        inputX = joystickManger.inputHorizontal();
-        inputY = joystickManger.inputVertical();
+        inputX = joystickManger.InputHorizontal();
+        inputY = joystickManger.InputVertical();
 
         if (switchMode == false)
         {
