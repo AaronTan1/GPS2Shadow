@@ -6,6 +6,7 @@ using UnityEngine;
 public class PuzzleHandler_Cabinet : MonoBehaviour
 {
     private MeshRenderer[] renderers;
+    private PuzzleHandler_PushPull[] handlers;
     private enum Drawer
     {
         Drawer1 = 1, Drawer2 = 2, Drawer3 = 3
@@ -19,11 +20,13 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     {
         //Cache all renderer components
         renderers = GetComponentsInChildren<MeshRenderer>();
+        handlers = GetComponentsInChildren<PuzzleHandler_PushPull>();
     }
 
     public void SwitchDrawers()
     {
         if (!inRange) return;
+        if (inSelection) return;
 
         if (index < 3)
             index++;
@@ -36,6 +39,18 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     public void SelectDrawers()
     {
         if (!inRange) return;
+
+        switch (inSelection)
+        {
+            case false:
+                inSelection = true;
+                handlers[index - 1].isActive = true;
+                break;
+            case true:
+                inSelection = false;
+                handlers[index - 1].isActive = false;
+                break;
+        }
     }
 
     private void HighlightDrawer()

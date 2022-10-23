@@ -1,27 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleHandler_PushPull : MonoBehaviour
 {
-    private Transform lookAtObject;
     private Vector3 initialPosition;
     private Vector3 endPosition;
-
+    [SerializeField] private Vector3 moveDelta;
+    
     private bool isVertical;
     private float input;
+    private float moveSpeed = 1f;
+
+    [HideInInspector] public bool isActive;
+
+    private void Start()
+    {
+        initialPosition = transform.localPosition;
+        endPosition = initialPosition + moveDelta;
+        Debug.Log(initialPosition);
+        Debug.Log(endPosition);
+    }
 
     void Update()
     {
+        if (!isActive) return;
         input = !isVertical ? joystickManager.Instance.InputHorizontal() : joystickManager.Instance.InputVertical();
 
         switch (input)
         {
             case > 0:
-                MoveObject(endPosition, 1);
+                MoveObject(endPosition, moveSpeed);
                 break;
             case < 0:
-                MoveObject(initialPosition, 1);
+                MoveObject(initialPosition, moveSpeed);
                 break;
         }
     }
@@ -29,19 +42,29 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     void MoveObject(Vector3 pos, float t)
     {
         StopAllCoroutines();
-        StartCoroutine(LerpPosition(pos,t));
+        StartCoroutine(LerpPosition(pos,CalculateMoveTime(pos)));
+    }
+
+    private float CalculateMoveTime(Vector3 pos)
+    {
+        var totalDistance = Vector3.Distance(endPosition, initialPosition);
+        var currentDistance = Vector3.Distance(transform.localPosition, pos);
+        if (Math.Abs(currentDistance - totalDistance) < 0.01) return moveSpeed;
+        
+        var t = currentDistance/totalDistance * moveSpeed;
+        return t;
     }
     
     IEnumerator LerpPosition(Vector3 targetPosition, float duration)
     {
         float time = 0;
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = transform.localPosition;
         while (time < duration)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            transform.localPosition = Vector3.Lerp(startPosition, targetPosition, time / duration);
             time += Time.deltaTime;
             yield return null;
         }
-        transform.position = targetPosition;
+        transform.localPosition = targetPosition;
     }
 }
