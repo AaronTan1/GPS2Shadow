@@ -16,6 +16,10 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     private bool inRange;
     private bool inSelection;
     
+    private Transform player;
+    [SerializeField] private Transform standWaypoint;
+    private bool isMoving;
+    
     private void Awake()
     {
         //Cache all renderer components
@@ -39,18 +43,26 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     public void SelectDrawers()
     {
         if (!inRange) return;
-
+        if (index == 0) return;
+        
         switch (inSelection)
         {
             case false:
                 inSelection = true;
                 handlers[index - 1].isActive = true;
+                MovePlayer();
                 break;
             case true:
                 inSelection = false;
                 handlers[index - 1].isActive = false;
                 break;
         }
+    }
+
+    private void MovePlayer()
+    {
+        if (isMoving) return;
+        StartCoroutine(LerpPlayer(standWaypoint.position, 1f));
     }
 
     private void HighlightDrawer()
@@ -64,6 +76,8 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;
+
+        if (!player) player = other.transform;
         
         inRange = true;
         
@@ -86,5 +100,22 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
             mesh.material = PuzzleManager.Instance.ResetMaterial();
 
         index = 0;
+    }
+    
+    IEnumerator LerpPlayer(Vector3 targetPosition, float duration)
+    {
+        isMoving = true;
+        float time = 0;
+        var objToLookAt = handlers[index - 1].transform.position;
+        Vector3 startPosition = player.position;
+        while (time < duration)
+        {
+            //player.LookAt(new Vector3(objToLookAt.x, player.position.y, objToLookAt.z), Vector3.forward);
+            player.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        player.position = targetPosition;
+        isMoving = false;
     }
 }

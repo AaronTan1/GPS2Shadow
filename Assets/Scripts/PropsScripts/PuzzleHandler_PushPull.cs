@@ -14,7 +14,9 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     private float moveSpeed = 1f;
 
     [HideInInspector] public bool isActive;
-
+    private float inputOld;
+    private float inputNew;
+    
     private void Start()
     {
         initialPosition = transform.localPosition;
@@ -28,6 +30,12 @@ public class PuzzleHandler_PushPull : MonoBehaviour
         if (!isActive) return;
         input = !isVertical ? joystickManager.Instance.InputHorizontal() : joystickManager.Instance.InputVertical();
 
+        if (input != 0)
+        {
+            inputOld = inputNew;
+            inputNew = input;
+        }
+        
         switch (input)
         {
             case > 0:
@@ -41,7 +49,8 @@ public class PuzzleHandler_PushPull : MonoBehaviour
 
     void MoveObject(Vector3 pos, float t)
     {
-        StopAllCoroutines();
+        if (inputOld * inputNew < 0)
+            StopAllCoroutines();
         StartCoroutine(LerpPosition(pos,CalculateMoveTime(pos)));
     }
 
