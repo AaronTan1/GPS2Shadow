@@ -21,10 +21,10 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        moveSpeed = 14.5f;
+        moveSpeed = 8.5f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
-        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         cam = Camera.main;
     }
 
