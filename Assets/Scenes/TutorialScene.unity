@@ -3240,6 +3240,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3551014320075653433}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &246605893
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246605884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8783aa5df684094999f96b2f0d781bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &292498176
 GameObject:
   m_ObjectHideFlags: 0
@@ -15859,6 +15879,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2010839731}
     m_Modifications:
+    - target: {fileID: 246605889, guid: acb855d02761a0a4eb9345f9c4b5fb06, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1035851
+      objectReference: {fileID: 0}
+    - target: {fileID: 246605889, guid: acb855d02761a0a4eb9345f9c4b5fb06, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.030000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 246605889, guid: acb855d02761a0a4eb9345f9c4b5fb06, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.048104107
+      objectReference: {fileID: 0}
+    - target: {fileID: 246605894, guid: acb855d02761a0a4eb9345f9c4b5fb06, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 246605894, guid: acb855d02761a0a4eb9345f9c4b5fb06, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTiling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712776, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
       propertyPath: m_Name
@@ -15869,6 +15909,47 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6363636
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.6387608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2037632405, guid: 49f6e4edc8ffa6449ae97aadfc0e705e,
+        type: 3}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_SpriteTileMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551014321009712778, guid: acb855d02761a0a4eb9345f9c4b5fb06,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
       propertyPath: m_RootOrder
@@ -15877,7 +15958,7 @@ PrefabInstance:
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.81
+      value: -7.765
       objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
