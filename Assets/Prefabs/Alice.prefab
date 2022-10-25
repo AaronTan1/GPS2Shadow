@@ -1693,7 +1693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6474821511897259466}
-  - component: {fileID: 6474821511897259465}
+  - component: {fileID: 7131906593192243604}
   - component: {fileID: 1683003549}
   - component: {fileID: 7600503435390923014}
   m_Layer: 0
@@ -1720,7 +1720,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6474821511897259465
+--- !u!65 &7131906593192243604
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1731,8 +1731,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.630266, y: 0.9346479, z: 0.515219}
-  m_Center: {x: 0.00013297796, y: 0.086524844, z: 0.022784233}
+  m_Size: {x: 0.5720217, y: 0.9092848, z: 0.5012481}
+  m_Center: {x: 0.0042790174, y: 0.113282055, z: 0.008968949}
 --- !u!114 &1683003549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,10 +1758,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  shadowDrawers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
