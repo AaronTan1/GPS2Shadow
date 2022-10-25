@@ -9,7 +9,7 @@ public class CameraBehaviour : MonoBehaviour
 {
     private CinemachineVirtualCamera cm;
     private CinemachineConfiner cmConfiner;
-    private CinemachineTrackedDolly dolly;
+    private CinemachineTrackedDolly dolly; 
     
     private string state = "3D";
     [SerializeField] private Transform alice3D;
@@ -66,8 +66,5 @@ public class CameraBehaviour : MonoBehaviour
         cm.m_Lens.FieldOfView = target;
     }
 
-    private void Update()
-    {
 
-    }
 }
