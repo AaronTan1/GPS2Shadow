@@ -13,10 +13,15 @@ public class ChandelierBehaviour : MonoBehaviour
 
     private bool isSwingingToRight = true;
     private bool stopSwing = true;
+
+    Coroutine swingCr = null;
     public void ShakeChandelierRemote()
-    {
-        stopSwing = false;
-        StartCoroutine(ShakeChandelier(shakeAngle / 2, shakeTimePerInterval / 2, false));
+    {       
+        if(swingCr == null)
+        {
+            stopSwing = false;
+            swingCr = StartCoroutine(ShakeChandelier(shakeAngle / 2, shakeTimePerInterval / 2, false));
+        }      
     }
 
     public void StopChandelier()
@@ -38,17 +43,21 @@ public class ChandelierBehaviour : MonoBehaviour
             localFrame--;
             yield return new WaitForSeconds(durSplit);
         }
-        if (breakThisIteration) yield break;
-
-
-        if (isSwingingToRight)
+        if (breakThisIteration)
         {
-            StartCoroutine(ShakeChandelier(stopSwing ? -shakeAngle / 2 : -shakeAngle, shakeTimePerInterval, stopSwing ? true : false));
-            isSwingingToRight = stopSwing ? true : false;
+            swingCr = null; 
+            yield break;
+        }
+
+
+            if (isSwingingToRight)
+        {
+            swingCr = StartCoroutine(ShakeChandelier(stopSwing ? -shakeAngle / 2 : -shakeAngle, shakeTimePerInterval, stopSwing));
+            isSwingingToRight = stopSwing;
         }
         else
         {
-            StartCoroutine(ShakeChandelier(stopSwing ? shakeAngle / 2 : shakeAngle, shakeTimePerInterval, stopSwing ? true : false));
+            swingCr = StartCoroutine(ShakeChandelier(stopSwing ? shakeAngle / 2 : shakeAngle, shakeTimePerInterval, stopSwing));
             isSwingingToRight = true;
         }
         
