@@ -6,8 +6,7 @@ public class characterControl : MonoBehaviour
 {
     [SerializeField] GameObject Player;
     [SerializeField] GameObject PlayerShadow; // all shadows gameObj
-    public static bool switchMode; //true = shadowRealm, false = 3d
-    public static bool isGrounded;
+    private static bool switchMode; //true = shadowRealm, false = 3d
     private Vector3 jump;
     private float jumpForce = 1.7f;
     private bool jumpDelay;
