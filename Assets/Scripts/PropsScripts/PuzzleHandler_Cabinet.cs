@@ -13,8 +13,9 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     }
     
     private int index = 0;
-    private bool inRange;
-    private bool inSelection;
+    public static bool inSelection { get; private set; }
+    public static bool inRange { get; private set; }
+
     
     private Transform player;
     [SerializeField] private Transform standWaypoint;
@@ -62,7 +63,8 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     private void MovePlayer()
     {
         if (isMoving) return;
-        StartCoroutine(LerpPlayer(standWaypoint.position, 1f));
+        Vector3 waypoint = new Vector3(standWaypoint.position.x, player.position.y, standWaypoint.position.z);
+        StartCoroutine(LerpPlayer(waypoint, 1f));
     }
 
     private void HighlightDrawer()
@@ -106,12 +108,14 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     {
         isMoving = true;
         float time = 0;
+        
         var objToLookAt = handlers[index - 1].transform.position;
-        Vector3 startPosition = player.position;
+        var playerPos = player.position;
+
         while (time < duration)
         {
-            //player.LookAt(new Vector3(objToLookAt.x, player.position.y, objToLookAt.z), Vector3.forward);
-            player.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            player.LookAt(new Vector3(objToLookAt.x, playerPos.y, objToLookAt.z));
+            player.position = Vector3.Lerp(playerPos, targetPosition, time / duration);
             time += Time.deltaTime;
             yield return null;
         }

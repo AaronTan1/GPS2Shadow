@@ -21,7 +21,7 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        moveSpeed = 8.5f;
+        moveSpeed = 14.5f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
@@ -30,15 +30,14 @@ public class characterControl : MonoBehaviour
 
     public void ToggleSwitch()
     {
-        if(playerCandleScript.restrictMode == false && switchMode == false && cabinetPuzzle.switchFunction == false)
-        {
-            switchMode = true;
-        }
-        else
-        {
-            switchMode = false;
-        }
+        if (playerCandleScript.restrictMode) return;
+        if (PuzzleHandler_Cabinet.inRange) return;
 
+        switchMode = switchMode switch
+        {
+            false => true,
+            true => false
+        };
     }
 
     public void ToggleJump()
@@ -65,6 +64,8 @@ public class characterControl : MonoBehaviour
         
         inputX = joystickManger.InputHorizontal();
         inputY = joystickManger.InputVertical();
+        
+        if (PuzzleHandler_Cabinet.inSelection) return;
 
         if (switchMode == false)
         {
@@ -76,7 +77,7 @@ public class characterControl : MonoBehaviour
             dir = new Vector3(inputX, 0, inputY).normalized;
             Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
         }
-        else if (switchMode && cabinetPuzzle.switchFunction == false)
+        else if (switchMode)
         {
             dir = new Vector3(inputX, 0, 0).normalized;
             PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);
