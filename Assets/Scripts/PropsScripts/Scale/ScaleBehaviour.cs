@@ -34,19 +34,6 @@ public class ScaleBehaviour : MonoBehaviour
             TiltScale(testValue);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision == leftPlateCollider)
-        {
-            Debug.Log("Left");
-        }
-        if (collision == rightPlateCollider)
-        {
-            Debug.Log("Right");
-        }
-    }
-
     public void TiltScale(float tiltVal)
     {
         if (tiltCr != null)
