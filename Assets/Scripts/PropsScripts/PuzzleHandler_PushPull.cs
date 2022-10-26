@@ -29,11 +29,15 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     {
         if (!isActive) return;
         input = !isVertical ? joystickManager.Instance.InputHorizontal() : joystickManager.Instance.InputVertical();
-
+        
         if (input != 0)
         {
             inputOld = inputNew;
             inputNew = input;
+        }
+        else
+        {
+            StopAllCoroutines();
         }
         
         switch (input)
