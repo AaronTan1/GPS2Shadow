@@ -1439,6 +1439,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FunctioningScale
       objectReference: {fileID: 0}
+    - target: {fileID: 7737297852630419595, guid: 23849ca0fbc06fd4c8ca22230e563b91,
+        type: 3}
+      propertyPath: launchStrength
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737297852630419595, guid: 23849ca0fbc06fd4c8ca22230e563b91,
+        type: 3}
+      propertyPath: launchDirectionX
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737297852630419595, guid: 23849ca0fbc06fd4c8ca22230e563b91,
+        type: 3}
+      propertyPath: launchDirectionY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7737297852875062083, guid: 23849ca0fbc06fd4c8ca22230e563b91,
         type: 3}
       propertyPath: wallTR

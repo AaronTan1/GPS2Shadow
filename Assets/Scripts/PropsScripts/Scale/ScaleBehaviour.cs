@@ -19,6 +19,7 @@ public class ScaleBehaviour : MonoBehaviour
     [SerializeField] BoxCollider2D rightPlateCollider;
 
     [SerializeField] Collider2D playerShadowCollider;
+    [SerializeField] Rigidbody2D playerShadowRB;
 
     [Header("Settings")]
     [SerializeField] private float currentTiltValue;
@@ -27,6 +28,11 @@ public class ScaleBehaviour : MonoBehaviour
     [SerializeField] public float playerTiltAngle;
     [SerializeField] float testValue;
 
+    [Header("Launch Values")]
+    [SerializeField] float launchStrength;
+    [SerializeField] float launchDirectionX;
+    [SerializeField] float launchDirectionY;
+
     Coroutine tiltCr = null;
 
     private void Awake()
@@ -34,23 +40,23 @@ public class ScaleBehaviour : MonoBehaviour
         GameObject [] playerObjs = GameObject.FindGameObjectsWithTag("Player");
         foreach(GameObject obj in playerObjs)
         {
-            if(obj.GetComponent<Collider2D>() != null)
+            if(obj.GetComponent<Collider2D>()!= null)
             {
                 playerShadowCollider = obj.GetComponent<Collider2D>();
+                playerShadowRB = obj.GetComponent<Rigidbody2D>();
             }
-        }
-
-
-        if(playerShadowCollider != null)
-        {
-            Debug.Log("Shadow collider found");
         }
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        //Would be removed for build
+        if(Input.GetKeyDown(KeyCode.R))
         {
             TiltScale(testValue);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlayerLaunch();
         }
     }
     public void TiltScale(float tiltVal)
@@ -62,13 +68,27 @@ public class ScaleBehaviour : MonoBehaviour
         tiltCr = StartCoroutine(TiltScaleIncrementally(tiltVal));
     }
 
-    public void PlayerLaunch()
+    public void PlayerLaunch()//TO be called by bligth when slamming
     {
-        if(leftPlateCollider.IsTouching(playerShadowCollider))
+        
+        if (leftPlateCollider.IsTouching(playerShadowCollider))
         {
-            //launnch
-            Debug.Log("Launch");
+            leftPlateCollider.enabled = false;
+            Vector2 targetDir = new Vector2(launchDirectionX, launchDirectionY).normalized;
+            playerShadowRB.AddForce(targetDir * launchStrength * 10);
+            TiltScale(-45);
+            Invoke("AfterLaunch", 0.5f);//Should be bigger than 0.3f(Tilt time) most of the time in case
         }
+        else
+        {
+            Debug.Log("Player not on left plate");
+        }
+    }
+
+    void AfterLaunch()
+    {
+        leftPlateCollider.enabled = true;
+        TiltScale(0);
     }
     IEnumerator TiltScaleIncrementally(float newTiltValue)
     {
