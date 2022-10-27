@@ -18,6 +18,8 @@ public class ScaleBehaviour : MonoBehaviour
     [SerializeField] BoxCollider2D leftPlateCollider;
     [SerializeField] BoxCollider2D rightPlateCollider;
 
+    [SerializeField] Collider2D playerShadowCollider;
+
     [Header("Settings")]
     [SerializeField] private float currentTiltValue;
     [SerializeField] float tiltDuration;
@@ -27,6 +29,23 @@ public class ScaleBehaviour : MonoBehaviour
 
     Coroutine tiltCr = null;
 
+    private void Awake()
+    {
+        GameObject [] playerObjs = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject obj in playerObjs)
+        {
+            if(obj.GetComponent<Collider2D>() != null)
+            {
+                playerShadowCollider = obj.GetComponent<Collider2D>();
+            }
+        }
+
+
+        if(playerShadowCollider != null)
+        {
+            Debug.Log("Shadow collider found");
+        }
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.W))
@@ -41,6 +60,15 @@ public class ScaleBehaviour : MonoBehaviour
             StopCoroutine(tiltCr);
         }
         tiltCr = StartCoroutine(TiltScaleIncrementally(tiltVal));
+    }
+
+    public void PlayerLaunch()
+    {
+        if(leftPlateCollider.IsTouching(playerShadowCollider))
+        {
+            //launnch
+            Debug.Log("Launch");
+        }
     }
     IEnumerator TiltScaleIncrementally(float newTiltValue)
     {

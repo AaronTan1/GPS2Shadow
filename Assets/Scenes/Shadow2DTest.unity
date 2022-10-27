@@ -2994,6 +2994,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: alice
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 378c16d638ec2de4095866ac32af95f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 378c16d638ec2de4095866ac32af95f7, type: 3}
 --- !u!1 &451783913
