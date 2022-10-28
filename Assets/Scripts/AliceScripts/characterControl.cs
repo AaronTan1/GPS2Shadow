@@ -30,7 +30,7 @@ public class characterControl : MonoBehaviour
     public void ToggleSwitch()
     {
         if (playerCandleScript.restrictMode) return;
-        if (PuzzleHandler_Cabinet.inRange) return;
+        if (PuzzleManager.Instance.disableShadow) return;
 
         switchMode = switchMode switch
         {
@@ -64,7 +64,7 @@ public class characterControl : MonoBehaviour
         inputX = joystickManger.InputHorizontal();
         inputY = joystickManger.InputVertical();
         
-        if (PuzzleHandler_Cabinet.inSelection) return;
+        if (PuzzleManager.Instance.disableMovement) return;
 
         if (switchMode == false)
         {

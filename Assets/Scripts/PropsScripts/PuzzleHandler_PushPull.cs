@@ -21,8 +21,6 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     {
         initialPosition = transform.localPosition;
         endPosition = initialPosition + moveDelta;
-        Debug.Log(initialPosition);
-        Debug.Log(endPosition);
     }
 
     void Update()

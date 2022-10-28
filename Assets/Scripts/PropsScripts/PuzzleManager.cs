@@ -7,6 +7,9 @@ public class PuzzleManager : MonoBehaviour
     private static PuzzleManager _instance;
     public static PuzzleManager Instance => _instance;
 
+    [HideInInspector] public bool disableShadow;
+    [HideInInspector] public bool disableMovement;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -27,4 +30,17 @@ public class PuzzleManager : MonoBehaviour
     {
         return matOri;
     }
+
+    public bool DisableShadow(bool flag)
+    {
+        disableShadow = flag;
+        return disableShadow;
+    }
+    
+    public bool DisableMovement(bool flag)
+    {
+        disableMovement = flag;
+        return disableMovement;
+    }
+    
 }

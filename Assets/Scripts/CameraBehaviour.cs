@@ -24,10 +24,10 @@ public class CameraBehaviour : MonoBehaviour
         button.onClick.AddListener(SwapTarget);
     }
 
-    public void SwapTarget()
+    private void SwapTarget()
     {
         if(playerCandleScript.restrictMode) return;
-        if(PuzzleHandler_Cabinet.inRange) return;
+        if(PuzzleManager.Instance.disableShadow) return;
 
         switch (state)
         {

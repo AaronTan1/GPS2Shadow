@@ -13,8 +13,8 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     }
     
     private int index = 0;
-    public static bool inSelection { get; private set; }
-    public static bool inRange { get; private set; }
+    private bool inSelection;
+    private static bool inRange;
 
     
     private Transform player;
@@ -49,12 +49,12 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
         switch (inSelection)
         {
             case false:
-                inSelection = true;
+                inSelection = PuzzleManager.Instance.DisableMovement(true);
                 handlers[index - 1].isActive = true;
                 MovePlayer();
                 break;
             case true:
-                inSelection = false;
+                inSelection = PuzzleManager.Instance.DisableMovement(false);
                 handlers[index - 1].isActive = false;
                 break;
         }
@@ -81,7 +81,7 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
 
         if (!player) player = other.transform;
         
-        inRange = true;
+        inRange = PuzzleManager.Instance.DisableShadow(true);
         
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ChangeMaterial();
@@ -96,7 +96,7 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     {
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;
 
-        inRange = false;
+        inRange = PuzzleManager.Instance.DisableShadow(false);
         
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ResetMaterial();
