@@ -6,6 +6,12 @@ public class CheckpointScript : MonoBehaviour
 {
     public GameObject shadowAlice;
     public float proceedDelay; //time before entering new Section
+    public Animator doorAnim; //tutorial door
+
+    private void Awake()
+    {
+        doorAnim.enabled = false;
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,5 +25,7 @@ public class CheckpointScript : MonoBehaviour
     {
         yield return new WaitForSeconds(proceedDelay);
         shadowAlice.transform.position = new Vector3(6.0f, 1.7f, 2.5f);
+        doorAnim.enabled = true;
     }
+
 }
