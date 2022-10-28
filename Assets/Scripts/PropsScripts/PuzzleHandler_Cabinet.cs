@@ -87,11 +87,6 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
             mesh.material = PuzzleManager.Instance.ChangeMaterial();
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (playerCandleScript.restrictMode) return;
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;

@@ -8,8 +8,8 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     private Vector3 initialPosition;
     private Vector3 endPosition;
     [SerializeField] private Vector3 moveDelta;
-    
-    private bool isVertical;
+
+    internal bool isVertical;
     private float input;
     private float moveSpeed = 1f;
 
