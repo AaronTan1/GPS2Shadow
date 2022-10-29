@@ -6,16 +6,25 @@ public class characterControl : MonoBehaviour
 {
     [SerializeField] GameObject Player;
     [SerializeField] GameObject PlayerShadow; // all shadows gameObj
+    [SerializeField] Animator PlayerShadowAnimator;
     private static bool switchMode; //true = shadowRealm, false = 3d
-    private Vector3 jump;
-    private float jumpForce = 1.7f;
-    private bool jumpDelay;
     private joystickManager joystickManger;
+    private string currentState;
+    private Vector3 jump;
     private Vector3 dir;
+    private float jumpForce = 1.7f;
     private float inputX, inputY;
     private float moveSpeed;
+    private bool jumpDelay;
     Camera cam;
-    
+
+    //Animation States
+    const string SHADOWALICE_IDLE_RIGHT = "ShadowAliceIdleRight";
+    const string SHADOWALICE_IDLE_LEFT = "ShadowAliceIdleLeft";
+    const string SHADOWALICE_WALK_RIGHT = "ShadowAliceWalkRight";
+    const string SHADOWALICE_WALK_LEFT = "ShadowAliceWalkLeft";
+    const string SHADOWALICE_DEATH = "ShadowAliceDeath";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +65,18 @@ public class characterControl : MonoBehaviour
 
     }
 
+    void ChangeAnimationState(string newState)
+    {
+        //stop same anim from interrupting itself
+        if (currentState == newState) return;
+
+        //play the animation
+        PlayerShadowAnimator.Play(newState);
+
+        //reassign current state
+        currentState = newState;
+    }
+
     void FixedUpdate()
     {
         
@@ -70,7 +91,7 @@ public class characterControl : MonoBehaviour
         {
             Vector3 faceVector = (camTransform.forward * inputY + camTransform.right * inputX).normalized;
             faceVector.y = 0;
-            Vector3 rotation = Vector3.RotateTowards(Player.transform.forward, faceVector,10 * Time.deltaTime,0f);
+            Vector3 rotation = Vector3.RotateTowards(Player.transform.forward, faceVector, 10 * Time.deltaTime, 0f);
             Player.transform.rotation = Quaternion.LookRotation(rotation);
 
             dir = new Vector3(inputX, 0, inputY).normalized;
@@ -78,8 +99,27 @@ public class characterControl : MonoBehaviour
         }
         else if (switchMode)
         {
+
             dir = new Vector3(inputX, 0, 0).normalized;
             PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);
+
+            if (PlayerShadow.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
+            {
+                if (dir.x > 0)
+                {
+                    ChangeAnimationState(SHADOWALICE_WALK_RIGHT);
+                }
+                else if (dir.x < 0)
+                {
+                    ChangeAnimationState(SHADOWALICE_WALK_LEFT);
+                }
+            }
+            else
+            {
+                ChangeAnimationState(SHADOWALICE_IDLE_RIGHT); 
+                //still missing LEFT idle anim
+            }
+
         }
     }
 
@@ -87,5 +127,8 @@ public class characterControl : MonoBehaviour
     void Update()
     {
         /*Debug.Log(switchMode);*/
+
+        /*Debug.Log(PlayerShadow.GetComponent<Rigidbody2D>().velocity);*/
+
     }
 }

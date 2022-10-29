@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointScript : MonoBehaviour
+public class checkpointScript : MonoBehaviour
 {
     public GameObject shadowAlice;
     public float proceedDelay; //time before entering new Section

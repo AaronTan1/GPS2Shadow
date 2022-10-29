@@ -46,6 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   PlayerShadow: {fileID: 0}
-  jump: {x: 0, y: 0, z: 0}
-  jumpForce: 2
-  jumpDelay: 0
+  PlayerShadowAnimator: {fileID: 0}
