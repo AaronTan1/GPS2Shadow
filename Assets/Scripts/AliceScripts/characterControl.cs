@@ -15,6 +15,7 @@ public class characterControl : MonoBehaviour
     private float jumpForce = 1.7f;
     private float inputX, inputY;
     private float moveSpeed;
+    private bool facingRight;
     private bool jumpDelay;
     Camera cam;
 
@@ -31,6 +32,7 @@ public class characterControl : MonoBehaviour
         switchMode = false;
         moveSpeed = 14.5f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        facingRight = true;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         cam = Camera.main;
@@ -107,17 +109,25 @@ public class characterControl : MonoBehaviour
             {
                 if (dir.x > 0)
                 {
+                    facingRight = true;
                     ChangeAnimationState(SHADOWALICE_WALK_RIGHT);
                 }
                 else if (dir.x < 0)
                 {
+                    facingRight = false;
                     ChangeAnimationState(SHADOWALICE_WALK_LEFT);
                 }
             }
             else
             {
-                ChangeAnimationState(SHADOWALICE_IDLE_RIGHT); 
-                //still missing LEFT idle anim
+                if (facingRight)
+                {
+                    ChangeAnimationState(SHADOWALICE_IDLE_RIGHT);
+                }
+                else
+                {
+                    ChangeAnimationState(SHADOWALICE_IDLE_LEFT);
+                }              
             }
 
         }
