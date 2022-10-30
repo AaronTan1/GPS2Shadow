@@ -21,7 +21,7 @@ public class playerCandleScript : MonoBehaviour
 
     void Start()
     {
-        restrictMode = true;
+        restrictMode = true; //REMEMBER TO MAKE IT TO TRUE
         hold = false;
         range = false;
         /*childIlluminate = false;*/
