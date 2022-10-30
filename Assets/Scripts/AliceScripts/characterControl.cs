@@ -24,7 +24,7 @@ public class characterControl : MonoBehaviour
     const string SHADOWALICE_IDLE_LEFT = "ShadowAliceIdleLeft";
     const string SHADOWALICE_WALK_RIGHT = "ShadowAliceWalkRight";
     const string SHADOWALICE_WALK_LEFT = "ShadowAliceWalkLeft";
-    const string SHADOWALICE_DEATH = "ShadowAliceDeath";
+    const string SHADOWALICE_DEATH = "ShadowAliceDeath"; //temporary used as transition
 
     // Start is called before the first frame update
     void Start()
@@ -101,11 +101,14 @@ public class characterControl : MonoBehaviour
         }
         else if (switchMode)
         {
+            if(checkpointScript.shadowTransitionAnim == false)
+            {
+                dir = new Vector3(inputX, 0, 0).normalized;
+                PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);
+            }
 
-            dir = new Vector3(inputX, 0, 0).normalized;
-            PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);
 
-            if (PlayerShadow.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
+            if (PlayerShadow.GetComponent<Rigidbody2D>().velocity != Vector2.zero && checkpointScript.shadowTransitionAnim == false)
             {
                 if (dir.x > 0)
                 {
@@ -118,7 +121,7 @@ public class characterControl : MonoBehaviour
                     ChangeAnimationState(SHADOWALICE_WALK_LEFT);
                 }
             }
-            else
+            else if(PlayerShadow.GetComponent<Rigidbody2D>().velocity == Vector2.zero && checkpointScript.shadowTransitionAnim == false)
             {
                 if (facingRight)
                 {
@@ -130,6 +133,11 @@ public class characterControl : MonoBehaviour
                 }              
             }
 
+
+            if (checkpointScript.shadowTransitionAnim)
+            {
+                ChangeAnimationState(SHADOWALICE_DEATH);
+            }
         }
     }
 

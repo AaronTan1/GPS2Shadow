@@ -7665,7 +7665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowAlice: {fileID: 246605884}
-  proceedDelay: 1
+  proceedDelay: 1.1
   doorAnim: {fileID: 1742162541582227520}
 --- !u!61 &759018470
 BoxCollider2D:
@@ -19719,12 +19719,12 @@ PrefabInstance:
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.765
+      value: -8.05
       objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 3551014321009712781, guid: acb855d02761a0a4eb9345f9c4b5fb06,
         type: 3}
