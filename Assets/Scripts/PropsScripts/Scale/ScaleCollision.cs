@@ -14,7 +14,7 @@ public class ScaleCollision : MonoBehaviour
 
     public static bool isTilting = false, isReseting = false;
     Coroutine crTimer = null, crReset = null;
-
+    Coroutine crAutoLaunch = null;//To be removed when blight is added
     private void Awake()
     {
         scaleBe = GetComponentInParent<ScaleBehaviour>();
@@ -41,7 +41,16 @@ public class ScaleCollision : MonoBehaviour
                 {
                     scaleBe.TiltScale(-scaleBe.playerTiltAngle);
                 }
-            }              
+
+                // - - - - - - - - - - - - - - - 
+                if(crAutoLaunch != null)
+                {
+                    StopCoroutine(crAutoLaunch);
+                }
+
+                crAutoLaunch = StartCoroutine(AutoLaunch());
+                // - - - - - - - - - - - - - - - 
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -56,6 +65,13 @@ public class ScaleCollision : MonoBehaviour
                 }
                 crReset = StartCoroutine(ResetTiltCooldown());
                 scaleBe.TiltScale(0);
+
+                // - - - - - - - - - - - - - - - 
+                if (crAutoLaunch != null)
+                {
+                    StopCoroutine(crAutoLaunch);
+                }
+                // - - - - - - - - - - - - - - - 
             }
         }
     }
@@ -71,5 +87,12 @@ public class ScaleCollision : MonoBehaviour
         yield return new WaitForSeconds(resetTiltCooldwon);
         isReseting = false;
         crReset = null;
+    }
+
+    IEnumerator AutoLaunch()//To be removed when blight is added
+    {
+        yield return new WaitForSeconds(1f);
+        scaleBe.PlayerLaunch();
+        crAutoLaunch = null;
     }
 }
