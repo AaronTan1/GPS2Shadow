@@ -7955,6 +7955,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653e8375dec26c94882ef051eae5383c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadowAlice: {fileID: 246605884}
+  proceedDelay: 0
+  doorAnim: {fileID: 1742162541582227520}
 --- !u!61 &759018470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14697,12 +14700,12 @@ PrefabInstance:
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
@@ -14718,66 +14721,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 6503052827101654200}
+      objectReference: {fileID: 919132149199436812}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
-      value: 
-      objectReference: {fileID: 467984863}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SwitchDrawers
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SwitchDrawers
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: characterControl, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PuzzleHandler_Cabinet, Assembly-CSharp
+      value: ToggleHold
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: PuzzleHandler_Cabinet, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: tablePuzzle, Assembly-CSharp
+      value: playerCandleScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 482448789567956678, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
@@ -14794,21 +14752,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 467984863}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleSwitch
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SelectDrawers
-      objectReference: {fileID: 0}
-    - target: {fileID: 482448789638035195, guid: c60c75f84a963cf478cede640461801f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PuzzleHandler_Cabinet, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60c75f84a963cf478cede640461801f, type: 3}
 --- !u!1 &1517828608
@@ -20015,6 +19958,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2232263184383008896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132149199436812 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+    type: 3}
+  m_PrefabInstance: {fileID: 2232263184383008896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149199436811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1bdf0f25bac744f870142c0f3287e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &950993662644166354
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -21373,6 +21328,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6710926136450276441}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6503052827101654206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6503052827101654200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd035726e89e88b4d8cdb21401015442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matSwapColor: {fileID: 2100000, guid: 35daf0b4b0fa9c845b9f77d486ba363f, type: 2}
+  matOri: {fileID: 239378781582670930, guid: 8512d6f7ad6f0794092f88ae00e46ffc, type: 3}
 --- !u!23 &6580129920043075473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21516,7 +21485,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6852294842063085559, guid: 26559f79cd48a334f8175d6f5e17ccda,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1318074801766194842, guid: 26559f79cd48a334f8175d6f5e17ccda, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 26559f79cd48a334f8175d6f5e17ccda, type: 3}
 --- !u!4 &6721992598975231924
 Transform:
