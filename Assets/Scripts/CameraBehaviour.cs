@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class CameraBehaviour : MonoBehaviour
 {
     private CinemachineVirtualCamera cm;
-    private CinemachineConfiner cmConfiner;
-    private CinemachineTrackedDolly dolly; 
+    private static CinemachineConfiner cmConfiner;
+    private static CinemachineTrackedDolly dolly; 
     
     private string state = "3D";
     [SerializeField] private Transform alice3D;
@@ -46,7 +46,7 @@ public class CameraBehaviour : MonoBehaviour
         }
     }
 
-    public void SwapRooms(string roomID)
+    public static void SwapRooms(string roomID) //Room1, Room2 ...
     {
         GameObject roomCam = GameObject.Find(roomID);
         dolly.m_Path = roomCam.GetComponentInChildren<CinemachineSmoothPath>();

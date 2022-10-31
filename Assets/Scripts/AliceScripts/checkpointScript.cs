@@ -29,8 +29,8 @@ public class checkpointScript : MonoBehaviour
         yield return new WaitForSeconds(proceedDelay);
         shadowAlice.transform.position = new Vector3(6.0f, 1.7f, 2.5f);
         doorAnim.enabled = true;
+        CameraBehaviour.SwapRooms("Room2");
         Invoke(nameof(UnlockTransition), 0.5f);
-        
     }
 
     void UnlockTransition()
