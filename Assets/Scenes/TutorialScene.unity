@@ -2453,7 +2453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7bd7bf32eb4d141b87ddd40109ade8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDelta: {x: 0.5, y: 0, z: 0}
+  moveDelta: {x: 0.3, y: 0, z: 0}
   isActive: 0
 --- !u!1 &203389848 stripped
 GameObject:
@@ -11919,7 +11919,7 @@ Transform:
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -3.1861615, y: 0, z: 0.4335649}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450652198724027}
   m_RootOrder: 1
@@ -20040,6 +20040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standWaypoint: {fileID: 38751435}
+  tableShadow: {fileID: 1121215116}
 --- !u!1 &919132149199436811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1313923386878499979, guid: 3b23ff7007105a545b6fb10a0e1b7433,

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PuzzleHandler_PushPull : MonoBehaviour
 {
-    private Vector3 initialPosition;
-    private Vector3 endPosition;
+    internal Vector3 initialPosition;
+    internal Vector3 endPosition;
     [SerializeField] private Vector3 moveDelta;
 
     internal bool isVertical;

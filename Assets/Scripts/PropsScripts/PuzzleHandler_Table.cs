@@ -15,6 +15,7 @@ public class PuzzleHandler_Table : MonoBehaviour
     private bool inSelection;
     private bool isMoving;
     [SerializeField] private Transform standWaypoint;
+    [SerializeField] private Transform tableShadow;
 
     private void Awake()
     {
@@ -48,7 +49,7 @@ public class PuzzleHandler_Table : MonoBehaviour
     {
         if (isMoving) return;
         Vector3 waypoint = new Vector3(standWaypoint.position.x, player.position.y, standWaypoint.position.z);
-        StartCoroutine(LerpPlayer(waypoint, 1f));
+        StartCoroutine(LerpPlayer(waypoint, 0.5f));
     }
     
     private void OnTriggerEnter(Collider other)
@@ -76,7 +77,21 @@ public class PuzzleHandler_Table : MonoBehaviour
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ResetMaterial();
     }
-    
+
+    private void ScaleShadow()
+    {
+        var tablePos = handler.transform.localPosition.x - handler.initialPosition.x;
+        var distance = handler.endPosition.x - handler.initialPosition.x;
+
+        var ratio = tablePos / distance;
+        tableShadow.localScale = Vector3.one + Vector3.one * (0.5f * ratio);
+    }
+
+    private void Update()
+    {
+        ScaleShadow();
+    }
+
     IEnumerator LerpPlayer(Vector3 targetPosition, float duration)
     {
         isMoving = true;
