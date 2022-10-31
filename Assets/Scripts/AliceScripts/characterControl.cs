@@ -127,7 +127,7 @@ public class characterControl : MonoBehaviour
             }
             else
             {
-                Debug.Log("Walk");
+                /*Debug.Log("Walk");*/
                 ChangeAnimationState(ALICE_WALK);
             }
 
