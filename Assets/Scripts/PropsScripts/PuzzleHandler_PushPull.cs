@@ -17,9 +17,6 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     private float inputOld;
     private float inputNew;
 
-    internal bool movePlayer;
-    private Transform player;
-
     private void Start()
     {
         initialPosition = transform.localPosition;
@@ -57,16 +54,8 @@ public class PuzzleHandler_PushPull : MonoBehaviour
         if (inputOld * inputNew < 0)
             StopAllCoroutines();
         StartCoroutine(LerpPosition(pos,CalculateMoveTime(pos)));
-        
-        if (movePlayer)
-            StartCoroutine(LerpPlayer(pos,CalculateMoveTime(pos)));
     }
-
-    internal void SetPlayer(Transform player)
-    {
-        this.player = player;
-    }
-
+    
     private float CalculateMoveTime(Vector3 pos)
     {
         var totalDistance = Vector3.Distance(endPosition, initialPosition);
@@ -88,20 +77,5 @@ public class PuzzleHandler_PushPull : MonoBehaviour
             yield return null;
         }
         transform.localPosition = targetPosition;
-    }
-    
-    IEnumerator LerpPlayer(Vector3 targetPosition, float duration)
-    {
-        float time = 0;
-        
-        var playerPos = player.localPosition;
-
-        while (time < duration)
-        {
-            player.position = Vector3.Lerp(playerPos, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        player.position = targetPosition;
     }
 }

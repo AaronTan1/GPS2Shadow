@@ -9,6 +9,7 @@ public class PuzzleHandler_Table : MonoBehaviour
     private PuzzleHandler_PushPull handler;
     
     private Transform player;
+    private Transform playerParent;
 
     private bool inRange;
     private bool inSelection;
@@ -22,7 +23,6 @@ public class PuzzleHandler_Table : MonoBehaviour
         handler = GetComponentInChildren<PuzzleHandler_PushPull>();
 
         handler.isVertical = true;
-        handler.movePlayer = true;
     }
 
     public void MoveTable()
@@ -39,6 +39,7 @@ public class PuzzleHandler_Table : MonoBehaviour
             case true:
                 inSelection = PuzzleManager.Instance.DisableMovement(false);
                 handler.isActive = false;
+                player.parent = playerParent;
                 break;
         }
     }
@@ -57,7 +58,7 @@ public class PuzzleHandler_Table : MonoBehaviour
         if (!player)
         {
             player = other.transform;
-            handler.SetPlayer(player);
+            playerParent = player.parent;
         }
         
         inRange = true;
@@ -93,5 +94,6 @@ public class PuzzleHandler_Table : MonoBehaviour
         }
         player.position = targetPosition;
         isMoving = false;
+        player.parent = handler.transform;
     }
 }
