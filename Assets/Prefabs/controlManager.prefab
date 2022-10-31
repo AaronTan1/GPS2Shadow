@@ -47,3 +47,4 @@ MonoBehaviour:
   Player: {fileID: 0}
   PlayerShadow: {fileID: 0}
   PlayerShadowAnimator: {fileID: 0}
+  PlayerAnimator: {fileID: 0}

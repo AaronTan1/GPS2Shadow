@@ -13,6 +13,7 @@ public class playerCandleScript : MonoBehaviour
     GameObject childOfChild; //placeCandle's grandson
     Light lightOfChild; //child's reference to light
     public static bool restrictMode; // stops button function before light is placed
+    public static bool playAlicePick; //enables anim for picking candle up
     private string stationName, placeName; //names of stationary and placed candle
     /*private bool childIlluminate = false;*/
     private bool hold = false;
@@ -25,6 +26,7 @@ public class playerCandleScript : MonoBehaviour
         hold = false;
         range = false;
         /*childIlluminate = false;*/
+        playAlicePick = false;
         stationName = "";
         placeName = "";
     }
@@ -47,8 +49,9 @@ public class playerCandleScript : MonoBehaviour
 
     private void candleOnHand()
     {
-        handCandle.SetActive(true);
-
+        playAlicePick = true;
+        Invoke(nameof(CandleInteract), 1.0f);
+    
         for (int i = 0; i < floorCandle.Length; i++)
         {
             if (floorCandle[i].name == stationName)
@@ -58,6 +61,11 @@ public class playerCandleScript : MonoBehaviour
         }
 
         lightSource.intensity = 0.0f;
+    }
+
+    void CandleInteract()
+    {
+        handCandle.SetActive(true);
     }
 
     private void candleToPlace()

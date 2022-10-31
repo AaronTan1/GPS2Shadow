@@ -18,6 +18,7 @@ public class characterControl : MonoBehaviour
     private float moveSpeed;
     private bool facingRight;
     private bool jumpDelay;
+    private bool holdCandle;
     Camera cam;
 
     //Animation States
@@ -36,6 +37,7 @@ public class characterControl : MonoBehaviour
     const string ALICE_IDLE_CANDLE = "AliceIdleCandle";
     const string ALICE_WALK = "AliceWalk";
     const string ALICE_WALK_CANDLE = "AliceWalkCandle";
+    const string ALICE_PICK_UP = "AlicePickUp";
     const string ALICE_PUSH = "AlicePush";
     const string ALICE_PULL = "AlicePull";
 
@@ -46,6 +48,7 @@ public class characterControl : MonoBehaviour
         moveSpeed = 14.5f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         facingRight = true;
+        holdCandle = false;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         cam = Camera.main;
@@ -89,7 +92,19 @@ public class characterControl : MonoBehaviour
 
     }
 
-    void ChangeAnimationState(string newState)
+    void ChangeAnimationStateAlice(string newState) //for Alice 3D
+    {
+        //stop same anim from interrupting itself
+        if (currentState == newState) return;
+
+        //play the animation
+        PlayerAnimator.Play(newState);
+
+        //reassign current state
+        currentState = newState;
+    }
+
+    void ChangeAnimationState(string newState) //for Alice 2D
     {
         //stop same anim from interrupting itself
         if (currentState == newState) return;
@@ -118,17 +133,35 @@ public class characterControl : MonoBehaviour
             Vector3 rotation = Vector3.RotateTowards(Player.transform.forward, faceVector, 10 * Time.deltaTime, 0f);
             Player.transform.rotation = Quaternion.LookRotation(rotation);
 
-            dir = new Vector3(inputX, 0, inputY).normalized;
-            Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
+            if (playerCandleScript.playAlicePick == false)
+            {
+                dir = new Vector3(inputX, 0, inputY).normalized;
+                Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
 
-            if(Player.GetComponent<Rigidbody>().velocity == Vector3.zero)
-            {
-                ChangeAnimationState(ALICE_IDLE);
+                if (Player.GetComponent<Rigidbody>().velocity == Vector3.zero && holdCandle == false)
+                {
+                    ChangeAnimationStateAlice(ALICE_IDLE);
+                }
+                else if(Player.GetComponent<Rigidbody>().velocity != Vector3.zero && holdCandle == false)
+                {
+                    ChangeAnimationStateAlice(ALICE_WALK);
+                }
+
+                if(Player.GetComponent<Rigidbody>().velocity == Vector3.zero && holdCandle)
+                {
+                    ChangeAnimationStateAlice(ALICE_IDLE_CANDLE);
+                }
+                else if(Player.GetComponent<Rigidbody>().velocity != Vector3.zero && holdCandle)
+                {
+                    ChangeAnimationStateAlice(ALICE_WALK_CANDLE);
+                }
             }
-            else
+            else if(playerCandleScript.playAlicePick)
             {
-                /*Debug.Log("Walk");*/
-                ChangeAnimationState(ALICE_WALK);
+                ChangeAnimationStateAlice(ALICE_PICK_UP);
+                playerCandleScript.playAlicePick = false;
+                holdCandle = true;
+
             }
 
         }
@@ -165,7 +198,6 @@ public class characterControl : MonoBehaviour
                     ChangeAnimationState(SHADOWALICE_IDLE_LEFT);
                 }              
             }
-
 
             if (checkpointScript.shadowTransitionAnim)
             {
