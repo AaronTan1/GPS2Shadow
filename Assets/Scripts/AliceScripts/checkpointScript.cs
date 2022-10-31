@@ -17,7 +17,7 @@ public class checkpointScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
             StartCoroutine(NewSection());
         }
@@ -29,7 +29,7 @@ public class checkpointScript : MonoBehaviour
         yield return new WaitForSeconds(proceedDelay);
         shadowAlice.transform.position = new Vector3(6.0f, 1.7f, 2.5f);
         doorAnim.enabled = true;
-        Invoke("UnlockTransition", 0.5f);
+        Invoke(nameof(UnlockTransition), 0.5f);
         
     }
 
