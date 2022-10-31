@@ -16,17 +16,20 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     [HideInInspector] public bool isActive;
     private float inputOld;
     private float inputNew;
-    
+
+    internal bool movePlayer;
+    private Transform player;
+
     private void Start()
     {
         initialPosition = transform.localPosition;
         endPosition = initialPosition + moveDelta;
     }
 
-    void Update()
+    private void Update()
     {
         if (!isActive) return;
-        input = !isVertical ? joystickManager.Instance.InputHorizontal() : joystickManager.Instance.InputVertical();
+        input = !isVertical ? joystickManager.Instance.InputHorizontal() : -joystickManager.Instance.InputVertical();
         
         if (input != 0)
         {
@@ -49,11 +52,19 @@ public class PuzzleHandler_PushPull : MonoBehaviour
         }
     }
 
-    void MoveObject(Vector3 pos, float t)
+    private void MoveObject(Vector3 pos, float t)
     {
         if (inputOld * inputNew < 0)
             StopAllCoroutines();
         StartCoroutine(LerpPosition(pos,CalculateMoveTime(pos)));
+        
+        if (movePlayer)
+            StartCoroutine(LerpPlayer(pos,CalculateMoveTime(pos)));
+    }
+
+    internal void SetPlayer(Transform player)
+    {
+        this.player = player;
     }
 
     private float CalculateMoveTime(Vector3 pos)
@@ -77,5 +88,20 @@ public class PuzzleHandler_PushPull : MonoBehaviour
             yield return null;
         }
         transform.localPosition = targetPosition;
+    }
+    
+    IEnumerator LerpPlayer(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        
+        var playerPos = player.localPosition;
+
+        while (time < duration)
+        {
+            player.position = Vector3.Lerp(playerPos, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        player.position = targetPosition;
     }
 }
