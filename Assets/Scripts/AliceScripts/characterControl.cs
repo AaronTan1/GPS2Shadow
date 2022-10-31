@@ -7,6 +7,7 @@ public class characterControl : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] GameObject PlayerShadow; // all shadows gameObj
     [SerializeField] Animator PlayerShadowAnimator;
+    [SerializeField] Animator PlayerAnimator;
     private static bool switchMode; //true = shadowRealm, false = 3d
     private joystickManager joystickManger;
     private string currentState;
@@ -20,11 +21,23 @@ public class characterControl : MonoBehaviour
     Camera cam;
 
     //Animation States
+
+    //2D Shadow Alice
     const string SHADOWALICE_IDLE_RIGHT = "ShadowAliceIdleRight";
     const string SHADOWALICE_IDLE_LEFT = "ShadowAliceIdleLeft";
     const string SHADOWALICE_WALK_RIGHT = "ShadowAliceWalkRight";
     const string SHADOWALICE_WALK_LEFT = "ShadowAliceWalkLeft";
+    const string SHADOWALICE_JUMP_LEFT = "ShadowAliceJumpLeft";
+    const string SHADOWALICE_JUMP_RIGHT = "ShadowAliceJumpRight";
     const string SHADOWALICE_DEATH = "ShadowAliceDeath"; //temporary used as transition
+
+    //3D Real Alice
+    const string ALICE_IDLE = "AliceIdle";
+    const string ALICE_IDLE_CANDLE = "AliceIdleCandle";
+    const string ALICE_WALK = "AliceWalk";
+    const string ALICE_WALK_CANDLE = "AliceWalkCandle";
+    const string ALICE_PUSH = "AlicePush";
+    const string ALICE_PULL = "AlicePull";
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +69,15 @@ public class characterControl : MonoBehaviour
         {
             jumpDelay = true;
             PlayerShadow.GetComponent<Rigidbody2D>().AddForce(jump * jumpForce, (ForceMode2D)ForceMode.Impulse);
+            if (facingRight == false)
+            {
+                ChangeAnimationState(SHADOWALICE_JUMP_LEFT);
+            }
+            else
+            {
+                ChangeAnimationState(SHADOWALICE_JUMP_RIGHT);
+            }
+            
             StartCoroutine(jumpCdr());
         }
     }
@@ -98,6 +120,17 @@ public class characterControl : MonoBehaviour
 
             dir = new Vector3(inputX, 0, inputY).normalized;
             Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
+
+            if(Player.GetComponent<Rigidbody>().velocity == Vector3.zero)
+            {
+                ChangeAnimationState(ALICE_IDLE);
+            }
+            else
+            {
+                Debug.Log("Walk");
+                ChangeAnimationState(ALICE_WALK);
+            }
+
         }
         else if (switchMode)
         {
