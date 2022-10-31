@@ -161,7 +161,7 @@ public class characterControl : MonoBehaviour
                 }
                 else if(PuzzleHandler_Table.playAliceTableAnim)
                 {
-                    ChangeAnimationStateAlice(ALICE_PUSH);
+                    ChangeAnimationStateAlice(ALICE_PUSH); //not working but boolean works
                 }
 
             }
