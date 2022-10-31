@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PuzzleHandler_Table : MonoBehaviour
 {
+    public static bool playAliceTableAnim;
     private MeshRenderer[] renderers;
     private PuzzleHandler_PushPull handler;
     
@@ -24,6 +25,8 @@ public class PuzzleHandler_Table : MonoBehaviour
         handler = GetComponentInChildren<PuzzleHandler_PushPull>();
 
         handler.isVertical = true;
+
+        playAliceTableAnim = false;
     }
 
     public void MoveTable()
@@ -35,9 +38,11 @@ public class PuzzleHandler_Table : MonoBehaviour
             case false:
                 inSelection = PuzzleManager.Instance.DisableMovement(true);
                 handler.isActive = true;
+                playAliceTableAnim = true;
                 MovePlayer();
                 break;
             case true:
+                playAliceTableAnim = false;
                 inSelection = PuzzleManager.Instance.DisableMovement(false);
                 handler.isActive = false;
                 player.parent = playerParent;

@@ -8,6 +8,7 @@ public class characterControl : MonoBehaviour
     [SerializeField] GameObject PlayerShadow; // all shadows gameObj
     [SerializeField] Animator PlayerShadowAnimator;
     [SerializeField] Animator PlayerAnimator;
+    public static bool holdCandle;
     private static bool switchMode; //true = shadowRealm, false = 3d
     private joystickManager joystickManger;
     private string currentState;
@@ -18,11 +19,10 @@ public class characterControl : MonoBehaviour
     private float moveSpeed;
     private bool facingRight;
     private bool jumpDelay;
-    private bool holdCandle;
+
     Camera cam;
 
     //Animation States
-
     //2D Shadow Alice
     const string SHADOWALICE_IDLE_RIGHT = "ShadowAliceIdleRight";
     const string SHADOWALICE_IDLE_LEFT = "ShadowAliceIdleLeft";
@@ -138,23 +138,32 @@ public class characterControl : MonoBehaviour
                 dir = new Vector3(inputX, 0, inputY).normalized;
                 Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
 
-                if (Player.GetComponent<Rigidbody>().velocity == Vector3.zero && holdCandle == false)
+
+                if (PuzzleHandler_Table.playAliceTableAnim == false)
                 {
-                    ChangeAnimationStateAlice(ALICE_IDLE);
+                    if (Player.GetComponent<Rigidbody>().velocity == Vector3.zero && holdCandle == false)
+                    {
+                        ChangeAnimationStateAlice(ALICE_IDLE);
+                    }
+                    else if (Player.GetComponent<Rigidbody>().velocity != Vector3.zero && holdCandle == false)
+                    {
+                        ChangeAnimationStateAlice(ALICE_WALK);
+                    }
+
+                    if (Player.GetComponent<Rigidbody>().velocity == Vector3.zero && holdCandle)
+                    {
+                        ChangeAnimationStateAlice(ALICE_IDLE_CANDLE);
+                    }
+                    else if (Player.GetComponent<Rigidbody>().velocity != Vector3.zero && holdCandle)
+                    {
+                        ChangeAnimationStateAlice(ALICE_WALK_CANDLE);
+                    }
                 }
-                else if(Player.GetComponent<Rigidbody>().velocity != Vector3.zero && holdCandle == false)
+                else if(PuzzleHandler_Table.playAliceTableAnim)
                 {
-                    ChangeAnimationStateAlice(ALICE_WALK);
+                    ChangeAnimationStateAlice(ALICE_PUSH);
                 }
 
-                if(Player.GetComponent<Rigidbody>().velocity == Vector3.zero && holdCandle)
-                {
-                    ChangeAnimationStateAlice(ALICE_IDLE_CANDLE);
-                }
-                else if(Player.GetComponent<Rigidbody>().velocity != Vector3.zero && holdCandle)
-                {
-                    ChangeAnimationStateAlice(ALICE_WALK_CANDLE);
-                }
             }
             else if(playerCandleScript.playAlicePick)
             {
@@ -212,6 +221,6 @@ public class characterControl : MonoBehaviour
         /*Debug.Log(switchMode);*/
 
         /*Debug.Log(PlayerShadow.GetComponent<Rigidbody2D>().velocity);*/
-
+        /*Debug.Log(PuzzleHandler_Table.playAliceTableAnim);*/
     }
 }

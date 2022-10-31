@@ -50,7 +50,7 @@ public class playerCandleScript : MonoBehaviour
     private void candleOnHand()
     {
         playAlicePick = true;
-        Invoke(nameof(CandleInteract), 1.0f);
+        Invoke(nameof(CandleInteract), 0.8f);
     
         for (int i = 0; i < floorCandle.Length; i++)
         {
@@ -71,6 +71,7 @@ public class playerCandleScript : MonoBehaviour
     private void candleToPlace()
     {
         handCandle.SetActive(false);
+        characterControl.holdCandle = false;
 
         for(int i = 0; i < placeCandle.Length; i++)
         {
