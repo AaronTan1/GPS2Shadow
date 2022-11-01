@@ -37,7 +37,6 @@ public class PuzzleHandler_Table : MonoBehaviour
         {
             case false:
                 inSelection = PuzzleManager.Instance.DisableMovement(true);
-                PuzzleManager.Instance.DisableShadow(true);
                 handler.isActive = true;
                 playAliceTableAnim = true;
                 MovePlayer();
@@ -45,7 +44,6 @@ public class PuzzleHandler_Table : MonoBehaviour
             case true:
                 playAliceTableAnim = false;
                 inSelection = PuzzleManager.Instance.DisableMovement(false);
-                PuzzleManager.Instance.DisableShadow(false);
                 handler.isActive = false;
                 player.parent = playerParent;
                 break;
@@ -70,7 +68,8 @@ public class PuzzleHandler_Table : MonoBehaviour
         }
         
         inRange = true;
-        
+        PuzzleManager.Instance.DisableShadow(true);
+
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ChangeMaterial();
     }
@@ -80,7 +79,8 @@ public class PuzzleHandler_Table : MonoBehaviour
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;
         
         inRange = false;
-        
+        PuzzleManager.Instance.DisableShadow(false);
+
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ResetMaterial();
     }
