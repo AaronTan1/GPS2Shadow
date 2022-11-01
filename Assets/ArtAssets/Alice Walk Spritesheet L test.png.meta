@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -36,24 +36,24 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 550
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -76,20 +76,465 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_22
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 321
+        height: 664
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4e30b57ded90847b038e8575a1e18f
+      internalID: -319211511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_23
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 0
+        width: 329
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0012780e4da944a9700178a36ec385
+      internalID: -2109876670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_24
+      rect:
+        serializedVersion: 2
+        x: 2066
+        y: 0
+        width: 328
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f22251f7275964788bf0da67c29c41
+      internalID: 1773110164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_25
+      rect:
+        serializedVersion: 2
+        x: 2962
+        y: 0
+        width: 336
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae89a61351b1e274fa9a460c129f18a0
+      internalID: -1942774155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_26
+      rect:
+        serializedVersion: 2
+        x: 3867
+        y: 0
+        width: 342
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b3e2c85177f844693e5dd92832b046
+      internalID: 819378908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_27
+      rect:
+        serializedVersion: 2
+        x: 4763
+        y: 0
+        width: 328
+        height: 675
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e8f1241efb27242b4c7d1335f13dc9
+      internalID: -1212348732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_28
+      rect:
+        serializedVersion: 2
+        x: 5674
+        y: 0
+        width: 321
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664b5cabf6b701242b41ad5651d75cb2
+      internalID: -1181974298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_29
+      rect:
+        serializedVersion: 2
+        x: 6574
+        y: 0
+        width: 325
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9712d71d2091b4c96d64eeb2a3d0a5
+      internalID: -1673194018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_30
+      rect:
+        serializedVersion: 2
+        x: 7468
+        y: 0
+        width: 328
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8367a7d3a032434c8be441a23725545
+      internalID: -380391649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_31
+      rect:
+        serializedVersion: 2
+        x: 8364
+        y: 0
+        width: 328
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcbc15c882e802f48b2973d64c2d2201
+      internalID: -1067233053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_32
+      rect:
+        serializedVersion: 2
+        x: 9260
+        y: 0
+        width: 336
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ccab28d0293bf4db1ab8a1ff3b7f73
+      internalID: -240616056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_33
+      rect:
+        serializedVersion: 2
+        x: 10172
+        y: 0
+        width: 335
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5617c7119fd540c4e8a5724cbeeb53e2
+      internalID: 124720533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_34
+      rect:
+        serializedVersion: 2
+        x: 11068
+        y: 0
+        width: 336
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a597fd73e9f80924ba7adfe8b1ad77e7
+      internalID: -803531440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_35
+      rect:
+        serializedVersion: 2
+        x: 11972
+        y: 0
+        width: 336
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07f21fe93a5e1c4cb451bbfe8dfc460
+      internalID: -681569096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_36
+      rect:
+        serializedVersion: 2
+        x: 12850
+        y: 0
+        width: 332
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a749aa4ed8865f4595caee310a0ebd4
+      internalID: 2097019631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_37
+      rect:
+        serializedVersion: 2
+        x: 13761
+        y: 0
+        width: 332
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848f5a4833d556f49bec40821c44c80a
+      internalID: 175244399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alice Walk Spritesheet L test_38
+      rect:
+        serializedVersion: 2
+        x: 14650
+        y: 0
+        width: 318
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ce2e1c7fc06ce4181568c5e08447ea
+      internalID: 1233860470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Alice Walk Spritesheet L test_36: 2097019631
+      Alice Walk Spritesheet L test_8: 1621463776
+      Alice Walk Spritesheet L test_32: -240616056
+      Alice Walk Spritesheet L test_20: 1114556346
+      Alice Walk Spritesheet L test_25: -1942774155
+      Alice Walk Spritesheet L test_0: 1985589246
+      Alice Walk Spritesheet L test_21: -1086040117
+      Alice Walk Spritesheet L test_24: 1773110164
+      Alice Walk Spritesheet L test_11: -830316649
+      Alice Walk Spritesheet L test_13: 1013283027
+      Alice Walk Spritesheet L test_34: -803531440
+      Alice Walk Spritesheet L test_14: 1961524749
+      Alice Walk Spritesheet L test_9: -1645548831
+      Alice Walk Spritesheet L test_2: 623518127
+      Alice Walk Spritesheet L test_19: 879521254
+      Alice Walk Spritesheet L test_10: -1286406470
+      Alice Walk Spritesheet L test_5: -2100411796
+      Alice Walk Spritesheet L test_15: 1041520060
+      Alice Walk Spritesheet L test_23: -2109876670
+      Alice Walk Spritesheet L test_16: -1939639779
+      Alice Walk Spritesheet L test_27: -1212348732
+      Alice Walk Spritesheet L test_30: -380391649
+      Alice Walk Spritesheet L test_29: -1673194018
+      Alice Walk Spritesheet L test_39: -1690053734
+      Alice Walk Spritesheet L test_4: 1675413890
+      Alice Walk Spritesheet L test_22: -319211511
+      Alice Walk Spritesheet L test_26: 819378908
+      Alice Walk Spritesheet L test_37: 175244399
+      Alice Walk Spritesheet L test_38: 1233860470
+      Alice Walk Spritesheet L test_1: -960501403
+      Alice Walk Spritesheet L test_12: -879029774
+      Alice Walk Spritesheet L test_28: -1181974298
+      Alice Walk Spritesheet L test_18: -1218648633
+      Alice Walk Spritesheet L test_35: -681569096
+      Alice Walk Spritesheet L test_17: 1712619048
+      Alice Walk Spritesheet L test_33: 124720533
+      Alice Walk Spritesheet L test_6: -199734094
+      Alice Walk Spritesheet L test_31: -1067233053
+      Alice Walk Spritesheet L test_7: -1215582722
+      Alice Walk Spritesheet L test_3: -2058228592
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
