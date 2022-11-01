@@ -74,9 +74,39 @@ public class playerCandleScript : MonoBehaviour
         handCandle.SetActive(false);
         characterControl.holdCandle = false;
 
-        for(int i = 0; i < placeCandle.Length; i++)
+        /*        for(int i = 0; i < placeCandle.Length; i++)
+                {
+                    if(placeCandle[i].name == placeName)
+                    {
+                        childOfPlace = placeCandle[i].transform.GetChild(0).gameObject;
+                        childOfPlace.SetActive(true);
+                        childOfChild = placeCandle[i].transform.GetChild(0).gameObject;
+                        lightOfChild = childOfChild.GetComponent(typeof(Light)) as Light;
+
+                        if (placeName == "candlePlacePos")
+                        {
+                            foreach (var t in shadowPropsA)
+                            {
+                                if (t != null)
+                                    t.SetActive(true);
+                            }
+                        }
+                        else if(placeName== "candlePlacePos(1)")
+                        {
+                            foreach (var t in shadowPropsB)
+                            {
+                                if (t != null)
+                                    t.SetActive(true);
+                            }
+                        }
+
+                        restrictMode = false;              
+                        *//*childIlluminate = true;*//*
+                    }*/
+
+        for (int i = 0; i < placeCandle.Length; i++)
         {
-            if(placeCandle[i].name == placeName)
+            if (placeCandle[i].name == placeName || placeCandle[i].name == "candlePlacePos(1)")
             {
                 childOfPlace = placeCandle[i].transform.GetChild(0).gameObject;
                 childOfPlace.SetActive(true);
@@ -91,18 +121,11 @@ public class playerCandleScript : MonoBehaviour
                             t.SetActive(true);
                     }
                 }
-                else if(placeName== "candlePlacePos(1)")
-                {
-                    foreach (var t in shadowPropsB)
-                    {
-                        if (t != null)
-                            t.SetActive(true);
-                    }
-                }
 
-                restrictMode = false;              
+                restrictMode = false;
                 /*childIlluminate = true;*/
             }
+
         }
     }
 

@@ -20784,7 +20784,7 @@ PrefabInstance:
     - target: {fileID: 5722038947809968800, guid: 05de098ac9779734c9ebd65cc4b85adb,
         type: 3}
       propertyPath: m_Name
-      value: 'candlePlacePos '
+      value: candlePlacePos(1)
       objectReference: {fileID: 0}
     - target: {fileID: 5722038947809968828, guid: 05de098ac9779734c9ebd65cc4b85adb,
         type: 3}
@@ -22955,6 +22955,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1830574985792449175, guid: 7a93cad604ee6bd4a83695d4f3b4f6df,
     type: 3}
   m_PrefabInstance: {fileID: 1968226302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1979951755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5722038947809968800, guid: 05de098ac9779734c9ebd65cc4b85adb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810483058}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1982073536
 GameObject:
@@ -25538,6 +25544,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
+      propertyPath: placeCandle.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
       propertyPath: floorCandle.Array.data[0]
       value: 
       objectReference: {fileID: 6503052827101654200}
@@ -25546,6 +25557,11 @@ PrefabInstance:
       propertyPath: placeCandle.Array.data[0]
       value: 
       objectReference: {fileID: 1760294262}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: placeCandle.Array.data[1]
+      value: 
+      objectReference: {fileID: 1979951755}
     - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
       propertyPath: shadowPropsA.Array.data[0]
