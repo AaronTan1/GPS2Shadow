@@ -18,8 +18,8 @@ public class ScaleBehaviour : MonoBehaviour
     [SerializeField] BoxCollider2D leftPlateCollider;
     [SerializeField] BoxCollider2D rightPlateCollider;
 
-    [SerializeField] Collider2D playerShadowCollider;
-    [SerializeField] Rigidbody2D playerShadowRB;
+    [SerializeField] private Collider2D playerShadowCollider;
+    [SerializeField] private Rigidbody2D playerShadowRB;
 
     [Header("Settings")]
     [SerializeField] private float currentTiltValue;
@@ -83,6 +83,16 @@ public class ScaleBehaviour : MonoBehaviour
         {
             Debug.Log("Player not on left plate");
         }
+    }
+
+    public bool ComponentsAreNull()
+    {
+        return (playerShadowCollider == null ||playerShadowRB == null)? true : false;
+    }
+    public void PassComponents(Collider2D col, Rigidbody2D rbPly)
+    {
+        playerShadowCollider = col;
+        playerShadowRB = rbPly;
     }
 
     void AfterLaunch()
