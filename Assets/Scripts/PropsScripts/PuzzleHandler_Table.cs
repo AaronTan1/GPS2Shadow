@@ -37,6 +37,7 @@ public class PuzzleHandler_Table : MonoBehaviour
         {
             case false:
                 inSelection = PuzzleManager.Instance.DisableMovement(true);
+                PuzzleManager.Instance.DisableShadow(true);
                 handler.isActive = true;
                 playAliceTableAnim = true;
                 MovePlayer();
@@ -44,6 +45,7 @@ public class PuzzleHandler_Table : MonoBehaviour
             case true:
                 playAliceTableAnim = false;
                 inSelection = PuzzleManager.Instance.DisableMovement(false);
+                PuzzleManager.Instance.DisableShadow(false);
                 handler.isActive = false;
                 player.parent = playerParent;
                 break;
