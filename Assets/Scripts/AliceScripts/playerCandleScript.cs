@@ -107,6 +107,7 @@ public class playerCandleScript : MonoBehaviour
             rangePlace = true;
         }
 
+
     }
 
     private void OnTriggerExit(Collider other)
