@@ -349,20 +349,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorCandle:
   - {fileID: 0}
-  - {fileID: 0}
   placeCandle:
   - {fileID: 0}
   handCandle: {fileID: 6709300693707228777}
-  shadowProps:
+  shadowPropsA:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  shadowPropsB: []
   lightSource: {fileID: 2105988700772746062}
 --- !u!1 &1321649887371370676
 GameObject:

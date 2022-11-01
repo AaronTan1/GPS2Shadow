@@ -7,7 +7,8 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject[] floorCandle; //stationary candle
     [SerializeField] public GameObject[] placeCandle; //place candle after hold
     [SerializeField] public GameObject handCandle; //preset candle on hand
-    [SerializeField] public GameObject[] shadowProps; //gameObject shadows
+    [SerializeField] public GameObject[] shadowPropsA; //gameObject shadows
+    [SerializeField] public GameObject[] shadowPropsB; //gameObject shadows
     [SerializeField] public Light lightSource; //candleLight on hand
     GameObject childOfPlace; //placeCandle's child
     GameObject childOfChild; //placeCandle's grandson
@@ -82,11 +83,23 @@ public class playerCandleScript : MonoBehaviour
                 childOfChild = placeCandle[i].transform.GetChild(0).gameObject;
                 lightOfChild = childOfChild.GetComponent(typeof(Light)) as Light;
 
-                foreach (var t in shadowProps)
+                if (placeName == "candlePlacePos")
                 {
-                    if (t != null)
-                        t.SetActive(true);
+                    foreach (var t in shadowPropsA)
+                    {
+                        if (t != null)
+                            t.SetActive(true);
+                    }
                 }
+                else if(placeName== "candlePlacePos(1)")
+                {
+                    foreach (var t in shadowPropsB)
+                    {
+                        if (t != null)
+                            t.SetActive(true);
+                    }
+                }
+
                 restrictMode = false;              
                 /*childIlluminate = true;*/
             }
