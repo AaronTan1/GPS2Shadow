@@ -7322,7 +7322,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.144783, y: 1.0269742, z: 0.56265914}
+  m_Size: {x: 1.5, y: 1.0269742, z: 0.56265914}
   m_Center: {x: 6.9738684, y: -2.9621365, z: 0.34295768}
 --- !u!65 &633754901
 BoxCollider:
@@ -10094,6 +10094,7 @@ MonoBehaviour:
   shadowAlice: {fileID: 246605884}
   proceedDelay: 1
   doorAnim: {fileID: 1742162541582227520}
+  doorColDisable: {fileID: 1742162541582227521}
 --- !u!61 &759018470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25739,6 +25740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1742162541582227519}
   - component: {fileID: 1742162541582227520}
+  - component: {fileID: 1742162541582227521}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -25907,7 +25909,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398006174530421381}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 44870409094e893418b45aadef8b0a5a, type: 2}
   m_CullingMode: 0
@@ -25919,6 +25921,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1742162541582227521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398006174530421381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.65, y: 2.7230182, z: 0.1}
+  m_Center: {x: 0, y: 1.423965, z: 0}
 --- !u!33 &1867459994733385058
 MeshFilter:
   m_ObjectHideFlags: 0
