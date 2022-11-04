@@ -55,8 +55,8 @@ public class CameraBehaviour : MonoBehaviour
     
     IEnumerator LerpFov(float target)
     {
-        float t = 0f;
-        float initial = cm.m_Lens.FieldOfView;
+        var t = 0f;
+        var initial = cm.m_Lens.FieldOfView;
         while (t < 1f)
         {
             cm.m_Lens.FieldOfView = Mathf.Lerp(initial, target, t);
