@@ -32,13 +32,11 @@ public class PuzzleHandler_ShelfAndScale : MonoBehaviour
         {
             case false:
                 inSelection = PuzzleManager.Instance.DisableMovement(true);
-                PuzzleManager.Instance.DisableShadow(true);
                 handler.isActive = true;
                 MovePlayer();
                 break;
             case true:
                 inSelection = PuzzleManager.Instance.DisableMovement(false);
-                PuzzleManager.Instance.DisableShadow(false);
                 handler.isActive = false;
                 player.parent = playerParent;
                 break;
@@ -71,6 +69,7 @@ public class PuzzleHandler_ShelfAndScale : MonoBehaviour
         }
         
         inRange = true;
+        PuzzleManager.Instance.DisableShadow(true);
         
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ChangeMaterial();
@@ -81,6 +80,7 @@ public class PuzzleHandler_ShelfAndScale : MonoBehaviour
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;
         
         inRange = false;
+        PuzzleManager.Instance.DisableShadow(false);
         
         foreach (var mesh in renderers)
             mesh.material = PuzzleManager.Instance.ResetMaterial();

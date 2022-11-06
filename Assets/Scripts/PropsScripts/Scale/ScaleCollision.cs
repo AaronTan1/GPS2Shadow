@@ -23,6 +23,9 @@ public class ScaleCollision : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if(scaleBe.ComponentsAreNull())
+                scaleBe.PassComponents(collision.GetComponent<Collider2D>(), collision.GetComponent<Rigidbody2D>());
+
             if(!isTilting)
             {
                 isTilting = true;
