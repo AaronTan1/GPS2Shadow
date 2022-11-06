@@ -14,14 +14,24 @@ public class CameraBehaviour : MonoBehaviour
     private string state = "3D";
     [SerializeField] private Transform alice3D;
     [SerializeField] private Transform alice2D;
+    [SerializeField] private Transform tracker;
     [SerializeField] private Button button;
-    
+
+    private Tracker trackerComponent;
     private void Awake()
     {
         cm = GetComponent<CinemachineVirtualCamera>();
         cmConfiner = GetComponent<CinemachineConfiner>();
         dolly = cm.GetCinemachineComponent<CinemachineTrackedDolly>();
         button.onClick.AddListener(SwapTarget);
+        trackerComponent = tracker.GetComponent<Tracker>();
+    }
+
+    private void Start()
+    {
+        trackerComponent.trackedObject = alice3D;
+        cm.m_Follow = tracker;
+        cm.LookAt = tracker;
     }
 
     private void SwapTarget()
@@ -34,14 +44,12 @@ public class CameraBehaviour : MonoBehaviour
             case "2D":
                 state = "3D";
                 StartCoroutine(LerpFov(80));
-                cm.m_Follow = alice3D;
-                cm.LookAt = alice3D;
+                trackerComponent.trackedObject = alice3D;
                 break;
             case "3D":
                 state = "2D";
                 StartCoroutine(LerpFov(30));
-                cm.m_Follow = alice2D;
-                cm.LookAt = alice2D;
+                trackerComponent.trackedObject = alice2D;
                 break;
         }
     }

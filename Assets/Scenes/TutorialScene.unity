@@ -6710,6 +6710,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553654261}
   m_Mesh: {fileID: 1213467760728899757, guid: a3f70001269a43f49900d6c83336c36d, type: 3}
+--- !u!1 &564504542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564504543}
+  - component: {fileID: 564504544}
+  m_Layer: 0
+  m_Name: Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564504543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564504542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1194230030}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564504544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564504542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f78aa65861120e419dec821f8443f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedObject: {fileID: 0}
+  updateSpeed: 10
+  trackingOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &573035205
 GameObject:
   m_ObjectHideFlags: 0
@@ -15630,6 +15677,7 @@ Transform:
   - {fileID: 1995773427}
   - {fileID: 659262394}
   - {fileID: 543576788}
+  - {fileID: 564504543}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17893,6 +17941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alice3D: {fileID: 543450653655836337}
   alice2D: {fileID: 246605888}
+  tracker: {fileID: 564504543}
   button: {fileID: 737748805}
 --- !u!1 &1401204556
 GameObject:
