@@ -10,6 +10,7 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject[] shadowPropsA; //gameObject shadows
     [SerializeField] public GameObject[] shadowPropsB; //gameObject shadows
     [SerializeField] public Light lightSource; //candleLight on hand
+    [SerializeField] private Light placePosIllumObj; //placePos 
     GameObject childOfPlace; //placeCandle's child
     GameObject childOfChild; //placeCandle's grandson
     Light lightOfChild; //child's reference to light
@@ -20,6 +21,9 @@ public class playerCandleScript : MonoBehaviour
     private bool hold = false;
     private bool range = false; // for picking up
     private bool rangePlace = false; // for placing
+    private bool litHandCandle = false;
+    private bool stationFade = false;
+    private bool placeIllum = false;
 
     void Start()
     {
@@ -30,6 +34,11 @@ public class playerCandleScript : MonoBehaviour
         playAlicePick = false;
         stationName = "";
         placeName = "";
+
+        handCandle.SetActive(false);
+        handCandle.GetComponentInChildren<Light>().range = 0.0f;
+        litHandCandle = false;
+        placeIllum = false;
     }
 
     public void ToggleHold()
@@ -57,7 +66,9 @@ public class playerCandleScript : MonoBehaviour
         {
             if (floorCandle[i].name == stationName)
             {
-                floorCandle[i].SetActive(false);
+                /*floorCandle[i].SetActive(false);*/
+                stationFade = true;
+                
             }
         }
 
@@ -67,6 +78,16 @@ public class playerCandleScript : MonoBehaviour
     void CandleInteract()
     {
         handCandle.SetActive(true);
+       
+        if (litHandCandle)
+        {
+            litHandCandle = false;
+        }
+        else
+        {
+            litHandCandle = true;
+        }
+
     }
 
     private void candleToPlace()
@@ -107,11 +128,15 @@ public class playerCandleScript : MonoBehaviour
         for (int i = 0; i < placeCandle.Length; i++)
         {
             if (placeCandle[i].name == placeName || placeCandle[i].name == "candlePlacePos(1)")
-            {
+            {           
+
                 childOfPlace = placeCandle[i].transform.GetChild(0).gameObject;
-                childOfPlace.SetActive(true);
-                childOfChild = placeCandle[i].transform.GetChild(0).gameObject;
+                childOfChild = childOfPlace.transform.GetChild(0).gameObject;
                 lightOfChild = childOfChild.GetComponent(typeof(Light)) as Light;
+                childOfPlace.SetActive(true);
+                lightOfChild.intensity = 0.0f;     
+
+                placeIllum = true;
 
                 if (placeName == "candlePlacePos")
                 {
@@ -181,6 +206,38 @@ public class playerCandleScript : MonoBehaviour
             }
 
         }
+
+        if (stationFade)
+        {
+            if(floorCandle[0].GetComponentInChildren<Light>().range <= 0.0f)
+            {
+                stationFade = false;
+            }
+            floorCandle[0].GetComponentInChildren<Light>().range -= Mathf.Clamp(6.0f * Time.deltaTime, 0.0f, 6.0f);
+        }
+
+
+        if (litHandCandle)
+        {
+            if (handCandle.GetComponentInChildren<Light>().range >= 5.0f)
+            {
+                litHandCandle = false;
+            }
+
+
+            handCandle.GetComponentInChildren<Light>().range += Mathf.Clamp(0.5f * 3.0f * Time.deltaTime, 0.0f, 5.0f);
+        }
+
+        if (placeIllum)
+        {
+            if (placePosIllumObj.intensity >= 1.5f)
+            {
+                placeIllum = false;
+            }
+            placePosIllumObj.intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.5f);
+        }
+
+
 
 /*        if (childIlluminate)
         {

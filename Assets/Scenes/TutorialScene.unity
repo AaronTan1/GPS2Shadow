@@ -2101,6 +2101,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135727934}
   m_Mesh: {fileID: 8346531205126585843, guid: f98f50735a911e34788c13aa3f2a8599, type: 3}
+--- !u!1 &139587331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6709300693707228777, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+    type: 3}
+  m_PrefabInstance: {fileID: 2232263184383008896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &152557938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7023,6 +7029,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587335326}
   m_Mesh: {fileID: -151544403965224699, guid: a3f70001269a43f49900d6c83336c36d, type: 3}
+--- !u!108 &599436552 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5722038947377650338, guid: 05de098ac9779734c9ebd65cc4b85adb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810483058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &624149610
 GameObject:
   m_ObjectHideFlags: 0
@@ -15177,10 +15189,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5722038947377650338, guid: 05de098ac9779734c9ebd65cc4b85adb,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722038947507240368, guid: 05de098ac9779734c9ebd65cc4b85adb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5722038947809968800, guid: 05de098ac9779734c9ebd65cc4b85adb,
         type: 3}
       propertyPath: m_Name
       value: candlePlacePos
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722038947809968800, guid: 05de098ac9779734c9ebd65cc4b85adb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5722038947809968828, guid: 05de098ac9779734c9ebd65cc4b85adb,
         type: 3}
@@ -16439,7 +16466,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.2
+  m_Intensity: 0.1
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -26242,6 +26269,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
+      propertyPath: handCandle
+      value: 
+      objectReference: {fileID: 139587331}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: placePosIllumObj
+      value: 
+      objectReference: {fileID: 1958693459}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
       propertyPath: placeCandle.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -26315,6 +26352,31 @@ PrefabInstance:
       propertyPath: shadowPropsA.Array.data[9]
       value: 
       objectReference: {fileID: 1795852658}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: placePosIllumObj.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: placePosIllumObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1958693459}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: placePosIllumObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 599436552}
+    - target: {fileID: 6618688641266404942, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709300693707228777, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b23ff7007105a545b6fb10a0e1b7433, type: 3}
 --- !u!4 &2236677003189513177
