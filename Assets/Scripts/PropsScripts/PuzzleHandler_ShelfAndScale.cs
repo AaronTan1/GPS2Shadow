@@ -16,7 +16,7 @@ public class PuzzleHandler_ShelfAndScale : MonoBehaviour
     [SerializeField] private Transform leftWaypoint;
     [SerializeField] private Transform rightWaypoint;
     [SerializeField] private Transform lookAtWaypoint;
-
+    
     private void Awake()
     {
         //Cache all renderer components
@@ -78,6 +78,8 @@ public class PuzzleHandler_ShelfAndScale : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;
+        
+        if (inSelection) MoveObject();
         
         inRange = false;
         PuzzleManager.Instance.DisableShadow(false);
