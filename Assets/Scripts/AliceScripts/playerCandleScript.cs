@@ -230,7 +230,7 @@ public class playerCandleScript : MonoBehaviour
 
         if (placeIllum)
         {
-            if (placePosIllumObj.intensity >= 1.5f)
+            if (placePosIllumObj.intensity > 1.5f)
             {
                 placeIllum = false;
             }
