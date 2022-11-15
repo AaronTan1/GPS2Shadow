@@ -68,7 +68,6 @@ public class playerCandleScript : MonoBehaviour
             {
                 /*floorCandle[i].SetActive(false);*/
                 stationFade = true;
-                
             }
         }
 
@@ -212,6 +211,7 @@ public class playerCandleScript : MonoBehaviour
             if(floorCandle[0].GetComponentInChildren<Light>().range <= 0.0f)
             {
                 stationFade = false;
+                floorCandle[0].SetActive(false);
             }
             floorCandle[0].GetComponentInChildren<Light>().range -= Mathf.Clamp(6.0f * Time.deltaTime, 0.0f, 6.0f);
         }
