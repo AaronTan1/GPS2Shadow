@@ -351,6 +351,7 @@ MonoBehaviour:
   - {fileID: 0}
   placeCandle:
   - {fileID: 0}
+  - {fileID: 0}
   handCandle: {fileID: 6709300693707228777}
   shadowPropsA:
   - {fileID: 0}
@@ -359,8 +360,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   shadowPropsB: []
   lightSource: {fileID: 2105988700772746062}
+  placePosIllumObj: {fileID: 0}
 --- !u!1 &1321649887371370676
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +428,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 49742e5e8d49be046b306d19be672c5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -714,7 +720,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4f1beb1cf02e904c820884c174e567c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

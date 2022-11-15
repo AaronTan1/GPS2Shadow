@@ -18,7 +18,12 @@ public class CandleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player") && this.name != "candleStand")
+        {
+            range = true;
+        }
+
+        if (playerCandleScript.restrictMode == false && this.name == "candleStand")
         {
             range = true;
         }
@@ -28,7 +33,7 @@ public class CandleScript : MonoBehaviour
             foreach (var mesh in renderers)
             {
                 mesh.material = matSwapColor;
-            }               
+            }
         }
     }
 
@@ -40,8 +45,8 @@ public class CandleScript : MonoBehaviour
             {
                 mesh.material = matOri;
             }
-                
         }
+
     }
 
 }

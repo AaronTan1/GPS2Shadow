@@ -10,7 +10,7 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject[] shadowPropsA; //gameObject shadows
     [SerializeField] public GameObject[] shadowPropsB; //gameObject shadows
     [SerializeField] public Light lightSource; //candleLight on hand
-    [SerializeField] private Light placePosIllumObj; //placePos 
+    [SerializeField] private Light[] placePosIllumObj; //placePos 
     GameObject childOfPlace; //placeCandle's child
     GameObject childOfChild; //placeCandle's grandson
     Light lightOfChild; //child's reference to light
@@ -126,7 +126,7 @@ public class playerCandleScript : MonoBehaviour
 
         for (int i = 0; i < placeCandle.Length; i++)
         {
-            if (placeCandle[i].name == placeName || placeCandle[i].name == "candlePlacePos(1)")
+            if (placeCandle[i].name == placeName || placeCandle[i].name == "candleStand (1)")
             {           
 
                 childOfPlace = placeCandle[i].transform.GetChild(0).gameObject;
@@ -137,7 +137,7 @@ public class playerCandleScript : MonoBehaviour
 
                 placeIllum = true;
 
-                if (placeName == "candlePlacePos")
+                if (placeName == "candleStand")
                 {
                     foreach (var t in shadowPropsA)
                     {
@@ -230,11 +230,17 @@ public class playerCandleScript : MonoBehaviour
 
         if (placeIllum)
         {
-            if (placePosIllumObj.intensity > 1.5f)
+            if (placePosIllumObj[0].intensity > 1.5f)
             {
                 placeIllum = false;
             }
-            placePosIllumObj.intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.5f);
+            placePosIllumObj[0].intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.5f);
+
+            if (placePosIllumObj[1].intensity > 1.5f)
+            {
+                placeIllum = false;
+            }
+            placePosIllumObj[1].intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.5f);
         }
 
 
