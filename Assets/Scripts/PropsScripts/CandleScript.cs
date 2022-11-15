@@ -23,7 +23,7 @@ public class CandleScript : MonoBehaviour
             range = true;
         }
 
-        if (playerCandleScript.restrictMode == false && this.name == "candleStand")
+        if (this.name == "candleStand" && playerCandleScript.placePosHandIndi)
         {
             range = true;
         }

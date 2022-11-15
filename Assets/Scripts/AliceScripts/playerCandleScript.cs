@@ -16,6 +16,7 @@ public class playerCandleScript : MonoBehaviour
     Light lightOfChild; //child's reference to light
     public static bool restrictMode; // stops button function before light is placed
     public static bool playAlicePick; //enables anim for picking candle up
+    public static bool placePosHandIndi; //candle on hand with range indi
     private string stationName, placeName; //names of stationary and placed candle
     /*private bool childIlluminate = false;*/
     private bool hold = false;
@@ -39,6 +40,7 @@ public class playerCandleScript : MonoBehaviour
         handCandle.GetComponentInChildren<Light>().range = 0.0f;
         litHandCandle = false;
         placeIllum = false;
+        placePosHandIndi = false;
     }
 
     public void ToggleHold()
@@ -60,6 +62,7 @@ public class playerCandleScript : MonoBehaviour
     private void candleOnHand()
     {
         playAlicePick = true;
+        placePosHandIndi = true;
         Invoke(nameof(CandleInteract), 0.1f);
     
         for (int i = 0; i < floorCandle.Length; i++)
@@ -92,6 +95,7 @@ public class playerCandleScript : MonoBehaviour
     private void candleToPlace()
     {
         handCandle.SetActive(false);
+        placePosHandIndi = true;
         characterControl.holdCandle = false;
 
         /*        for(int i = 0; i < placeCandle.Length; i++)
