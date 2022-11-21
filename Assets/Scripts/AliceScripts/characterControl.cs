@@ -237,12 +237,12 @@ public class characterControl : MonoBehaviour
             {
                 if (holdCandle == false)
                 {
-                    YellowIcon.sprite = UIIcons[0];
+                    YellowIcon.sprite = UIIcons[2];
                     PurpleIcon.sprite = UIIcons[1];
                 }
                 else if (holdCandle == true)
                 {
-                    YellowIcon.sprite = UIIcons[2];
+                    YellowIcon.sprite = UIIcons[0];
                 }
             }
         }
@@ -275,7 +275,7 @@ public class characterControl : MonoBehaviour
                 }
                 else
                 {
-                    YellowIcon.sprite = UIIcons[0];
+                    YellowIcon.sprite = UIIcons[2];
                     PurpleIcon.sprite = UIIcons[1];
                 }
             }
