@@ -18,27 +18,51 @@ public class CandleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && this.name != "candleStand")
+        if (other.CompareTag("Player"))
         {
-            range = true;
-        }
-
-        if (this.name == "candleStand" && playerCandleScript.placePosHandIndi)
-        {
-            range = true;
-        }
-
-        if (other.CompareTag("Player") && range)
-        {
-            foreach (var mesh in renderers)
+            if (this.name != "candleStand")
             {
-                mesh.material = matSwapColor;
+                range = true;
+            }
+            else if (this.name == "candleStand" && playerCandleScript.placePosHandIndi)
+            {
+                range = true;
+            }
+
+            if (range)
+            {
+                foreach (var mesh in renderers)
+                {
+                    mesh.material = matSwapColor;
+                }
             }
         }
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if(this.name == "candleStand")
+        {
+            if (other.CompareTag("Player") && playerCandleScript.placePosHandIndi == false)
+            {
+                range = false;
+            }
+
+            if (range == false)
+            {
+                foreach (var mesh in renderers)
+                {
+                    mesh.material = matOri;
+                }
+            }
+        }
+  
     }
 
     private void OnTriggerExit(Collider other)
     {
+        range = false;
+
         if (playerCandleScript.restrictMode || !other.CompareTag("Player"))
         {
             foreach (var mesh in renderers)
@@ -46,7 +70,6 @@ public class CandleScript : MonoBehaviour
                 mesh.material = matOri;
             }
         }
-
     }
 
 }

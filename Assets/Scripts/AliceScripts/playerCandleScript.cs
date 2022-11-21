@@ -95,7 +95,7 @@ public class playerCandleScript : MonoBehaviour
     private void candleToPlace()
     {
         handCandle.SetActive(false);
-        placePosHandIndi = true;
+        placePosHandIndi = false;
         characterControl.holdCandle = false;
 
         /*        for(int i = 0; i < placeCandle.Length; i++)

@@ -230,5 +230,56 @@ public class characterControl : MonoBehaviour
 
         /*Debug.Log(PlayerShadow.GetComponent<Rigidbody2D>().velocity);*/
         /*Debug.Log(PuzzleHandler_Table.playAliceTableAnim);*/
+
+        if (playerCandleScript.restrictMode)
+        {
+            if(switchMode == false)
+            {
+                if (holdCandle == false)
+                {
+                    YellowIcon.sprite = UIIcons[0];
+                    PurpleIcon.sprite = UIIcons[1];
+                }
+                else if (holdCandle == true)
+                {
+                    YellowIcon.sprite = UIIcons[2];
+                }
+            }
+        }
+        else if(playerCandleScript.restrictMode == false)
+        {
+            if (switchMode)
+            {
+                YellowIcon.sprite = UIIcons[4];
+                PurpleIcon.sprite = UIIcons[3];
+            }
+            else if(switchMode == false)
+            {
+                if (PuzzleHandler_Cabinet.inRange) // for cabinet
+                {
+                    YellowIcon.sprite = UIIcons[6];
+                    PurpleIcon.sprite = UIIcons[5];
+                }
+                else if (PuzzleHandler_Table.inRangeT)
+                {
+                    if(PuzzleHandler_Table.inSelection)
+                    {
+                        YellowIcon.sprite = UIIcons[8];
+                        PurpleIcon.sprite = UIIcons[9];
+                    }
+                    else 
+                    {
+                        YellowIcon.sprite = UIIcons[7];
+                        PurpleIcon.sprite = UIIcons[9];
+                    }                  
+                }
+                else
+                {
+                    YellowIcon.sprite = UIIcons[0];
+                    PurpleIcon.sprite = UIIcons[1];
+                }
+            }
+        }
+
     }
 }

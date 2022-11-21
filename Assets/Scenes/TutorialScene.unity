@@ -27667,11 +27667,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
-      propertyPath: placePosIllumObj
-      value: 
-      objectReference: {fileID: 410127414}
-    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
       propertyPath: floorCandle.Array.data[0]
       value: 
       objectReference: {fileID: 6503052827101654200}
@@ -27735,11 +27730,6 @@ PrefabInstance:
       propertyPath: shadowPropsA.Array.data[9]
       value: 
       objectReference: {fileID: 1795852658}
-    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: placePosIllumObj.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
       propertyPath: placePosIllumObj.Array.data[0]

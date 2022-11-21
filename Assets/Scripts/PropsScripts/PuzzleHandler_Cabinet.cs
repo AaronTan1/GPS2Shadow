@@ -14,7 +14,7 @@ public class PuzzleHandler_Cabinet : MonoBehaviour
     
     private int index = 0;
     private bool inSelection;
-    private static bool inRange;
+    public static bool inRange; //made public
 
     
     private Transform player;

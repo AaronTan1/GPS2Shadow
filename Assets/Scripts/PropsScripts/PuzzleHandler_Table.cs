@@ -6,14 +6,14 @@ using UnityEngine;
 public class PuzzleHandler_Table : MonoBehaviour
 {
     public static bool playAliceTableAnim;
+    public static bool inRangeT; // made public static
     private MeshRenderer[] renderers;
     private PuzzleHandler_PushPull handler;
     
     private Transform player;
     private Transform playerParent;
 
-    private bool inRange;
-    private bool inSelection;
+    public static bool inSelection; //made public static  
     private bool isMoving;
     [SerializeField] private Transform standWaypoint;
     [SerializeField] private Transform tableShadow;
@@ -31,7 +31,7 @@ public class PuzzleHandler_Table : MonoBehaviour
 
     public void MoveTable()
     {
-        if (!inRange) return;
+        if (!inRangeT) return;
         
         switch (inSelection)
         {
@@ -67,7 +67,7 @@ public class PuzzleHandler_Table : MonoBehaviour
             playerParent = player.parent;
         }
         
-        inRange = true;
+        inRangeT = true;
         PuzzleManager.Instance.DisableShadow(true);
 
         foreach (var mesh in renderers)
@@ -78,7 +78,7 @@ public class PuzzleHandler_Table : MonoBehaviour
     {
         if (!other.CompareTag("Player") || playerCandleScript.restrictMode) return;
         
-        inRange = false;
+        inRangeT = false;
         PuzzleManager.Instance.DisableShadow(false);
 
         foreach (var mesh in renderers)
