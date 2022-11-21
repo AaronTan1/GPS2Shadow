@@ -20,4 +20,12 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ReturnMM()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
 }

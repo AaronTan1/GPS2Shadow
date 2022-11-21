@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class characterControl : MonoBehaviour
 {
     [SerializeField] GameObject Player;
     [SerializeField] GameObject PlayerShadow; // all shadows gameObj
+    [SerializeField] Image YellowIcon; //RS lower left
+    [SerializeField] Image PurpleIcon; //RS higher right
+    [SerializeField] Sprite[] UIIcons;
     [SerializeField] Animator PlayerShadowAnimator;
     [SerializeField] Animator PlayerAnimator;
+
     public static bool holdCandle;
     private static bool switchMode; //true = shadowRealm, false = 3d
     private joystickManager joystickManger;
@@ -52,6 +57,9 @@ public class characterControl : MonoBehaviour
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         cam = Camera.main;
+
+        YellowIcon.sprite = UIIcons[0];
+        PurpleIcon.sprite = UIIcons[1];
     }
 
     public void ToggleSwitch()
