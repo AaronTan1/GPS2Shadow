@@ -33,6 +33,9 @@ public class ScaleBehaviour : MonoBehaviour
     [SerializeField] float launchDirectionX;
     [SerializeField] float launchDirectionY;
 
+    [Header("Blight Related")]
+    [SerializeField] ScaleBlightBehaviour sbb;
+
     Coroutine tiltCr = null;
 
     private void Awake()
@@ -46,6 +49,11 @@ public class ScaleBehaviour : MonoBehaviour
                 playerShadowRB = obj.GetComponent<Rigidbody2D>();
             }
         }
+    }
+
+    private void Start()
+    {
+        
     }
     void Update()
     {
@@ -132,4 +140,9 @@ public class ScaleBehaviour : MonoBehaviour
         currentTiltValue = newTiltValue;
         tiltCr = null;
     }
+
+    /*IEnumerator BlightPlaysWithScale()
+    {
+
+    }*/
 }

@@ -51,7 +51,7 @@ Shader "Unlit/NoAdditiveAlphaBlendTest"
 
 			 half4 frag (v2f i) : COLOR {
 				half4 color = tex2D(_MainTex, i.uv);
-				if (color.a == 0.0)
+				if (color.a < 0.5)
 					discard;
 				else if (color.r == 0.0 && color.g != 0.0)
 					color = _ColorEx;
