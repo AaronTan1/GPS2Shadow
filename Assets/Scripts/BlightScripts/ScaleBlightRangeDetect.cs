@@ -10,6 +10,7 @@ public class ScaleBlightRangeDetect : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             sbb.PlayerInRange();
+            gameObject.SetActive(false);
         }
     }
 }
