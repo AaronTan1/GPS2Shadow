@@ -43,15 +43,16 @@ public class ScaleCollision : MonoBehaviour
                 else
                 {
                     scaleBe.TiltScale(-scaleBe.playerTiltAngle);
+                    scaleBe.BlightPrepare();
                 }
 
-                // - - - - - - - - - - - - - - - 
-                if(crAutoLaunch != null)
+                // - - - - - - - - - - - - - - - AutoLaunch without blight
+                /*if(crAutoLaunch != null)
                 {
                     StopCoroutine(crAutoLaunch);
                 }
 
-                crAutoLaunch = StartCoroutine(AutoLaunch());
+                crAutoLaunch = StartCoroutine(AutoLaunch());*/
                 // - - - - - - - - - - - - - - - 
             }
         }
@@ -67,13 +68,13 @@ public class ScaleCollision : MonoBehaviour
                     return;
                 }
                 crReset = StartCoroutine(ResetTiltCooldown());
-                scaleBe.TiltScale(0);
+                scaleBe.ReturnToNormalTilt();
 
                 // - - - - - - - - - - - - - - - 
-                if (crAutoLaunch != null)
+                /*if (crAutoLaunch != null)
                 {
                     StopCoroutine(crAutoLaunch);
-                }
+                }*/
                 // - - - - - - - - - - - - - - - 
             }
         }
@@ -92,10 +93,10 @@ public class ScaleCollision : MonoBehaviour
         crReset = null;
     }
 
-    IEnumerator AutoLaunch()//To be removed when blight is added
+    /*IEnumerator AutoLaunch()//To be removed when blight is added
     {
         yield return new WaitForSeconds(1f);
         scaleBe.PlayerLaunch();
         crAutoLaunch = null;
-    }
+    }*/
 }

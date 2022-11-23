@@ -57,7 +57,7 @@ public class ScaleBehaviour : MonoBehaviour
     }
     void Update()
     {
-        //Would be removed for build
+        /*//Would be removed for build
         if(Input.GetKeyDown(KeyCode.R))
         {
             TiltScale(testValue);
@@ -65,32 +65,39 @@ public class ScaleBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             PlayerLaunch();
-        }
+        }*/
     }
-    public void TiltScale(float tiltVal)
+    public void TiltScale(float tiltVal, float delay = 0f)
     {
         if (tiltCr != null)
         {
             StopCoroutine(tiltCr);
         }
-        tiltCr = StartCoroutine(TiltScaleIncrementally(tiltVal));
+        tiltCr = StartCoroutine(TiltScaleIncrementally(tiltVal, delay));
     }
-
-    public void PlayerLaunch()//TO be called by bligth when slamming
+    public void BlightPrepare()
     {
-        
+        //sbb.PrepareToAttack();
+        Invoke("BlightSlam", 2f);
+    }
+    public void BlightSlam()
+    {
+        sbb.SlamOnScale();
+        TiltScale(-30, 1f);
+        Invoke("LaunchPlayer", 0.8f);
+        Invoke("ReturnToNormalTilt", 3.5f);
+    }
+    public void LaunchPlayer()
+    {
         if (leftPlateCollider.IsTouching(playerShadowCollider))
         {
-            leftPlateCollider.enabled = false;
             Vector2 targetDir = new Vector2(launchDirectionX, launchDirectionY).normalized;
             playerShadowRB.AddForce(targetDir * launchStrength * 10);
-            TiltScale(-45);
-            Invoke("AfterLaunch", 0.5f);//Should be bigger than 0.3f(Tilt time) most of the time in case
         }
-        else
-        {
-            Debug.Log("Player not on left plate");
-        }
+    }
+    public void ReturnToNormalTilt()
+    {
+        TiltScale(0);
     }
 
     public bool ComponentsAreNull()
@@ -103,13 +110,11 @@ public class ScaleBehaviour : MonoBehaviour
         playerShadowRB = rbPly;
     }
 
-    void AfterLaunch()
+    
+    IEnumerator TiltScaleIncrementally(float newTiltValue, float delay)
     {
-        leftPlateCollider.enabled = true;
-        TiltScale(0);
-    }
-    IEnumerator TiltScaleIncrementally(float newTiltValue)
-    {
+        yield return new WaitForSeconds(delay);
+
         float splitTiltValue = (newTiltValue - currentTiltValue) / tiltFrames;
         float splitTiltDuration = tiltDuration / tiltFrames;
         float localTiltFrame = tiltFrames;
