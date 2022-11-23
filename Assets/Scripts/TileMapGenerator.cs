@@ -22,6 +22,9 @@ public class TileMapGenerator : MonoBehaviour
     [SerializeField] [Min(3)] private int row;
     [SerializeField] [Min(3)] private int col;
 
+    [SerializeField] private Texture2D floorTexture;
+    [SerializeField] private Texture2D wallTexture;
+    [SerializeField] private bool seperateFloorAndWall;
     [SerializeField] private List<Tile> Tiles;
 
     GameObject parent;
@@ -87,7 +90,17 @@ public class TileMapGenerator : MonoBehaviour
     private void SpawnTile(int z, int x, string name)
     {
         GameObject obj = Tiles.Find(x => x.name.Contains(name)).asset;
-        Instantiate(obj, new Vector3(x*2,0,z*2), Quaternion.identity, parent.transform);
+        GameObject tile = Instantiate(obj, new Vector3(x*2,0,z*2), Quaternion.identity, parent.transform);
+        if (name == "Standard")
+            tile.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = floorTexture;
+        else tile.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = wallTexture;
+
+        if (seperateFloorAndWall)
+        {
+            GameObject floor = Instantiate(Tiles.Find(x => x.name.Contains("Standard")).asset, new Vector3(x * 2, 0, z * 2), Quaternion.identity, parent.transform);
+            floor.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = floorTexture;
+        }
+
     }
     
 }
