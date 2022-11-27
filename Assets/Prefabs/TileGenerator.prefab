@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8380180913350164410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8380180913350164408}
+  - component: {fileID: 8380180913350164411}
+  m_Layer: 0
+  m_Name: TileGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8380180913350164408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380180913350164410}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1.4773, y: 1.4773, z: 1.4773}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8380180913350164411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380180913350164410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bfdb3e1e71b5e40b4beb6586ee5123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 5
+  col: 3
+  floorTexture: {fileID: 2800000, guid: d461b257115d32c47a47f0ff280207de, type: 3}
+  wallTexture: {fileID: 2800000, guid: 3738354b21b20c84a93d81acdf710270, type: 3}
+  seperateFloorAndWall: 1
+  Tiles:
+  - name: Standard
+    asset: {fileID: -5590744917902350804, guid: 2e04e322cee50824f9c7a047001500b4,
+      type: 3}
+  - name: CornerTopLeft
+    asset: {fileID: -8396973382615375127, guid: 2e04e322cee50824f9c7a047001500b4,
+      type: 3}
+  - name: CornerTopRight
+    asset: {fileID: 2912292354895898854, guid: 2e04e322cee50824f9c7a047001500b4, type: 3}
+  - name: CornerBottomLeft
+    asset: {fileID: -5996726231102199397, guid: 2e04e322cee50824f9c7a047001500b4,
+      type: 3}
+  - name: CornerBottomRight
+    asset: {fileID: 6012113098920171574, guid: 2e04e322cee50824f9c7a047001500b4, type: 3}
+  - name: WallLeft
+    asset: {fileID: -8660804457839023241, guid: 2e04e322cee50824f9c7a047001500b4,
+      type: 3}
+  - name: WallRight
+    asset: {fileID: -7386257642086319009, guid: 2e04e322cee50824f9c7a047001500b4,
+      type: 3}
+  - name: WallTop
+    asset: {fileID: 2284348229931742837, guid: 2e04e322cee50824f9c7a047001500b4, type: 3}
+  - name: WallBottom
+    asset: {fileID: 476345583493689014, guid: 2e04e322cee50824f9c7a047001500b4, type: 3}
