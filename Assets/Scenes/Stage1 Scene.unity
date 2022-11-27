@@ -10804,12 +10804,12 @@ PrefabInstance:
     - target: {fileID: 8380180913350164411, guid: 73020116d518055439f8d102706b1c6b,
         type: 3}
       propertyPath: col
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8380180913350164411, guid: 73020116d518055439f8d102706b1c6b,
         type: 3}
       propertyPath: row
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73020116d518055439f8d102706b1c6b, type: 3}

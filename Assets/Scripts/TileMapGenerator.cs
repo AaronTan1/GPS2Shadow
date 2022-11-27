@@ -93,15 +93,15 @@ public class TileMapGenerator : MonoBehaviour
         GameObject tile = Instantiate(obj, new Vector3(x*2,0,z*2), Quaternion.identity, parent.transform);
         if (name == "Standard")
         {
-            tile.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = floorTexture;
+            tile.GetComponent<MeshRenderer>().material.mainTexture = floorTexture;
             return;
         }            
-        else tile.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = wallTexture;
+        else tile.GetComponent<MeshRenderer>().material.mainTexture = wallTexture;
 
         if (seperateFloorAndWall)
         {
             GameObject floor = Instantiate(Tiles.Find(x => x.name.Contains("Standard")).asset, new Vector3(x * 2, 0, z * 2), Quaternion.identity, parent.transform);
-            floor.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = floorTexture;
+            floor.GetComponent<MeshRenderer>().material.mainTexture = floorTexture;
         }
 
     }
