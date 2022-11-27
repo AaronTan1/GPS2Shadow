@@ -20294,6 +20294,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 615721731, guid: c60c75f84a963cf478cede640461801f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796179381, guid: c60c75f84a963cf478cede640461801f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dab700b786a53f4ca23e391e63b1673,
+        type: 3}
     - target: {fileID: 482448788828842242, guid: c60c75f84a963cf478cede640461801f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -24614,6 +24623,24 @@ PrefabInstance:
       propertyPath: PlayerShadowAnimator
       value: 
       objectReference: {fileID: 246605893}
+    - target: {fileID: 4575500833693460613, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
+        type: 3}
+      propertyPath: UIIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 841755e8bfd08a6419377dae9e6b4e63,
+        type: 3}
+    - target: {fileID: 4575500833693460613, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
+        type: 3}
+      propertyPath: UIIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 92bde00dccbe50e46b8acb49a3f33ce8,
+        type: 3}
+    - target: {fileID: 4575500833693460613, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
+        type: 3}
+      propertyPath: UIIcons.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 32832f8c7a32c0d4ba50ba2fb7951a0d,
+        type: 3}
     - target: {fileID: 4575500833693460634, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
         type: 3}
       propertyPath: m_Name
