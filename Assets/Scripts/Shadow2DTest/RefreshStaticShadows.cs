@@ -17,25 +17,35 @@ public class RefreshStaticShadows : MonoBehaviour
     [SerializeField] Transform initialWallPosition;
     Transform[] trList;
 
-#region shadowStuff
+
+
+    #region shadowStuff
     [Header("Shadow Generation")]
     [SerializeField] Camera generationCam;//Shadow generator camera
     [SerializeField] SpriteRenderer testSR;//Sprite renderer for testing
     [SerializeField] string outputfilename; //Placeholder for texture file name
+
     [Range(9.0f, 15.0f)]
     [SerializeField] int shadowQuality;
     public int verticalResolution;
     public int horizontalResolution;
     [SerializeField] int captureDepth = 24;
+
     [SerializeField] GameObject staticShadowPrefab;
     [SerializeField] Color32 shadowColor;
     [SerializeField] Material shadowMaterial;//Somewhat solves additive alpha blending
+    [Tooltip("Sometimes Z and Y is swapped and the script cannot detect 100% of the cases so there's a manual swapping in case.")]
+    [SerializeField] bool swapZYForGenCamera = false;
+
+
 
     [Header("Shadow Generation for specified object (Maybe buggy)")]
     [SerializeField] GameObject specifiedObj;
 
     [SerializeField] List<Transform> partsList;
     [SerializeField] bool generateForPartsSeperately;
+
+
 
     [Header("Shadow Regen Safety Lock")]
     [Tooltip("Check if you want to actually regenerate all shadows and delete old ones, keep it unchecked if you're afraid of accidentally regenerating every shadow")]
@@ -45,10 +55,10 @@ public class RefreshStaticShadows : MonoBehaviour
     private int textureFailsafeID = 1;
     private string spritePath;
 
-#region BasicFunctions
+    #region BasicFunctions
     public void RefreshAllStaticShadows(bool deleteOldShadows)
     {
-        deleteOldShadows = allowDeleteOldShadow ? (deleteOldShadows ? true : false) : false;       
+        deleteOldShadows = allowDeleteOldShadow ? (deleteOldShadows ? true : false) : false;
         spritePath = $"Assets/Resources/GeneratedShadowTextures/{SceneManager.GetActiveScene().name}";
         trList = new Transform[] { initialWallPosition, initialLightPosition };
         subcamPosition = generationCam.transform.position;
@@ -58,7 +68,7 @@ public class RefreshStaticShadows : MonoBehaviour
 
 #if UNITY_EDITOR
         // - Checking Directory for scene specific sprites, create if it doesnt exist
-        if(deleteOldShadows)
+        if (deleteOldShadows)
         {
             if (AssetDatabase.IsValidFolder(spritePath))
             {
@@ -66,7 +76,7 @@ public class RefreshStaticShadows : MonoBehaviour
             }
             Directory.CreateDirectory(spritePath);
         }
-        
+
 #endif
 
         // - Checking each static object for shadow, generate one if there is none
@@ -81,9 +91,9 @@ public class RefreshStaticShadows : MonoBehaviour
     // - Checking if components and scripts exists before generating
     public void PreshadowGenerationCheck(Transform thisChild, bool delShadows, bool isSpecified = false)
     {
-        if(isSpecified)
+        if (isSpecified)
         {
-            if(specifiedObj != null)
+            if (specifiedObj != null)
             {
                 thisChild = specifiedObj.transform;
             }
@@ -126,7 +136,7 @@ public class RefreshStaticShadows : MonoBehaviour
         Transform tempTR = tempObj.transform;
 
         tempTR.parent = generationCam.transform;
-        tempTR.localScale = new Vector3(1, 1, 1);
+        tempTR.localScale = thisChild.localScale;
         tempTR.position = new Vector3(subcamPosition.x, subcamPosition.y, subcamPosition.z - 5);
         if (thisChild.rotation.eulerAngles.x == 270)
         {
@@ -137,6 +147,7 @@ public class RefreshStaticShadows : MonoBehaviour
             tempTR.Rotate(0, 180, 0);
         }
         //Debug.Log($"{child.rotation.eulerAngles.x} , {child.rotation.eulerAngles.y} , {child.rotation.eulerAngles.z}");
+        Debug.Log(tempObj.transform.localScale);
 
 
         // - Camera Scaling based on model size (Checks Y for now, Z and X later)
@@ -187,11 +198,11 @@ public class RefreshStaticShadows : MonoBehaviour
         // !!! Need to check if Horizontal/width is larger than the screen size as well !!! [WIP]
         if (thisChild.rotation.x == 0)
         {
-            generationCam.orthographicSize = maxY * 2;
+            generationCam.orthographicSize = (swapZYForGenCamera ? maxZ : maxY) * 2;
         }
         else
         {
-            generationCam.orthographicSize = maxZ * 2;
+            generationCam.orthographicSize = (swapZYForGenCamera ? maxY : maxZ) * 2;
         }
 
         Debug.Log(thisChild.rotation.x);
@@ -214,11 +225,11 @@ public class RefreshStaticShadows : MonoBehaviour
         {
             GenerateShadow(thisChild.name, newShadow.GetComponent<SpriteRenderer>(), generationCam.orthographicSize);
         }
-        
+
         // ++++++++++++++++++++++ END of environment setup for the camera
 
 
-        
+
     }
 
     public void GeneratePartByPart() // Special shadow generation part by part, hence was done in a seperate function
@@ -280,7 +291,7 @@ public class RefreshStaticShadows : MonoBehaviour
             //Disable children if there are parts that are also children
             if (tempTR.childCount > 0)
             {
-                foreach(Transform childOfthis in tempTR.Cast<Transform>().ToArray())
+                foreach (Transform childOfthis in tempTR.Cast<Transform>().ToArray())
                 {
                     childOfthis.gameObject.SetActive(false);
                 }
@@ -303,19 +314,19 @@ public class RefreshStaticShadows : MonoBehaviour
             }
 
 
-            
+
 
             // - Generate Shadow
             string permSpritePath = $"Assets/Resources/GeneratedShadowTextures/PermanentSprites";
             GenerateShadow(part.name, newShadow.GetComponent<SpriteRenderer>(), generationCam.orthographicSize, permSpritePath);
             part.GetComponent<StaticFakeShadow>().CastFakeShadow(new Transform[] { initialWallPosition, initialLightPosition });
         }
-        
+
     }
 
 
 
-#endregion
+    #endregion
 
 
 
@@ -342,7 +353,7 @@ public class RefreshStaticShadows : MonoBehaviour
         Sprite sprite = Sprite.Create(texture, rect, Vector2.zero);
 
 
-        if(specifiedSpritePath!= null)
+        if (specifiedSpritePath != null)
         {
             spritePath = specifiedSpritePath;
         }
@@ -367,7 +378,7 @@ public class RefreshStaticShadows : MonoBehaviour
 #endif
 
         // - Applying sprite to shadow
-        if(specifiedSpritePath != null)
+        if (specifiedSpritePath != null)
         {
             tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/PermanentSprites/{outputfilename}");
         }
@@ -375,7 +386,7 @@ public class RefreshStaticShadows : MonoBehaviour
         {
             tempSR.sprite = Resources.Load<Sprite>($"GeneratedShadowTextures/{SceneManager.GetActiveScene().name}/{outputfilename}");
         }
-        
+
         tempSR.color = shadowColor;
         tempSR.material = shadowMaterial;
         tempSR.gameObject.AddComponent<PolygonCollider2D>();
@@ -411,7 +422,7 @@ public class RefreshStaticShadows : MonoBehaviour
                 {
                     continue;
                 }
-               
+
             }
             else
             {
@@ -420,7 +431,7 @@ public class RefreshStaticShadows : MonoBehaviour
         }
     }
 
-    
+
     //-----------------------------------------------Testing use only to be removed later----------------------------------------------------
     public void DebugChild(GameObject cgm)
     {
