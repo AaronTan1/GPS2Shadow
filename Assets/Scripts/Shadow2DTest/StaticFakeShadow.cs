@@ -12,9 +12,9 @@ public class StaticFakeShadow : MonoBehaviour
     [SerializeField] Transform lightTR;
 
     [Tooltip("1 by default, 0.5 to offset it by 50%, 2 to 200%")]
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 5.0f)]
     [SerializeField] float xSizePercentageOffset = 1;
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 5.0f)]
     [SerializeField] float ySizePercentageOffset = 1;
     [Range(-20f, 20f)]
     [SerializeField] float xOffset = 0;
