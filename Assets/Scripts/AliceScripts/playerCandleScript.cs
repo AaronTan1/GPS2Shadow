@@ -9,6 +9,7 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject handCandle; //preset candle on hand
     [SerializeField] public GameObject[] shadowPropsA; //gameObject shadows
     [SerializeField] public GameObject[] shadowPropsB; //gameObject shadows
+    [SerializeField] public GameObject candleHolder; //candleLight on hand
     [SerializeField] public Light lightSource; //candleLight on hand
     [SerializeField] private Light[] placePosIllumObj; //placePos 
     GameObject childOfPlace; //placeCandle's child
@@ -63,6 +64,7 @@ public class playerCandleScript : MonoBehaviour
     {
         playAlicePick = true;
         placePosHandIndi = true;
+        candleHolder.SetActive(true);
         Invoke(nameof(CandleInteract), 0.1f);
     
         for (int i = 0; i < floorCandle.Length; i++)
