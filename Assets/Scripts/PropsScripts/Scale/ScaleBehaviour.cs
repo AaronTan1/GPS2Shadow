@@ -83,7 +83,7 @@ public class ScaleBehaviour : MonoBehaviour
     public void BlightSlam()
     {
         sbb.SlamOnScale();
-        TiltScale(-30, 1f);
+        TiltScale(-60, 1f);
         Invoke("LaunchPlayer", 0.8f);
         Invoke("ReturnToNormalTilt", 3.5f);
     }
