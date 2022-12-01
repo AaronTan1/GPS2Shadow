@@ -57,6 +57,7 @@ public class SoundManager : MonoBehaviour
             audioSourceCont.Stop();
             audioSourceCont.clip = t;
             audioSourceCont.Play();
+            audioSourceCont.loop = true;
         }
     }
 

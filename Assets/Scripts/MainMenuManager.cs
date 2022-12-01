@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
     private void Start()
     {
-        SoundManager.Instance.PlaySoundCont("Tutorial Bgm");
+        SoundManager.Instance.PlaySoundCont("Level 1 Music"); // for tutorial scene
     }
     public void PlayGame()
     {
