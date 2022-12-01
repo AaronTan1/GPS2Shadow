@@ -6,8 +6,11 @@ public class checkpointScript : MonoBehaviour
 {
     public static bool shadowTransitionAnim;
     public GameObject shadowAlice;
+    public GameObject realAlice;
+    public GameObject targetPos; // reposition Alice
     public float proceedDelay; //time before entering new Section
     public Animator doorAnim; //tutorial door
+  
 
     [SerializeField] private Collider doorColDisable;
 
@@ -17,6 +20,7 @@ public class checkpointScript : MonoBehaviour
         doorAnim.enabled = false;
         doorColDisable.isTrigger = false;
     }
+
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,6 +37,8 @@ public class checkpointScript : MonoBehaviour
         shadowAlice.transform.position = new Vector3(6.0f, 1.7f, 2.5f);
         doorAnim.enabled = true;
         doorColDisable.isTrigger = true;
+        realAlice.transform.rotation = targetPos.transform.rotation;
+        realAlice.transform.position = targetPos.transform.position;
         CameraBehaviour.SwapRooms("Room2");
         Invoke(nameof(UnlockTransition), 0.5f);
     }
