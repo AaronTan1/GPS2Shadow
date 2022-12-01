@@ -236,17 +236,17 @@ public class playerCandleScript : MonoBehaviour
 
         if (placeIllum)
         {
-            if (placePosIllumObj[0].intensity > 1.5f)
+            if (placePosIllumObj[0].intensity > 0.5f)
             {
                 placeIllum = false;
             }
-            placePosIllumObj[0].intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.5f);
+            placePosIllumObj[0].intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.0f);
 
-            if (placePosIllumObj[1].intensity > 1.5f)
+            if (placePosIllumObj[1].intensity > 0.5f)
             {
                 placeIllum = false;
             }
-            placePosIllumObj[1].intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.5f);
+            placePosIllumObj[1].intensity += Mathf.Clamp(0.4f * Time.deltaTime, 0.0f, 1.0f);
         }
 
 

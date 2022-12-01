@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 13b30a275858ade4eb3e2713f06761af, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.006408686, g: 0.016418463, b: 0.033325315, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5106,7 +5106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185954051}
-  m_LocalRotation: {x: 0.33400625, y: 2.7365968e-15, z: -2.970158e-15, w: 0.94257087}
+  m_LocalRotation: {x: 0.33400628, y: -0.000000056181605, z: 0.000000019908327, w: 0.94257087}
   m_LocalPosition: {x: -2.29, y: 2.1800003, z: -7.3099995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10083,6 +10083,36 @@ PrefabInstance:
     - target: {fileID: 3613160143487339737, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868098935435127785, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.9647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868098935435127785, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868098935435127785, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.89411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868098935435127785, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868098936043323244, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.348
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868098936043323245, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4138621884941588067, guid: 8064ae03bf1f77e4db5a8d68ab2703df,
@@ -57227,9 +57257,19 @@ PrefabInstance:
       objectReference: {fileID: 1617663670}
     - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
+      propertyPath: placePosIllumObj.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
       propertyPath: placePosIllumObj.Array.data[0]
       value: 
       objectReference: {fileID: 364756168}
+    - target: {fileID: 2232263184359989725, guid: 3b23ff7007105a545b6fb10a0e1b7433,
+        type: 3}
+      propertyPath: placePosIllumObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2637295235621259859, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -63986,7 +64026,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138497019}
-  m_LocalRotation: {x: 0.33400625, y: 2.7365968e-15, z: -2.970158e-15, w: 0.94257087}
+  m_LocalRotation: {x: 0.33400628, y: -0.000000056181605, z: 0.000000019908327, w: 0.94257087}
   m_LocalPosition: {x: 2.27, y: 4.6000004, z: 2.6590004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
