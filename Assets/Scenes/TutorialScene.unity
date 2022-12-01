@@ -24661,7 +24661,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipSolo: []
   audioSourceSolo: {fileID: 1549551318}
-  audioEffectCont: []
+  audioEffectCont:
+  - {fileID: 8300000, guid: 2fa2b960df417d94aa46cb6f909cfd7a, type: 3}
   audioSourceCont: {fileID: 1549551318}
   audioEffectMusic: []
   audioSourceMusic: {fileID: 1549551318}

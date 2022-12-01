@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-
+    private void Start()
+    {
+        SoundManager.Instance.PlaySoundCont("Tutorial Bgm");
+    }
     public void PlayGame()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)

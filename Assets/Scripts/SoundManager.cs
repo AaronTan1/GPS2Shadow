@@ -29,9 +29,9 @@ public class SoundManager : MonoBehaviour
         
         DontDestroyOnLoad (this);
         
-        audioSourceCont.volume = sfxVol;
+        audioSourceCont.volume = musicVol;
         audioSourceSolo.volume = sfxVol;
-        audioSourceMusic.volume = musicVol;
+        audioSourceMusic.volume = sfxVol;
         
         sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
         musicSlider.onValueChanged.AddListener(ChangeMusicVolume);
