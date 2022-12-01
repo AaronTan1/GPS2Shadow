@@ -40,12 +40,12 @@ public class ExclusionLight : MonoBehaviour
             if (!IntersectCheck(thisBounds.bounds, item.Key.bounds, item.Value))
             {
                 item.Key.enabled = true;
-                Debug.Log($"Reenable");
+                //Debug.Log($"Reenable");
             }
             else
             {
                 collidedList.Enqueue(item);
-                Debug.Log("skip");
+                //Debug.Log("skip");
             }
 
             yield return new WaitForSeconds(0.5f);
@@ -53,8 +53,6 @@ public class ExclusionLight : MonoBehaviour
         crCheck = null;
 
     }
-
-
 
 
     //Made own intersect because unity default intersect checks for Z val, will return false even though its 0 <= 0 and think nothing is intersecting at all
