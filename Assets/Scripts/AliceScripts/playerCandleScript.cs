@@ -12,12 +12,14 @@ public class playerCandleScript : MonoBehaviour
     [SerializeField] public GameObject candleHolder; //candleLight on hand
     [SerializeField] public Light lightSource; //candleLight on hand
     [SerializeField] private Light[] placePosIllumObj; //placePos 
+    [SerializeField] private Animator blightAnim; //only start blight sec A tuto
     GameObject childOfPlace; //placeCandle's child
     GameObject childOfChild; //placeCandle's grandson
     Light lightOfChild; //child's reference to light
     public static bool restrictMode; // stops button function before light is placed
     public static bool playAlicePick; //enables anim for picking candle up
     public static bool placePosHandIndi; //candle on hand with range indi
+    public static bool blightAgro;
     private string stationName, placeName; //names of stationary and placed candle
     /*private bool childIlluminate = false;*/
     private bool hold = false;
@@ -42,6 +44,7 @@ public class playerCandleScript : MonoBehaviour
         litHandCandle = false;
         placeIllum = false;
         placePosHandIndi = false;
+        blightAgro = false;
     }
 
     public void ToggleHold()
@@ -152,6 +155,7 @@ public class playerCandleScript : MonoBehaviour
                     }
                 }
 
+                //ASDGGREG
                 restrictMode = false;
                 /*childIlluminate = true;*/
             }
@@ -201,6 +205,17 @@ public class playerCandleScript : MonoBehaviour
 
     void Update()
     {
+        if(characterControl.callOnce == 1)
+        {
+            blightAnim.SetTrigger("Entrance");
+        }
+
+        if(blightAgro)
+        {
+            blightAgro = false;
+            blightAnim.SetBool("Seek", true);
+        }
+
         if (handCandle.activeSelf)
         {
             int randNum = Random.Range(1, 3);

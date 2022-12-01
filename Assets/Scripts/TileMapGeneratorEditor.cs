@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(TileMapGenerator))]
 public class TileMapGeneratorEditor : Editor
 {
@@ -34,3 +35,4 @@ public class TileMapGeneratorEditor : Editor
         }
     }
 }
+#endif

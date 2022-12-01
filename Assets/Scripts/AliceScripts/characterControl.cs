@@ -14,6 +14,7 @@ public class characterControl : MonoBehaviour
     [SerializeField] Animator PlayerAnimator;
 
     public static bool holdCandle;
+    public static int callOnce = 0;
     private static bool switchMode; //true = shadowRealm, false = 3d
     private joystickManager joystickManger;
     private string currentState;
@@ -50,13 +51,14 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        moveSpeed = 14.5f;
+        moveSpeed = 13f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         facingRight = true;
         holdCandle = false;
         joystickManger = GameObject.Find("joystick_imgBg").GetComponent<joystickManager>();
         Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         cam = Camera.main;
+        callOnce = 0;
 
         YellowIcon.sprite = UIIcons[0];
         PurpleIcon.sprite = UIIcons[1];
@@ -64,6 +66,11 @@ public class characterControl : MonoBehaviour
 
     public void ToggleSwitch()
     {
+        if (callOnce == 0) // called once for sec a tuto blight anim only
+        {
+            callOnce++;
+        }
+
         if (playerCandleScript.restrictMode) return;
         if (PuzzleManager.Instance.disableShadow) return;
 
@@ -95,7 +102,7 @@ public class characterControl : MonoBehaviour
 
     IEnumerator jumpCdr()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         jumpDelay = false;
 
     }
