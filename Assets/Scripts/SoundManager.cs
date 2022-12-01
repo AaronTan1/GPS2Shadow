@@ -7,14 +7,16 @@ using Object = System.Object;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] soundEffectSolo;
-    [SerializeField] private AudioSource soundSourceSolo;
-    [SerializeField] private AudioClip[] soundEffectCont;
-    [SerializeField] private AudioSource soundSourceCont;
-    [SerializeField] private AudioClip[] soundEffectAmbient;
-    [SerializeField] private AudioSource soundSourceAmbient;
+    [SerializeField] private AudioClip[] audioClipSolo;
+    [SerializeField] private AudioSource audioSourceSolo;
+    [SerializeField] private AudioClip[] audioEffectCont;
+    [SerializeField] private AudioSource audioSourceCont;
+    [SerializeField] private AudioClip[] audioEffectMusic;
+    [SerializeField] private AudioSource audioSourceMusic;
+    [SerializeField] private UnityEngine.UI.Slider sfxSlider;
+    [SerializeField] private UnityEngine.UI.Slider musicSlider;
     private GameObject[] singletonCheck;
-    private float masVol = 0.5f;
+    private float musicVol = 0.5f;
     private float sfxVol = 0.5f;
     public static SoundManager Instance;
 
@@ -27,61 +29,62 @@ public class SoundManager : MonoBehaviour
         
         DontDestroyOnLoad (this);
         
-        soundSourceCont.volume = sfxVol;
-        soundSourceSolo.volume = sfxVol;
+        audioSourceCont.volume = sfxVol;
+        audioSourceSolo.volume = sfxVol;
+        audioSourceMusic.volume = musicVol;
+        
+        sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
+        musicSlider.onValueChanged.AddListener(ChangeMusicVolume);
+        sfxSlider.value = sfxVol;
+        musicSlider.value = musicVol;
     }
 
     public void PlaySoundSolo(string soundName) //Single SFX, might need to make more than one
     {
-        foreach (var t in soundEffectSolo)
+        foreach (var t in audioClipSolo)
         {
             if (t.name != soundName) continue;
-            soundSourceSolo.clip = t;
-            soundSourceSolo.Play();
+            audioSourceSolo.clip = t;
+            audioSourceSolo.Play();
         }
     }
 
     public void PlaySoundCont(string contSoundName)
     {
-        foreach (var t in soundEffectCont)
+        foreach (var t in audioEffectCont)
         {
             if (t.name != contSoundName) continue;
-            soundSourceCont.Stop();
-            soundSourceCont.clip = t;
-            soundSourceCont.Play();
+            audioSourceCont.Stop();
+            audioSourceCont.clip = t;
+            audioSourceCont.Play();
         }
     }
 
     public void PlaySoundAmbient(string ambientSoundName) //Ambient
     {
-        for (var i = 0; i < soundEffectCont.Length; i++)
+        for (var i = 0; i < audioEffectCont.Length; i++)
         {
-            if (soundEffectCont[i].name != ambientSoundName) continue;
-            soundSourceAmbient.clip = soundEffectAmbient[i];
-            soundSourceAmbient.Play();
+            if (audioEffectCont[i].name != ambientSoundName) continue;
+            audioSourceMusic.clip = audioEffectMusic[i];
+            audioSourceMusic.Play();
         }
     }
 
     public void StopCont()
     {
-        soundSourceCont.Stop();
+        audioSourceCont.Stop();
     }
 
-    public void ChangeMVol(float inM)
+    public void ChangeMusicVolume(float vol)
     {
-        masVol = inM;
-        AudioListener.volume = masVol;
+        musicVol = vol;
+        audioSourceMusic.volume = musicVol;
     }
     
-    public void ChangeSVol(float inS)
+    public void ChangeSFXVolume(float vol)
     {
-        sfxVol = inS;
-        soundSourceCont.volume = sfxVol;
-        soundSourceSolo.volume = sfxVol;
-    }
-
-    public void ListenerUpdate()
-    {
-        AudioListener.volume = masVol;
+        sfxVol = vol;
+        audioSourceCont.volume = sfxVol;
+        audioSourceSolo.volume = sfxVol;
     }
 }
