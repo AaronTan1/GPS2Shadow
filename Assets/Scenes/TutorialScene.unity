@@ -17529,6 +17529,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   shadowMaterial: {fileID: 2100000, guid: 3340f921fb8538e458955a8aedcb689f, type: 2}
+  swapZYForGenCamera: 0
   specifiedObj: {fileID: 0}
   partsList: []
   generateForPartsSeperately: 0
@@ -23480,6 +23481,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755664614}
   m_Mesh: {fileID: -151544403965224699, guid: a3f70001269a43f49900d6c83336c36d, type: 3}
+--- !u!1 &1755974091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1830574984950022549, guid: 7a93cad604ee6bd4a83695d4f3b4f6df,
+    type: 3}
+  m_PrefabInstance: {fileID: 1968226302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755974098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755974091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdee31821c3b67843bea3e2082030248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1772966133
 GameObject:
   m_ObjectHideFlags: 0
@@ -24929,6 +24948,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   shadowMaterial: {fileID: 2100000, guid: 3340f921fb8538e458955a8aedcb689f, type: 2}
+  swapZYForGenCamera: 0
   specifiedObj: {fileID: 0}
   partsList: []
   generateForPartsSeperately: 0
@@ -25936,6 +25956,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.8999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830574984950022547, guid: 7a93cad604ee6bd4a83695d4f3b4f6df,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830574984950022558, guid: 7a93cad604ee6bd4a83695d4f3b4f6df,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 1830574985792449174, guid: 7a93cad604ee6bd4a83695d4f3b4f6df,
         type: 3}

@@ -14,6 +14,7 @@ public class MovingPlatformAttach : MonoBehaviour
         {
             player_Z_PositionCache = collision.transform.position.z;
             collision.transform.parent = transform;
+
         }
     }
 
@@ -24,6 +25,18 @@ public class MovingPlatformAttach : MonoBehaviour
             Transform thisTr = collision.transform;
             thisTr.parent = null;
             thisTr.position = new Vector3(thisTr.position.x, thisTr.position.y, player_Z_PositionCache);
+
+            collision.transform.localEulerAngles = Vector3.zero;
+;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+
+            collision.transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
         }
     }
 }
