@@ -16,7 +16,7 @@ public class ExclusionLight : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Blight"))
+        if (collision.CompareTag("Blight") || collision.CompareTag("ExcludableProp"))
         {
             collidedList.Enqueue(new KeyValuePair<Collider2D, Vector2>(collision, collision.bounds.extents));
             Debug.Log($"During Coll {collidedList.Count}");
@@ -34,17 +34,19 @@ public class ExclusionLight : MonoBehaviour
         {
             KeyValuePair<Collider2D, Vector2> item = collidedList.Dequeue();
 
-            if (!IntersectCheck(thisBounds.bounds, item.Key.bounds, item.Value))
+            Debug.Log($"{thisBounds.bounds}, Item = {item.Key.bounds}, {item.Value}");
+            if (IntersectCheck(thisBounds.bounds, item.Key.bounds, item.Value))
             {
                 item.Key.enabled = true;
-                //Debug.Log($"During Check {collidedList.Count}");
+                Debug.Log($"INtersecting");
             }
             else
             {
                 collidedList.Enqueue(item);
+                Debug.Log("skip");
             }
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
         crCheck = null;
         

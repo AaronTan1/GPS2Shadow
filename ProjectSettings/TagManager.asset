@@ -9,6 +9,7 @@ TagManager:
   - ShadowPuzzle
   - Checkpoint
   - Blight
+  - ExcludableProp
   layers:
   - Default
   - TransparentFX
