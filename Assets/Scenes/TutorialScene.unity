@@ -24864,24 +24864,6 @@ PrefabInstance:
       propertyPath: PlayerShadowAnimator
       value: 
       objectReference: {fileID: 246605893}
-    - target: {fileID: 4575500833693460613, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
-        type: 3}
-      propertyPath: UIIcons.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 841755e8bfd08a6419377dae9e6b4e63,
-        type: 3}
-    - target: {fileID: 4575500833693460613, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
-        type: 3}
-      propertyPath: UIIcons.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 92bde00dccbe50e46b8acb49a3f33ce8,
-        type: 3}
-    - target: {fileID: 4575500833693460613, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
-        type: 3}
-      propertyPath: UIIcons.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 32832f8c7a32c0d4ba50ba2fb7951a0d,
-        type: 3}
     - target: {fileID: 4575500833693460634, guid: 1eee2a7cfa6de1f4cbfb975031e9fcc9,
         type: 3}
       propertyPath: m_Name
@@ -29047,21 +29029,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1197350817846760981, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c5df23deb54595c4a8f36745e9d83800, type: 2}
     - target: {fileID: 1313923386878499979, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
       propertyPath: m_Name
       value: Alice
       objectReference: {fileID: 0}
-    - target: {fileID: 1586843432564453106, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d622efc873e68f14eb02e6f5b24f62bc, type: 2}
     - target: {fileID: 1833016688783181361, guid: 3b23ff7007105a545b6fb10a0e1b7433,
         type: 3}
       propertyPath: m_RootOrder
@@ -29192,36 +29164,6 @@ PrefabInstance:
       propertyPath: placePosIllumObj.Array.data[1]
       value: 
       objectReference: {fileID: 995830777}
-    - target: {fileID: 2467905255314148644, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3f8e645f1ab1c154e889911cca297d9f, type: 2}
-    - target: {fileID: 4535355714126017732, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c5df23deb54595c4a8f36745e9d83800, type: 2}
-    - target: {fileID: 4768288821771811346, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d622efc873e68f14eb02e6f5b24f62bc, type: 2}
-    - target: {fileID: 5002775406676604684, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c5df23deb54595c4a8f36745e9d83800, type: 2}
-    - target: {fileID: 7081072593990097101, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c5df23deb54595c4a8f36745e9d83800, type: 2}
-    - target: {fileID: 8095393193083289898, guid: 3b23ff7007105a545b6fb10a0e1b7433,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 49742e5e8d49be046b306d19be672c5b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b23ff7007105a545b6fb10a0e1b7433, type: 3}
 --- !u!4 &2236677003189513177
