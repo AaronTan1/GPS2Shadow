@@ -24873,7 +24873,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cb622bfd3def2d845b914278702dd297,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.77900004
+      value: -0.7789998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb622bfd3def2d845b914278702dd297,
         type: 3}
@@ -24915,10 +24915,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4756093223310759881, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2153021409551774732, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb622bfd3def2d845b914278702dd297,
         type: 3}
       propertyPath: m_Name
-      value: Prop_table (1)
+      value: Throne3MushroomTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389427292126458697, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745250622642940571, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430627807877089604, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721992597810065892, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142933970241471619, guid: cb622bfd3def2d845b914278702dd297,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb622bfd3def2d845b914278702dd297, type: 3}
@@ -46844,7 +46879,7 @@ PrefabInstance:
     - target: {fileID: 6748173869068923705, guid: c2a62ebf7aacec24e969aeb218169edf,
         type: 3}
       propertyPath: orthographic size
-      value: 3.8588786
+      value: 2.3726542
       objectReference: {fileID: 0}
     - target: {fileID: 6748173869068923706, guid: c2a62ebf7aacec24e969aeb218169edf,
         type: 3}
