@@ -55,6 +55,8 @@ Shader "Unlit/NoAdditiveAlphaBlendTest"
 					discard;
 				else if (color.r == 0.0 && color.g != 0.0)
 					color = _ColorEx;
+					//if(color.a < 1.0)
+						//color = new half4 _newColorEx(_ColorEx.r, _ColorEx.g, ColorEx.b, color.a);
 				else
 					color = _Color;
 				return color;

@@ -8,6 +8,7 @@ TagManager:
   - PlaceCandle
   - ShadowPuzzle
   - Checkpoint
+  - Blight
   layers:
   - Default
   - TransparentFX
