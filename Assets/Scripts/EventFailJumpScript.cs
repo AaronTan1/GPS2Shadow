@@ -10,6 +10,7 @@ public class EventFailJumpScript : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            playerCandleScript.blightAgro = true;
             Destroy(hidden2DCol);
         }
     }
