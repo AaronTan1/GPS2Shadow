@@ -28,15 +28,19 @@ public class SoundManager : MonoBehaviour
             Instance = this; 
         
         DontDestroyOnLoad (this);
-        
+
         audioSourceCont.volume = musicVol;
         audioSourceSolo.volume = sfxVol;
         audioSourceMusic.volume = sfxVol;
         
-        sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
-        musicSlider.onValueChanged.AddListener(ChangeMusicVolume);
-        sfxSlider.value = sfxVol;
-        musicSlider.value = musicVol;
+        if(sfxSlider != null)
+        {
+            sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
+            musicSlider.onValueChanged.AddListener(ChangeMusicVolume);
+            sfxSlider.value = sfxVol;
+            musicSlider.value = musicVol;
+        }
+        
     }
 
     public void PlaySoundSolo(string soundName) //Single SFX, might need to make more than one
@@ -87,5 +91,10 @@ public class SoundManager : MonoBehaviour
         sfxVol = vol;
         audioSourceCont.volume = sfxVol;
         audioSourceSolo.volume = sfxVol;
+    }
+
+    public void FindSliderReference()
+    {
+        
     }
 }

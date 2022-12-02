@@ -10,7 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject menuPanel;
     private void Start()
     {
-        SoundManager.Instance.PlaySoundCont("Level 1 Music"); // for tutorial scene
+        SoundManager.Instance.PlaySoundCont("Tutorial Bgm"); // for tutorial scene
     }
     public void PlayGame()
     {
@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
         {
             menuPanel.SetActive(false);
             slideshow.StartSlideShow();
+            SoundManager.Instance.PlaySoundCont("Level 1 Music");
         }
         else
         {
