@@ -5,16 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] bool startWithCutscene;
+    [SerializeField] Slideshow slideshow;
+    [SerializeField] GameObject menuPanel;
     private void Start()
     {
         SoundManager.Instance.PlaySoundCont("Level 1 Music"); // for tutorial scene
     }
     public void PlayGame()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if(startWithCutscene)
         {
-            SceneManager.LoadScene(1);
+            menuPanel.SetActive(false);
+            slideshow.StartSlideShow();
         }
+        else
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                SceneManager.LoadScene(1);
+            }
+        }
+        
 
     }
 
