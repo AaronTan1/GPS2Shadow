@@ -3983,7 +3983,7 @@ GameObject:
   - component: {fileID: 224110273}
   m_Layer: 0
   m_Name: UpperLimbCollider
-  m_TagString: Untagged
+  m_TagString: Blight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27437,7 +27437,7 @@ GameObject:
   - component: {fileID: 1898501121}
   m_Layer: 0
   m_Name: PalmCollider
-  m_TagString: Untagged
+  m_TagString: Blight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29352,7 +29352,7 @@ GameObject:
   - component: {fileID: 2029817084}
   m_Layer: 0
   m_Name: BottomLimbCollider
-  m_TagString: Untagged
+  m_TagString: Blight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
