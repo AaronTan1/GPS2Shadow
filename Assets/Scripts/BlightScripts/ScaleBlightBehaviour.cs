@@ -24,7 +24,8 @@ public class ScaleBlightBehaviour : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Debug.Log("Player Dies");
-            SceneManager.LoadScene(2);
+            /*SceneManager.LoadScene(2);*/
+            checkpointScript.saveTrig = true;
         }
     }
     public void PlayerInRange()
