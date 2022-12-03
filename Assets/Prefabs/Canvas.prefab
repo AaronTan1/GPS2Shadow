@@ -3031,6 +3031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b2e18f23ea9e74bac9b883365322e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startWithCutscene: 0
+  slideshow: {fileID: 0}
+  menuPanel: {fileID: 0}
 --- !u!1 &482448789048968544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,7 +3071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 350, y: 300}
+  m_AnchoredPosition: {x: 350, y: 400}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &482448789048968548

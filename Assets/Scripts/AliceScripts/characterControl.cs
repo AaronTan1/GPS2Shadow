@@ -24,6 +24,7 @@ public class characterControl : MonoBehaviour
     private float jumpForce = 1.7f;
     private float inputX, inputY;
     private float moveSpeed;
+    private float moveSpeedShadow;
     private bool facingRight;
     private bool jumpDelay;
 
@@ -52,7 +53,9 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        moveSpeed = 13f;
+        sideTableUI = false;
+        moveSpeed = 1.7f;
+        moveSpeedShadow = 13.0f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         facingRight = true;
         holdCandle = false;
@@ -127,6 +130,7 @@ public class characterControl : MonoBehaviour
 
         //play the animation
         PlayerShadowAnimator.Play(newState);
+        Debug.Log(newState);
 
         //reassign current state
         currentState = newState;
@@ -144,6 +148,15 @@ public class characterControl : MonoBehaviour
 
         if (switchMode == false)
         {
+            if (facingRight)
+            {
+                ChangeAnimationState(SHADOWALICE_IDLE_RIGHT);
+            }
+            else
+            {
+                ChangeAnimationState(SHADOWALICE_IDLE_LEFT);
+            }
+
             Vector3 faceVector = (camTransform.forward * inputY + camTransform.right * inputX).normalized;
             faceVector.y = 0;
             Vector3 rotation = Vector3.RotateTowards(Player.transform.forward, faceVector, 10 * Time.deltaTime, 0f);
@@ -152,7 +165,8 @@ public class characterControl : MonoBehaviour
             if (playerCandleScript.playAlicePick == false)
             {
                 dir = new Vector3(inputX, 0, inputY).normalized;
-                Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);
+                /*Player.GetComponent<Rigidbody>().AddForce(dir * moveSpeed);*/
+                Player.GetComponent<Rigidbody>().velocity = dir * moveSpeed;
 
 
                 if (PuzzleHandler_Table.playAliceTableAnim == false)
@@ -195,7 +209,7 @@ public class characterControl : MonoBehaviour
             if(checkpointScript.shadowTransitionAnim == false)
             {
                 dir = new Vector3(inputX, 0, 0).normalized;
-                PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeed / 2.5f);
+                PlayerShadow.GetComponent<Rigidbody2D>().AddForce(dir * moveSpeedShadow / 2.5f);
             }
 
 
