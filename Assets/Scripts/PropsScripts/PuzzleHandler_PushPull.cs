@@ -11,7 +11,7 @@ public class PuzzleHandler_PushPull : MonoBehaviour
 
     internal bool isVertical;
     private float input;
-    private float moveSpeed = 1f;
+    [SerializeField] private float moveTime = 1f;
 
     [HideInInspector] public bool isActive;
     private float inputOld;
@@ -41,10 +41,10 @@ public class PuzzleHandler_PushPull : MonoBehaviour
         switch (input)
         {
             case > 0:
-                MoveObject(endPosition, moveSpeed);
+                MoveObject(endPosition, moveTime);
                 break;
             case < 0:
-                MoveObject(initialPosition, moveSpeed);
+                MoveObject(initialPosition, moveTime);
                 break;
         }
     }
@@ -60,9 +60,9 @@ public class PuzzleHandler_PushPull : MonoBehaviour
     {
         var totalDistance = Vector3.Distance(endPosition, initialPosition);
         var currentDistance = Vector3.Distance(transform.localPosition, pos);
-        if (Math.Abs(currentDistance - totalDistance) < 0.01) return moveSpeed;
+        if (Math.Abs(currentDistance - totalDistance) < 0.01) return moveTime;
         
-        var t = currentDistance/totalDistance * moveSpeed;
+        var t = currentDistance/totalDistance * moveTime;
         return t;
     }
     
