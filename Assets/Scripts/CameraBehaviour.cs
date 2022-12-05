@@ -37,7 +37,6 @@ public class CameraBehaviour : MonoBehaviour
     private void SwapTarget()
     {
         if(playerCandleScript.restrictMode) return;
-        Debug.Log("Ping1");
         if(PuzzleManager.Instance.disableShadow) return;
 
         switch (state)
