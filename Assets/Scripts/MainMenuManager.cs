@@ -10,7 +10,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject menuPanel;
     private void Start()
     {
-        SoundManager.Instance.PlaySoundCont("Tutorial Bgm"); // for tutorial scene
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SoundManager.Instance.PlaySoundCont("Tutorial Bgm"); // for tutorial scene
+        }
     }
     public void PlayGame()
     {
