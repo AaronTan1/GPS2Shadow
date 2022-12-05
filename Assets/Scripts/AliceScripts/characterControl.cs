@@ -45,7 +45,7 @@ public class characterControl : MonoBehaviour
     const string ALICE_IDLE_CANDLE = "AliceIdleCandle";
     const string ALICE_WALK = "AliceWalk";
     const string ALICE_WALK_CANDLE = "AliceWalkCandle";
-    const string ALICE_PICK_UP = "AlicePickUp";
+    const string ALICE_PICK_UP = "AlicePickUp"; 
     const string ALICE_PUSH = "AlicePush";
     const string ALICE_PULL = "AlicePull";
 
@@ -53,7 +53,7 @@ public class characterControl : MonoBehaviour
     void Start()
     {
         switchMode = false;
-        sideTableUI = false;
+        //sideTableUI = false;
         moveSpeed = 1.7f;
         moveSpeedShadow = 13.0f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
