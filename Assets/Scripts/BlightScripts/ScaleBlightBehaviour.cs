@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScaleBlightBehaviour : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class ScaleBlightBehaviour : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Debug.Log("Player Dies");
+            /*SceneManager.LoadScene(2);*/
+            checkpointScript.saveTrig = true;
         }
     }
     public void PlayerInRange()

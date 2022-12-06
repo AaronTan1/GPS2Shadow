@@ -5,11 +5,15 @@ using UnityEngine;
 public class checkpointScript : MonoBehaviour
 {
     public static bool shadowTransitionAnim;
+    public static bool saveTrig;
+    public Transform savedPoint;
     public GameObject shadowAlice;
     public GameObject realAlice;
     public GameObject targetPos; // reposition Alice
     public float proceedDelay; //time before entering new Section
     public Animator doorAnim; //tutorial door
+    private bool isSaved;
+   
   
 
     [SerializeField] private Collider doorColDisable;
@@ -19,6 +23,12 @@ public class checkpointScript : MonoBehaviour
         shadowTransitionAnim = false;
         doorAnim.enabled = false;
         doorColDisable.isTrigger = false;
+    }
+
+    private void Start()
+    {
+        isSaved = false;
+        saveTrig = false;
     }
 
 
@@ -46,6 +56,16 @@ public class checkpointScript : MonoBehaviour
     void UnlockTransition()
     {
         shadowTransitionAnim = false;
+        isSaved = true;
     }
 
+    private void Update()
+    {
+        if (saveTrig)
+        {
+            saveTrig = false;
+            shadowAlice.transform.position = savedPoint.position;
+            shadowAlice.transform.rotation = savedPoint.rotation;
+        }
+    }
 }
