@@ -18,10 +18,6 @@ public class Slideshow : MonoBehaviour
             slideStack.Push(tr.GetComponent<Image>());
         }
     }
-
-    private void Start()
-    {
-    }
     public void StartSlideShow()
     {
         Image slide = slideStack.Pop();
@@ -41,7 +37,8 @@ public class Slideshow : MonoBehaviour
             yield return new WaitForSeconds(fadeInterval);
             fadeCounter--;
         }
-        if (slideStack.Count > 0) { 
+        if (slideStack.Count > 0) {
+
             StartCoroutine(SlideShow(slideStack.Pop())); 
         }
         else

@@ -31,7 +31,14 @@ public class MainMenuManager : MonoBehaviour
             }
         }
         
+    }
 
+    public void SkipScene()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void QuitGame()

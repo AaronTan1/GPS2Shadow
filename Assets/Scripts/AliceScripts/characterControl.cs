@@ -54,8 +54,8 @@ public class characterControl : MonoBehaviour
     {
         switchMode = false;
         //sideTableUI = false;
-        moveSpeed = 1.7f;
-        moveSpeedShadow = 13.0f;
+        moveSpeed = 2.1f;
+        moveSpeedShadow = 16.0f;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         facingRight = true;
         holdCandle = false;
